@@ -1,0 +1,13 @@
+# Netlify: اربط المستودع واختر الفرع؛ لا حاجة لأمر بناء لموقع ثابت
+[build]
+  publish = "nanofusion-website"
+
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

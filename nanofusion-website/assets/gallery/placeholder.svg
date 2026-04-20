@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2c"/>
+      <stop offset="50%" stop-color="#1a1a1d"/>
+      <stop offset="100%" stop-color="#333338"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(228,228,231,0)"/>
+      <stop offset="50%" stop-color="rgba(228,228,231,0.06)"/>
+      <stop offset="100%" stop-color="rgba(228,228,231,0)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect width="1200" height="900" fill="url(#shine)"/>
+  <g opacity="0.35" stroke="#71717a" stroke-width="1">
+    <path d="M80 720 L400 520 L800 580 L1120 480"/>
+  </g>
+  <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#a1a1aa" letter-spacing="0.35em">NANO FUSION</text>
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#71717a">Drop JPG files into assets/gallery/</text>
+</svg>
