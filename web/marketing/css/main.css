@@ -1271,40 +1271,28 @@ section {
     rgba(9, 9, 11, 0.45);
 }
 
-.official-services--cards > li.svc-card--carbon {
-  padding: 0;
-}
-
-.svc-card--carbon .carbon-wrap {
+.svc-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 100%;
-  min-height: 220px;
-  display: block;
-}
-
-.carbon-trigger {
-  display: block;
   width: 100%;
   min-height: 220px;
   margin: 0;
   padding: 1rem;
   padding-inline-start: 3rem;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  border-radius: inherit;
-  text-align: center;
-  font: inherit;
+  box-sizing: border-box;
   color: inherit;
-  position: relative;
+  text-decoration: none;
+  border-radius: inherit;
 }
 
-.carbon-trigger:focus-visible {
+.svc-card__link:focus-visible {
   outline: 2px solid var(--accent-logo);
   outline-offset: 2px;
 }
 
-.carbon-trigger .svc-card__media {
+.svc-card__link .svc-card__media {
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -1312,127 +1300,54 @@ section {
   z-index: 0;
 }
 
-.carbon-trigger .svc-card__text {
+.svc-card__link .svc-card__text {
   position: relative;
   z-index: 2;
 }
 
-.carbon-panel {
-  position: fixed;
-  inset: 0;
-  z-index: 10050;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.22s var(--ease), visibility 0.22s;
+#carbon-fiber {
+  scroll-margin-top: 6rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .carbon-wrap:hover .carbon-panel {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+.carbon-detail {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-block: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-deep), var(--surface));
 }
 
-.carbon-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.carbon-wrap--manual-close .carbon-panel {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-.carbon-panel__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-  cursor: pointer;
-}
-
-.carbon-panel__dialog {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 720px);
-  max-height: min(90vh, 900px);
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-strong);
-  background: var(--surface-2);
-  padding: 1.25rem;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
-}
-
-.carbon-panel__close {
-  position: absolute;
-  top: 0.65rem;
-  inset-inline-end: 0.65rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(9, 9, 11, 0.65);
-  color: var(--text);
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carbon-panel__close:focus-visible {
-  outline: 2px solid var(--accent-logo);
-  outline-offset: 2px;
-}
-
-.carbon-panel__title {
-  margin: 0 0 1rem;
-  font-size: 1.15rem;
-  padding-inline-end: 2.5rem;
-}
-
-.carbon-panel__photos {
+.carbon-detail__photos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 520px) {
-  .carbon-panel__photos {
+@media (max-width: 640px) {
+  .carbon-detail__photos {
     grid-template-columns: 1fr;
   }
 }
 
-.carbon-panel__fig {
+.carbon-detail__photos figure {
   margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
+  background: var(--bg-deep);
 }
 
-.carbon-panel__fig img {
+.carbon-detail__photos img {
   width: 100%;
   display: block;
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-.carbon-panel__video-el {
+.carbon-detail__video video {
   width: 100%;
-  max-height: min(50vh, 420px);
+  max-height: min(60vh, 520px);
   border-radius: var(--radius);
+  border: 1px solid var(--border);
   background: #000;
   display: block;
 }

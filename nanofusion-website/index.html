@@ -237,35 +237,13 @@
                 </div>
                 <span class="svc-card__text">شحن بطارية السيارة</span>
               </li>
-              <li class="svc-card svc-card--media svc-card--carbon">
-                <div class="carbon-wrap">
-                  <button type="button" class="carbon-trigger" id="carbon-trigger-ar" aria-expanded="false" aria-controls="carbon-panel-ar" aria-haspopup="dialog">
-                    <span class="svc-card__media" aria-hidden="true">
-                      <img src="assets/gallery/services/carbon-fiber-1.png" alt="" loading="lazy" decoding="async" width="1200" height="800">
-                    </span>
-                    <span class="svc-card__text">طلاء السيارات بالكربون فيبر</span>
-                  </button>
-                  <div id="carbon-panel-ar" class="carbon-panel" role="dialog" aria-modal="true" aria-labelledby="carbon-panel-title-ar" aria-hidden="true">
-                    <div class="carbon-panel__backdrop" tabindex="-1" aria-hidden="true"></div>
-                    <div class="carbon-panel__dialog">
-                      <button type="button" class="carbon-panel__close" aria-label="إغلاق">&times;</button>
-                      <h3 id="carbon-panel-title-ar" class="carbon-panel__title">طلاء السيارات بالكربون فيبر</h3>
-                      <div class="carbon-panel__photos">
-                        <figure class="carbon-panel__fig">
-                          <img src="assets/gallery/services/carbon-fiber-1.png" alt="طلاء كربون فايبر — تفاصيل لامعة" loading="lazy" decoding="async" width="1200" height="800">
-                        </figure>
-                        <figure class="carbon-panel__fig">
-                          <img src="assets/gallery/services/carbon-fiber-2.png" alt="طلاء كربون فايبر — داخلية وخارجية" loading="lazy" decoding="async" width="1200" height="800">
-                        </figure>
-                      </div>
-                      <div class="carbon-panel__video">
-                        <video class="carbon-panel__video-el" controls playsinline preload="none" poster="assets/gallery/services/carbon-fiber-1.png" data-carbon-video aria-label="فيديو طلاء السيارات بالكربون فايبر">
-                          <source src="assets/gallery/services/carbon-fiber.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <li class="svc-card svc-card--media">
+                <a href="#carbon-fiber" class="svc-card__link">
+                  <span class="svc-card__media" aria-hidden="true">
+                    <img src="assets/gallery/services/carbon-fiber-1.png" alt="" loading="lazy" decoding="async" width="1200" height="800">
+                  </span>
+                  <span class="svc-card__text">طلاء السيارات بالكربون فيبر</span>
+                </a>
               </li>
               <li class="svc-card svc-card--media">
                 <div class="svc-card__media" aria-hidden="true">
@@ -288,6 +266,32 @@
             </ol>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="carbon-fiber" class="carbon-detail" aria-labelledby="carbon-fiber-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">خدمات السيارات</p>
+          <h2 id="carbon-fiber-title">طلاء السيارات بالكربون فيبر</h2>
+          <p style="color:var(--muted);max-width:52ch;margin:0;">تشطيب فورج كربون فايبر لامع — أمثلة من أعمالنا في المركز.</p>
+        </div>
+        <div class="carbon-detail__photos reveal">
+          <figure>
+            <img src="assets/gallery/services/carbon-fiber-1.png" alt="طلاء كربون فايبر — تفاصيل لامعة" loading="lazy" decoding="async" width="1200" height="800">
+          </figure>
+          <figure>
+            <img src="assets/gallery/services/carbon-fiber-2.png" alt="طلاء كربون فايبر — تفاصيل خارجية وداخلية" loading="lazy" decoding="async" width="1200" height="800">
+          </figure>
+        </div>
+        <div class="carbon-detail__video reveal">
+          <video controls playsinline preload="metadata" poster="assets/gallery/services/carbon-fiber-1.png" aria-label="فيديو طلاء السيارات بالكربون فايبر">
+            <source src="assets/gallery/services/carbon-fiber.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="reveal" style="margin-top:1.75rem;">
+          <a href="#cars" class="btn btn-ghost">العودة إلى خدمات السيارات</a>
+        </p>
       </div>
     </section>
 
