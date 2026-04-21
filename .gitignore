@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Marketing site large assets (keep repo lightweight)
+nanofusion-website/assets/gallery/videos/
+web/marketing/assets/gallery/videos/
+nanofusion-website/assets/trademark-certificate.png
+web/marketing/assets/trademark-certificate.png
