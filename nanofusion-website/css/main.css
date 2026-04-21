@@ -294,9 +294,10 @@ img {
     background: rgba(9, 9, 11, 0.98);
     border-bottom: 1px solid var(--border);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+    transform: translateY(-100%);
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s var(--ease);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
@@ -304,6 +305,7 @@ img {
 
   body.nav-open .nav-primary {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
   }
