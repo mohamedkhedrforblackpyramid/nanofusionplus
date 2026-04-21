@@ -1099,10 +1099,9 @@ section {
   counter-increment: licensed-svc;
   position: relative;
   margin: 0;
-  padding-block: 0.95rem;
-  padding-inline: 1rem;
+  padding: 1rem;
   padding-inline-start: 3rem;
-  min-height: 3.15rem;
+  min-height: 110px;
   display: flex;
   align-items: center;
   border-radius: var(--radius);
@@ -1118,8 +1117,8 @@ section {
   content: counter(licensed-svc);
   position: absolute;
   inset-inline-start: 0.75rem;
-  top: 50%;
-  translate: 0 -50%;
+  top: 0.9rem;
+  translate: 0 0;
   width: 1.65rem;
   height: 1.65rem;
   display: flex;
@@ -1137,6 +1136,54 @@ section {
   border-color: rgba(228, 228, 231, 0.18);
   background: rgba(228, 228, 231, 0.04);
   transform: translateY(-2px);
+}
+
+/* Service cards with images (Cars → "خدمات أخرى في مراكزنا") */
+.official-services--cards > li.svc-card {
+  overflow: hidden;
+  justify-content: center;
+  text-align: center;
+}
+
+.svc-card__media {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  background: var(--bg-deep);
+  z-index: 0;
+}
+
+.svc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.svc-card__text {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.official-services--cards > li.svc-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(9, 9, 11, 0.25) 0%, rgba(9, 9, 11, 0.88) 100%);
+  z-index: 1;
+}
+
+.official-services--cards > li.svc-card:not(.svc-card--media) {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 20%, rgba(228, 228, 231, 0.06), transparent 55%),
+    rgba(9, 9, 11, 0.45);
 }
 
 /* Projects */
@@ -1394,14 +1441,46 @@ section {
 }
 
 .contact-list li {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.28);
   color: var(--muted);
   font-size: 0.95rem;
 }
 
 .contact-list strong {
   color: var(--accent);
-  display: block;
-  margin-bottom: 0.15rem;
+  display: inline-block;
+  margin: 0;
+  font-weight: 700;
+}
+
+.contact-value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  justify-content: flex-start;
+}
+
+.contact-list a,
+.contact-list span {
+  color: var(--text);
+}
+
+.contact-list span {
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 
 .contact-list a[href^="tel"] {
@@ -1409,6 +1488,55 @@ section {
   unicode-bidi: isolate;
   display: inline-block;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .branches {
+    grid-template-columns: 1fr;
+  }
+}
+
+.branch-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.32);
+  padding: 1.1rem 1.15rem;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+.branch-card__head {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.branch-card__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.branch-card__addr {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.branch-card .contact-list li {
+  border-radius: 12px;
+  background: rgba(9, 9, 11, 0.25);
+  grid-template-columns: minmax(92px, 130px) 1fr;
 }
 
 .wa-link {
