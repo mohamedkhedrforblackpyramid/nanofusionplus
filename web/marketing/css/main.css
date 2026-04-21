@@ -1323,13 +1323,16 @@ section {
 .carbon-detail__photos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.65rem;
+  max-width: min(100%, 420px);
+  margin-inline: auto;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 640px) {
   .carbon-detail__photos {
     grid-template-columns: 1fr;
+    max-width: min(100%, 320px);
   }
 }
 
@@ -1348,9 +1351,20 @@ section {
   object-fit: cover;
 }
 
+.carbon-detail__video {
+  max-width: min(100%, 420px);
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .carbon-detail__video {
+    max-width: min(100%, 320px);
+  }
+}
+
 .carbon-detail__video video {
   width: 100%;
-  max-height: min(60vh, 520px);
+  max-height: min(32vh, 240px);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: #000;
