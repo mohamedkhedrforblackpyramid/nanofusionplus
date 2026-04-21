@@ -1271,76 +1271,170 @@ section {
     rgba(9, 9, 11, 0.45);
 }
 
-.official-services--cards > li.svc-card--carbon-block {
-  grid-column: 1 / -1;
-  min-height: 0;
-  padding: clamp(1rem, 2.5vw, 1.35rem);
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: flex-start;
+.official-services--cards > li.svc-card--carbon {
+  padding: 0;
 }
 
-.official-services--cards > li.svc-card--carbon-block::after {
-  display: none;
-}
-
-.carbon-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.svc-card--carbon .carbon-wrap {
+  position: relative;
   width: 100%;
+  min-height: 220px;
+  display: block;
 }
 
-.carbon-showcase__photos {
+.carbon-trigger {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  margin: 0;
+  padding: 1rem;
+  padding-inline-start: 3rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: inherit;
+  text-align: center;
+  font: inherit;
+  color: inherit;
+  position: relative;
+}
+
+.carbon-trigger:focus-visible {
+  outline: 2px solid var(--accent-logo);
+  outline-offset: 2px;
+}
+
+.carbon-trigger .svc-card__media {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.carbon-trigger .svc-card__text {
+  position: relative;
+  z-index: 2;
+}
+
+.carbon-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease), visibility 0.22s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .carbon-wrap:hover .carbon-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.carbon-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.carbon-wrap--manual-close .carbon-panel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.carbon-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  cursor: pointer;
+}
+
+.carbon-panel__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  max-height: min(90vh, 900px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-2);
+  padding: 1.25rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.carbon-panel__close {
+  position: absolute;
+  top: 0.65rem;
+  inset-inline-end: 0.65rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.65);
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carbon-panel__close:focus-visible {
+  outline: 2px solid var(--accent-logo);
+  outline-offset: 2px;
+}
+
+.carbon-panel__title {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  padding-inline-end: 2.5rem;
+}
+
+.carbon-panel__photos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 600px) {
-  .carbon-showcase__photos {
+@media (max-width: 520px) {
+  .carbon-panel__photos {
     grid-template-columns: 1fr;
   }
 }
 
-.carbon-showcase__fig {
+.carbon-panel__fig {
   margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
-  background: var(--bg-deep);
 }
 
-.carbon-showcase__fig img {
+.carbon-panel__fig img {
   width: 100%;
-  height: auto;
   display: block;
-  object-fit: cover;
   aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-.carbon-showcase__video video {
+.carbon-panel__video-el {
   width: 100%;
-  max-height: min(70vh, 520px);
+  max-height: min(50vh, 420px);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
   background: #000;
   display: block;
-}
-
-.carbon-showcase__caption {
-  margin: 0;
-  text-align: center;
-  font-weight: 600;
-  color: var(--text);
-  font-size: 1rem;
-}
-
-.carbon-showcase--standalone {
-  padding: clamp(1rem, 2.5vw, 1.35rem);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-strong);
-  background: rgba(9, 9, 11, 0.35);
 }
 
 /* Projects */

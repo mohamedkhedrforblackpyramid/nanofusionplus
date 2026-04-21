@@ -237,22 +237,34 @@
                 </div>
                 <span class="svc-card__text">شحن بطارية السيارة</span>
               </li>
-              <li class="svc-card svc-card--carbon-block">
-                <div class="carbon-showcase">
-                  <div class="carbon-showcase__photos">
-                    <figure class="carbon-showcase__fig">
-                      <img src="assets/gallery/services/carbon-fiber-1.png" alt="طلاء كربون فايبر — تفاصيل لامعة" loading="lazy" decoding="async" width="1200" height="800">
-                    </figure>
-                    <figure class="carbon-showcase__fig">
-                      <img src="assets/gallery/services/carbon-fiber-2.png" alt="طلاء كربون فايبر — داخلية وخارجية" loading="lazy" decoding="async" width="1200" height="800">
-                    </figure>
+              <li class="svc-card svc-card--media svc-card--carbon">
+                <div class="carbon-wrap">
+                  <button type="button" class="carbon-trigger" id="carbon-trigger-ar" aria-expanded="false" aria-controls="carbon-panel-ar" aria-haspopup="dialog">
+                    <span class="svc-card__media" aria-hidden="true">
+                      <img src="assets/gallery/services/carbon-fiber-1.png" alt="" loading="lazy" decoding="async" width="1200" height="800">
+                    </span>
+                    <span class="svc-card__text">طلاء السيارات بالكربون فيبر</span>
+                  </button>
+                  <div id="carbon-panel-ar" class="carbon-panel" role="dialog" aria-modal="true" aria-labelledby="carbon-panel-title-ar" aria-hidden="true">
+                    <div class="carbon-panel__backdrop" tabindex="-1" aria-hidden="true"></div>
+                    <div class="carbon-panel__dialog">
+                      <button type="button" class="carbon-panel__close" aria-label="إغلاق">&times;</button>
+                      <h3 id="carbon-panel-title-ar" class="carbon-panel__title">طلاء السيارات بالكربون فيبر</h3>
+                      <div class="carbon-panel__photos">
+                        <figure class="carbon-panel__fig">
+                          <img src="assets/gallery/services/carbon-fiber-1.png" alt="طلاء كربون فايبر — تفاصيل لامعة" loading="lazy" decoding="async" width="1200" height="800">
+                        </figure>
+                        <figure class="carbon-panel__fig">
+                          <img src="assets/gallery/services/carbon-fiber-2.png" alt="طلاء كربون فايبر — داخلية وخارجية" loading="lazy" decoding="async" width="1200" height="800">
+                        </figure>
+                      </div>
+                      <div class="carbon-panel__video">
+                        <video class="carbon-panel__video-el" controls playsinline preload="none" poster="assets/gallery/services/carbon-fiber-1.png" data-carbon-video aria-label="فيديو طلاء السيارات بالكربون فايبر">
+                          <source src="assets/gallery/services/carbon-fiber.mp4" type="video/mp4">
+                        </video>
+                      </div>
+                    </div>
                   </div>
-                  <div class="carbon-showcase__video">
-                    <video controls playsinline preload="metadata" poster="assets/gallery/services/carbon-fiber-1.png" aria-label="فيديو طلاء السيارات بالكربون فايبر">
-                      <source src="assets/gallery/services/carbon-fiber.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <p class="carbon-showcase__caption">طلاء السيارات بالكربون فيبر</p>
                 </div>
               </li>
               <li class="svc-card svc-card--media">

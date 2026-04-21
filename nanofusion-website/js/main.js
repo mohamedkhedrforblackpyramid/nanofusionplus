@@ -122,4 +122,83 @@
       }
     });
   }
+
+  /* طلاء الكربون فايبر: يظهر المعرض عند hover (ماوس) أو عند النقر (موبايل) */
+  var carbonWrap = document.querySelector(".carbon-wrap");
+  if (carbonWrap) {
+    var carbonPanel = carbonWrap.querySelector(".carbon-panel");
+    var carbonTrigger = carbonWrap.querySelector(".carbon-trigger");
+    var carbonBackdrop = carbonWrap.querySelector(".carbon-panel__backdrop");
+    var carbonClose = carbonWrap.querySelector(".carbon-panel__close");
+    var carbonVideo = carbonWrap.querySelector("[data-carbon-video]");
+    var coarsePointer =
+      window.matchMedia("(hover: none)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    function pauseCarbonVideo() {
+      if (carbonVideo && !carbonVideo.paused) carbonVideo.pause();
+    }
+
+    function openCarbonPanel() {
+      if (!carbonPanel) return;
+      carbonPanel.classList.add("is-open");
+      carbonPanel.setAttribute("aria-hidden", "false");
+      if (carbonTrigger) carbonTrigger.setAttribute("aria-expanded", "true");
+    }
+
+    function closeCarbonPanel() {
+      if (!carbonPanel) return;
+      carbonPanel.classList.remove("is-open");
+      carbonWrap.classList.remove("carbon-wrap--manual-close");
+      carbonPanel.setAttribute("aria-hidden", "true");
+      if (carbonTrigger) carbonTrigger.setAttribute("aria-expanded", "false");
+      pauseCarbonVideo();
+    }
+
+    function dismissCarbonOverlay() {
+      carbonWrap.classList.add("carbon-wrap--manual-close");
+      pauseCarbonVideo();
+    }
+
+    if (carbonTrigger && coarsePointer) {
+      carbonTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (carbonPanel.classList.contains("is-open")) closeCarbonPanel();
+        else openCarbonPanel();
+      });
+    }
+
+    if (carbonBackdrop) {
+      carbonBackdrop.addEventListener("click", function (e) {
+        e.stopPropagation();
+        dismissCarbonOverlay();
+        if (coarsePointer) closeCarbonPanel();
+      });
+    }
+
+    if (carbonClose) {
+      carbonClose.addEventListener("click", function (e) {
+        e.stopPropagation();
+        dismissCarbonOverlay();
+        if (coarsePointer) closeCarbonPanel();
+      });
+    }
+
+    carbonWrap.addEventListener("mouseenter", function () {
+      if (!coarsePointer && carbonPanel) carbonPanel.setAttribute("aria-hidden", "false");
+    });
+
+    carbonWrap.addEventListener("mouseleave", function () {
+      carbonWrap.classList.remove("carbon-wrap--manual-close");
+      if (!coarsePointer && carbonPanel && !carbonPanel.classList.contains("is-open")) {
+        carbonPanel.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      dismissCarbonOverlay();
+      if (coarsePointer) closeCarbonPanel();
+    });
+  }
 })();
