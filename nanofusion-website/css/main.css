@@ -289,8 +289,8 @@ img {
     align-items: stretch;
     padding: 1rem;
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    background: rgba(9, 9, 11, 0.985);
-    border: 1px solid var(--border);
+    background: #232326;
+    border: 1px solid var(--border-strong);
     border-radius: 14px;
     opacity: 0;
     visibility: hidden;
@@ -301,7 +301,7 @@ img {
     overflow: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
   }
 
   body.nav-open .nav-primary {
@@ -326,6 +326,16 @@ img {
     display: flex;
     position: relative;
     z-index: 210;
+  }
+
+  .nav-primary a,
+  .nav-dropdown > button {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .nav-dropdown-panel {
+    background: #2d2d31;
   }
 
   .nav-backdrop,
