@@ -471,23 +471,58 @@ body.nav-open .nav-backdrop {
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
-.hero-photo {
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 0;
-  transition: transform 0.6s var(--ease);
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 700ms var(--ease), transform 1200ms var(--ease);
+  will-change: opacity, transform;
 }
 
-.hero-visual:hover .hero-photo:not(.is-hidden) {
-  transform: scale(1.03);
+.hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1.035);
 }
 
-.hero-photo.is-hidden {
-  display: none;
+.hero-dots {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 4;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(244, 244, 245, 0.35);
+  border: 1px solid rgba(244, 244, 245, 0.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 300ms var(--ease), background 300ms var(--ease);
+}
+
+.hero-dot.is-active {
+  background: rgba(244, 244, 245, 0.78);
+  transform: scale(1.15);
 }
 
 .hero-visual::after {
