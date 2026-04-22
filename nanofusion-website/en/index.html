@@ -50,10 +50,12 @@
   <nav class="nav-primary" id="primary-nav" aria-label="Primary">
     <a href="#hero" aria-current="page">Home</a>
     <a href="#offers">Offers</a>
+    <a href="#pricing">Pricing</a>
     <a href="#gallery">Gallery</a>
     <a href="#video">Video</a>
     <a href="#about">About</a>
     <a href="#window-film">Window films</a>
+    <a href="#warranty-card">Warranty card</a>
     <a href="#window-film-faq">FAQ</a>
     <div class="nav-dropdown">
       <button type="button">Car services <span aria-hidden="true">▼</span></button>
@@ -605,14 +607,47 @@
         </div>
 
         <div class="window-film-extras">
-          <div class="warranty-card reveal">
-            <h3>Peace of mind</h3>
-            <p>We use glass-specific films with safe installation specs. Warranty options depend on film and application (residential/commercial/marine) — contact us for the right match.</p>
-            <div class="warranty-actions">
-              <a class="btn btn-primary" href="#contact">Free consultation</a>
-              <a class="btn btn-ghost" href="tel:+966553332825" dir="ltr">Call now</a>
+          <section class="warranty-card warranty-showcase reveal" id="warranty-card" aria-label="Warranty card">
+            <div class="warranty-showcase__head">
+              <div>
+                <p class="section-label" style="margin:0 0 0.25rem;">Warranty</p>
+                <h3 style="margin:0;">Warranty &amp; care card</h3>
+                <p class="warranty-showcase__lead">Review post-install care instructions and warranty terms — Arabic and English versions.</p>
+              </div>
+              <div class="warranty-showcase__tabs" role="tablist" aria-label="Warranty card language">
+                <button class="warranty-tab" type="button" role="tab" aria-selected="false" data-warranty-lang="ar" lang="ar" dir="rtl">العربية</button>
+                <button class="warranty-tab is-active" type="button" role="tab" aria-selected="true" data-warranty-lang="en">English</button>
+              </div>
             </div>
-          </div>
+
+            <div class="warranty-showcase__grid">
+              <div class="warranty-showcase__info">
+                <ul class="warranty-points" aria-label="Quick summary">
+                  <li><strong>After-install steps</strong> to maintain the best result.</li>
+                  <li><strong>Warranty terms</strong> by service type (heat films / PPF).</li>
+                  <li><strong>Cleaning &amp; care</strong> with non-abrasive products.</li>
+                </ul>
+                <div class="warranty-actions">
+                  <a class="btn btn-primary" href="#contact">Free consultation</a>
+                  <a class="btn btn-ghost" href="tel:+966553332825" dir="ltr">Call now</a>
+                  <a class="btn btn-ghost warranty-download" href="../assets/gallery/warranty/warranty-en.png" download>Download card</a>
+                </div>
+              </div>
+
+              <figure class="warranty-preview" aria-label="Warranty card preview">
+                <button class="warranty-preview__btn" type="button" data-warranty-open aria-label="Open warranty card in full size">
+                  <img
+                    class="warranty-preview__img"
+                    src="../assets/gallery/warranty/warranty-en.png"
+                    alt="Warranty & care card — English version"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="warranty-preview__hint" aria-hidden="true">Click to zoom</span>
+                </button>
+              </figure>
+            </div>
+          </section>
 
           <div class="faq-card reveal" id="window-film-faq">
             <h3 style="margin-top:0;">FAQ</h3>
@@ -686,6 +721,249 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">Pricing</p>
+          <h2 id="pricing-title">Packages &amp; Pricing</h2>
+          <p>Transparent pricing with exclusive discounts — select your car size and see the price instantly.</p>
+        </div>
+
+        <div class="pricing-hero-banner reveal">
+          <span class="pricing-hero-badge">🔥 Limited Offer</span>
+          <p class="pricing-hero-text">Up to <strong>50% off</strong> on selected cars — contact us to find out current deals</p>
+          <a href="#contact" class="btn btn-primary pricing-hero-btn">Book Now</a>
+        </div>
+
+        <div class="pricing-tabs reveal" role="tablist" aria-label="Service categories">
+          <button class="pricing-tab is-active" role="tab" aria-selected="true"  data-tab="window-film">🪟 Window Films</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="ppf">🛡️ Paint Protection</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="polish">✨ Polishing</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="interior">🪑 Interior Protection</button>
+        </div>
+
+        <!-- TAB 1: Window Films -->
+        <div class="pricing-panel is-active" data-panel="window-film" role="tabpanel">
+          <p class="pricing-panel-desc">Premium NanoFusion ceramic films — 100% infrared heat rejection, full UV protection.</p>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <div class="price-card__badge">35% OFF</div>
+              <div class="price-card__icon">🚗</div>
+              <h3 class="price-card__name">Small Car</h3>
+              <p class="price-card__sub">Sedan / Hatchback</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 2,000</span>
+                <span class="price-card__new">1,300 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>100% infrared ray rejection</li>
+                <li>Titanium nitride — signal-friendly</li>
+                <li>Crystal clear — invisible on glass</li>
+                <li>Warranty per category</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Book Now</a>
+            </article>
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">35% OFF</div>
+              <div class="price-card__popular">Most Popular</div>
+              <div class="price-card__icon">🚙</div>
+              <h3 class="price-card__name">Medium Car</h3>
+              <p class="price-card__sub">SUV / Crossover</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 2,150</span>
+                <span class="price-card__new">1,398 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>100% infrared ray rejection</li>
+                <li>Titanium nitride — signal-friendly</li>
+                <li>Crystal clear — invisible on glass</li>
+                <li>Warranty per category</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">Book Now</a>
+            </article>
+            <article class="price-card reveal">
+              <div class="price-card__badge">35% OFF</div>
+              <div class="price-card__icon">🚐</div>
+              <h3 class="price-card__name">Large Car</h3>
+              <p class="price-card__sub">Full-Size / Pickup</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 2,300</span>
+                <span class="price-card__new">1,495 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>100% infrared ray rejection</li>
+                <li>Titanium nitride — signal-friendly</li>
+                <li>Crystal clear — invisible on glass</li>
+                <li>Warranty per category</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Book Now</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- TAB 2: Paint Protection -->
+        <div class="pricing-panel" data-panel="ppf" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">NanoFusion PPF — self-healing surface scratches, infinite transparency, exceptional durability.</p>
+          <div class="pricing-grid pricing-grid--2col">
+            <article class="price-card reveal">
+              <div class="price-card__badge">30% OFF</div>
+              <div class="price-card__icon">🛡️</div>
+              <h3 class="price-card__name">Standard Protection</h3>
+              <p class="price-card__sub">Front &amp; rear bumper film</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 900</span>
+                <span class="price-card__new">630 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>Front &amp; rear bumper coverage</li>
+                <li>Rock chip &amp; scratch protection</li>
+                <li>Self-healing with heat</li>
+                <li>Completely invisible on paint</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Book Now</a>
+            </article>
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">30% OFF</div>
+              <div class="price-card__popular">Full Coverage</div>
+              <div class="price-card__icon">🚘</div>
+              <h3 class="price-card__name">Complete Protection</h3>
+              <p class="price-card__sub">Without roof — full body coverage</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 1,400</span>
+                <span class="price-card__new">980 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>Full body coverage without roof</li>
+                <li>Anti-rust &amp; oxidation protection</li>
+                <li>Self-healing with heat</li>
+                <li>Infinite transparency — high gloss</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">Book Now</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- TAB 3: Polishing -->
+        <div class="pricing-panel" data-panel="polish" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">Interior &amp; exterior polishing using exclusive NanoFusion products — restore original shine, remove surface scratches.</p>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <div class="price-card__badge">40% OFF</div>
+              <div class="price-card__icon">✨</div>
+              <h3 class="price-card__name">Exterior Polishing</h3>
+              <p class="price-card__sub">Small · Large</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">Price by car size</span>
+              </div>
+              <ul class="price-card__features">
+                <li>Remove deposits &amp; surface scratches</li>
+                <li>Restore original paint colour</li>
+                <li>Remove swirls &amp; scratches</li>
+                <li>Long-term paint protection</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Ask for Price</a>
+            </article>
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">40% OFF</div>
+              <div class="price-card__popular">Most Popular</div>
+              <div class="price-card__icon">🪑</div>
+              <h3 class="price-card__name">Interior Polishing</h3>
+              <p class="price-card__sub">Small · Large</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">Price by car size</span>
+              </div>
+              <ul class="price-card__features">
+                <li>Polish leather &amp; velvet — no seat removal</li>
+                <li>Remove tough dashboard stains</li>
+                <li>Reach tight areas with advanced tools</li>
+                <li>Guaranteed long-term results</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">Ask for Price</a>
+            </article>
+            <article class="price-card reveal">
+              <div class="price-card__badge">40% OFF</div>
+              <div class="price-card__icon">💎</div>
+              <h3 class="price-card__name">Full Package</h3>
+              <p class="price-card__sub">Interior + Exterior</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">Price by car size</span>
+              </div>
+              <ul class="price-card__features">
+                <li>Full interior + exterior polishing</li>
+                <li>Best value combined package</li>
+                <li>Extra savings on bundle</li>
+                <li>Showroom-level guaranteed results</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Ask for Price</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- TAB 4: Interior Protection -->
+        <div class="pricing-panel" data-panel="interior" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">Protect your car's velvet and leather from stains and cracking — suitable for all seat and upholstery types.</p>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <div class="price-card__badge">15% OFF</div>
+              <div class="price-card__icon">🚗</div>
+              <h3 class="price-card__name">Small Car</h3>
+              <p class="price-card__sub">Sedan / Hatchback</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 1,050</span>
+                <span class="price-card__new">893 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>Velvet protection from liquid absorption</li>
+                <li>Remove tough upholstery stains</li>
+                <li>Protect leather from cracking</li>
+                <li>Guaranteed long-term results</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Book Now</a>
+            </article>
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">15% OFF</div>
+              <div class="price-card__popular">Most Popular</div>
+              <div class="price-card__icon">🚙</div>
+              <h3 class="price-card__name">Medium Car</h3>
+              <p class="price-card__sub">SUV / Crossover</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 1,150</span>
+                <span class="price-card__new">978 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>Velvet protection from liquid absorption</li>
+                <li>Remove tough upholstery stains</li>
+                <li>Protect leather from cracking</li>
+                <li>Guaranteed long-term results</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">Book Now</a>
+            </article>
+            <article class="price-card reveal">
+              <div class="price-card__badge">15% OFF</div>
+              <div class="price-card__icon">🚐</div>
+              <h3 class="price-card__name">Large Car</h3>
+              <p class="price-card__sub">Full-Size / Pickup</p>
+              <div class="price-card__body">
+                <span class="price-card__old">SAR 1,250</span>
+                <span class="price-card__new">1,063 <small>SAR</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>Velvet protection from liquid absorption</li>
+                <li>Remove tough upholstery stains</li>
+                <li>Protect leather from cracking</li>
+                <li>Guaranteed long-term results</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">Book Now</a>
+            </article>
+          </div>
+        </div>
+
+        <p class="pricing-note reveal">* All prices in Saudi Riyals (SAR) · Contact us for fleet discounts and additional special offers</p>
+      </div>
+    </section>
+    <!-- ===== END PRICING ===== -->
 
     <section id="gallery" aria-labelledby="gallery-title">
       <div class="container">
@@ -904,5 +1182,21 @@
   </footer>
 
   <script src="../js/main.js" defer></script>
+  <script>
+    document.querySelectorAll('.pricing-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.tab;
+        document.querySelectorAll('.pricing-tab').forEach(function(t) {
+          t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.pricing-panel').forEach(function(p) {
+          p.classList.remove('is-active'); p.hidden = true;
+        });
+        this.classList.add('is-active'); this.setAttribute('aria-selected', 'true');
+        var panel = document.querySelector('.pricing-panel[data-panel="' + target + '"]');
+        if (panel) { panel.classList.add('is-active'); panel.hidden = false; }
+      });
+    });
+  </script>
 </body>
 </html>

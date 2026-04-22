@@ -50,10 +50,12 @@
   <nav class="nav-primary" id="primary-nav" aria-label="القائمة الرئيسية">
     <a href="#hero" aria-current="page">الرئيسية</a>
     <a href="#offers">العروض</a>
+    <a href="#pricing">الأسعار</a>
     <a href="#gallery">معرض الصور</a>
     <a href="#video">فيديو</a>
     <a href="#about">من نحن</a>
     <a href="#window-film">أفلام النوافذ</a>
+    <a href="#warranty-card">كارت الضمان</a>
     <a href="#window-film-faq">الأسئلة الشائعة</a>
     <div class="nav-dropdown">
       <button type="button">خدمات السيارات <span aria-hidden="true">▼</span></button>
@@ -605,14 +607,47 @@
         </div>
 
         <div class="window-film-extras">
-          <div class="warranty-card reveal">
-            <h3>راحة وطمأنينة</h3>
-            <p>نستخدم أفلاماً مخصّصة للزجاج بمواصفات تركيب آمنة. الضمان يختلف حسب نوع الفيلم والاستخدام (سكني/تجاري/بحري) — تواصل معنا لنحدد الأنسب.</p>
-            <div class="warranty-actions">
-              <a class="btn btn-primary" href="#contact">استشارة مجانية</a>
-              <a class="btn btn-ghost" href="tel:+966553332825" dir="ltr">اتصل الآن</a>
+          <section class="warranty-card warranty-showcase reveal" id="warranty-card" aria-label="كارت الضمان">
+            <div class="warranty-showcase__head">
+              <div>
+                <p class="section-label" style="margin:0 0 0.25rem;">الضمان</p>
+                <h3 style="margin:0;">كارت الضمان والعناية</h3>
+                <p class="warranty-showcase__lead">اطّلع على تعليمات العناية بعد التركيب وشروط الضمان — نسخة عربية وإنجليزية.</p>
+              </div>
+              <div class="warranty-showcase__tabs" role="tablist" aria-label="لغة كارت الضمان">
+                <button class="warranty-tab is-active" type="button" role="tab" aria-selected="true" data-warranty-lang="ar">العربية</button>
+                <button class="warranty-tab" type="button" role="tab" aria-selected="false" data-warranty-lang="en" dir="ltr" lang="en">English</button>
+              </div>
             </div>
-          </div>
+
+            <div class="warranty-showcase__grid">
+              <div class="warranty-showcase__info">
+                <ul class="warranty-points" aria-label="ملخص سريع">
+                  <li><strong>تعليمات بعد التركيب</strong> للحفاظ على أفضل نتيجة.</li>
+                  <li><strong>شروط الضمان</strong> حسب نوع الخدمة (العزل/PPF).</li>
+                  <li><strong>صيانة وتنظيف</strong> بمواد غير كاشطة وبطريقة صحيحة.</li>
+                </ul>
+                <div class="warranty-actions">
+                  <a class="btn btn-primary" href="#contact">استشارة مجانية</a>
+                  <a class="btn btn-ghost" href="tel:+966553332825" dir="ltr">اتصل الآن</a>
+                  <a class="btn btn-ghost warranty-download" href="assets/gallery/warranty/warranty-ar.png" download>تحميل الكارت</a>
+                </div>
+              </div>
+
+              <figure class="warranty-preview" aria-label="معاينة كارت الضمان">
+                <button class="warranty-preview__btn" type="button" data-warranty-open aria-label="تكبير كارت الضمان">
+                  <img
+                    class="warranty-preview__img"
+                    src="assets/gallery/warranty/warranty-ar.png"
+                    alt="كارت الضمان والعناية — نسخة عربية"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="warranty-preview__hint" aria-hidden="true">اضغط للتكبير</span>
+                </button>
+              </figure>
+            </div>
+          </section>
 
           <div class="faq-card reveal" id="window-film-faq">
             <h3 style="margin-top:0;">أسئلة شائعة</h3>
@@ -686,6 +721,266 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">الأسعار</p>
+          <h2 id="pricing-title">باقات وأسعار مميزة</h2>
+          <p>أسعار شفافة مع خصومات حصرية — اختر حجم سيارتك وشاهد السعر فوراً.</p>
+        </div>
+
+        <!-- Special Offer Banner -->
+        <div class="pricing-hero-banner reveal">
+          <span class="pricing-hero-badge">🔥 عرض محدود</span>
+          <p class="pricing-hero-text">خصم يصل إلى <strong>50%</strong> على سيارات مختارة — تواصل معنا لمعرفة العروض الحالية</p>
+          <a href="#contact" class="btn btn-primary pricing-hero-btn">احجز الآن</a>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="pricing-tabs reveal" role="tablist" aria-label="تصنيف الخدمات">
+          <button class="pricing-tab is-active" role="tab" aria-selected="true"  data-tab="window-film">🪟 أفلام النوافذ</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="ppf">🛡️ حماية الطلاء</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="polish">✨ التلميع</button>
+          <button class="pricing-tab"            role="tab" aria-selected="false" data-tab="interior">🪑 الحماية الداخلية</button>
+        </div>
+
+        <!-- ─── TAB 1: أفلام النوافذ ─── -->
+        <div class="pricing-panel is-active" data-panel="window-film" role="tabpanel">
+          <p class="pricing-panel-desc">أفلام نانو سيراميك عالية الجودة — عزل حراري 100%، حماية كاملة من الأشعة تحت الحمراء.</p>
+          <div class="pricing-grid">
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 35%</div>
+              <div class="price-card__icon" aria-hidden="true">🚗</div>
+              <h3 class="price-card__name">سيارة صغيرة</h3>
+              <p class="price-card__sub">Sedan / Hatchback</p>
+              <div class="price-card__body">
+                <span class="price-card__old">2,000 ر.س</span>
+                <span class="price-card__new">1,300 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>عزل 100% للأشعة تحت الحمراء</li>
+                <li>تيتانيوم نيتريد بدون تداخل إشارة</li>
+                <li>شفافية فائقة — غير مرئي</li>
+                <li>ضمان حسب الفئة</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">احجز الآن</a>
+            </article>
+
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">خصم 35%</div>
+              <div class="price-card__popular">الأكثر طلباً</div>
+              <div class="price-card__icon" aria-hidden="true">🚙</div>
+              <h3 class="price-card__name">سيارة متوسطة</h3>
+              <p class="price-card__sub">SUV / Crossover</p>
+              <div class="price-card__body">
+                <span class="price-card__old">2,150 ر.س</span>
+                <span class="price-card__new">1,398 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>عزل 100% للأشعة تحت الحمراء</li>
+                <li>تيتانيوم نيتريد بدون تداخل إشارة</li>
+                <li>شفافية فائقة — غير مرئي</li>
+                <li>ضمان حسب الفئة</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">احجز الآن</a>
+            </article>
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 35%</div>
+              <div class="price-card__icon" aria-hidden="true">🚐</div>
+              <h3 class="price-card__name">سيارة كبيرة</h3>
+              <p class="price-card__sub">Full-Size / Pickup</p>
+              <div class="price-card__body">
+                <span class="price-card__old">2,300 ر.س</span>
+                <span class="price-card__new">1,495 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>عزل 100% للأشعة تحت الحمراء</li>
+                <li>تيتانيوم نيتريد بدون تداخل إشارة</li>
+                <li>شفافية فائقة — غير مرئي</li>
+                <li>ضمان حسب الفئة</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">احجز الآن</a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ─── TAB 2: حماية الطلاء ─── -->
+        <div class="pricing-panel" data-panel="ppf" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">أفلام نانو فيوجن لحماية الطلاء — معالجة ذاتية للخدوش، شفافية كاملة، متانة استثنائية.</p>
+          <div class="pricing-grid pricing-grid--2col">
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 30%</div>
+              <div class="price-card__icon" aria-hidden="true">🛡️</div>
+              <h3 class="price-card__name">الحماية القياسية</h3>
+              <p class="price-card__sub">فيلم المصدات الأمامية والخلفية</p>
+              <div class="price-card__body">
+                <span class="price-card__old">900 ر.س</span>
+                <span class="price-card__new">630 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>حماية المصدة الأمامية والخلفية</li>
+                <li>مقاومة الحجارة والخدوش</li>
+                <li>معالجة ذاتية بالحرارة</li>
+                <li>غير مرئي تماماً على الطلاء</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">احجز الآن</a>
+            </article>
+
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">خصم 30%</div>
+              <div class="price-card__popular">حماية شاملة</div>
+              <div class="price-card__icon" aria-hidden="true">🚘</div>
+              <h3 class="price-card__name">حماية كاملة</h3>
+              <p class="price-card__sub">بدون السقف — تغطية شاملة للهيكل</p>
+              <div class="price-card__body">
+                <span class="price-card__old">1,400 ر.س</span>
+                <span class="price-card__new">980 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>تغطية كاملة للهيكل بدون السقف</li>
+                <li>حماية من الصدأ والأكسدة</li>
+                <li>معالجة ذاتية بالحرارة</li>
+                <li>شفافية لانهائية — لمعان عالٍ</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">احجز الآن</a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ─── TAB 3: التلميع ─── -->
+        <div class="pricing-panel" data-panel="polish" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">تلميع داخلي وخارجي باستخدام مواد نانو فيوجن الحصرية — استعادة اللمعان الأصلي وإزالة الخدوش السطحية.</p>
+          <div class="pricing-grid">
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 40%</div>
+              <div class="price-card__icon" aria-hidden="true">✨</div>
+              <h3 class="price-card__name">تلميع خارجي</h3>
+              <p class="price-card__sub">صغير · كبير</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">السعر حسب الحجم</span>
+              </div>
+              <ul class="price-card__features">
+                <li>إزالة الترسبات والخدوش السطحية</li>
+                <li>استعادة اللون الأصلي</li>
+                <li>إزالة الخدوش والدوائر</li>
+                <li>حماية الطلاء طويلة الأمد</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">اسأل عن السعر</a>
+            </article>
+
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">خصم 40%</div>
+              <div class="price-card__popular">الأكثر طلباً</div>
+              <div class="price-card__icon" aria-hidden="true">🪑</div>
+              <h3 class="price-card__name">تلميع داخلي</h3>
+              <p class="price-card__sub">صغير · كبير</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">السعر حسب الحجم</span>
+              </div>
+              <ul class="price-card__features">
+                <li>تلميع الجلد والمخمل بدون فك المقاعد</li>
+                <li>إزالة البقع الصعبة من التابلوه</li>
+                <li>وصول للمناطق الأدق بأجهزة متطورة</li>
+                <li>نتائج مضمونة وطويلة الأمد</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">اسأل عن السعر</a>
+            </article>
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 40%</div>
+              <div class="price-card__icon" aria-hidden="true">💎</div>
+              <h3 class="price-card__name">باقة شاملة</h3>
+              <p class="price-card__sub">داخلي + خارجي معاً</p>
+              <div class="price-card__body price-card__body--contact">
+                <span class="price-card__contact-label">السعر حسب الحجم</span>
+              </div>
+              <ul class="price-card__features">
+                <li>تلميع كامل داخلي وخارجي</li>
+                <li>أفضل قيمة للباقة المدمجة</li>
+                <li>توفير إضافي على الباقة</li>
+                <li>نتائج وكالة مضمونة</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">اسأل عن السعر</a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ─── TAB 4: الحماية الداخلية ─── -->
+        <div class="pricing-panel" data-panel="interior" role="tabpanel" hidden>
+          <p class="pricing-panel-desc">حماية مخمل وجلد السيارة من البقع والتشقق — مناسبة لجميع أنواع المقاعد والفرش.</p>
+          <div class="pricing-grid">
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 15%</div>
+              <div class="price-card__icon" aria-hidden="true">🚗</div>
+              <h3 class="price-card__name">سيارة صغيرة</h3>
+              <p class="price-card__sub">Sedan / Hatchback</p>
+              <div class="price-card__body">
+                <span class="price-card__old">1,050 ر.س</span>
+                <span class="price-card__new">893 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>حماية المخمل من امتصاص السوائل</li>
+                <li>إزالة البقع الصعبة من الفرش</li>
+                <li>حماية الجلد من التشقق</li>
+                <li>نتائج طويلة الأمد مضمونة</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">احجز الآن</a>
+            </article>
+
+            <article class="price-card price-card--featured reveal">
+              <div class="price-card__badge">خصم 15%</div>
+              <div class="price-card__popular">الأكثر طلباً</div>
+              <div class="price-card__icon" aria-hidden="true">🚙</div>
+              <h3 class="price-card__name">سيارة متوسطة</h3>
+              <p class="price-card__sub">SUV / Crossover</p>
+              <div class="price-card__body">
+                <span class="price-card__old">1,150 ر.س</span>
+                <span class="price-card__new">978 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>حماية المخمل من امتصاص السوائل</li>
+                <li>إزالة البقع الصعبة من الفرش</li>
+                <li>حماية الجلد من التشقق</li>
+                <li>نتائج طويلة الأمد مضمونة</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary price-card__cta">احجز الآن</a>
+            </article>
+
+            <article class="price-card reveal">
+              <div class="price-card__badge">خصم 15%</div>
+              <div class="price-card__icon" aria-hidden="true">🚐</div>
+              <h3 class="price-card__name">سيارة كبيرة</h3>
+              <p class="price-card__sub">Full-Size / Pickup</p>
+              <div class="price-card__body">
+                <span class="price-card__old">1,250 ر.س</span>
+                <span class="price-card__new">1,063 <small>ر.س</small></span>
+              </div>
+              <ul class="price-card__features">
+                <li>حماية المخمل من امتصاص السوائل</li>
+                <li>إزالة البقع الصعبة من الفرش</li>
+                <li>حماية الجلد من التشقق</li>
+                <li>نتائج طويلة الأمد مضمونة</li>
+              </ul>
+              <a href="#contact" class="btn btn-ghost price-card__cta">احجز الآن</a>
+            </article>
+
+          </div>
+        </div>
+
+        <p class="pricing-note reveal">* جميع الأسعار بالريال السعودي وشاملة ضريبة القيمة المضافة · يُرجى التواصل للاستفسار عن الخصومات الإضافية على أسطول السيارات</p>
+      </div>
+    </section>
+    <!-- ===== END PRICING ===== -->
 
     <section id="gallery" aria-labelledby="gallery-title">
       <div class="container">
@@ -904,5 +1199,25 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script>
+    // Pricing tabs
+    document.querySelectorAll('.pricing-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.tab;
+        document.querySelectorAll('.pricing-tab').forEach(function(t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.pricing-panel').forEach(function(p) {
+          p.classList.remove('is-active');
+          p.hidden = true;
+        });
+        this.classList.add('is-active');
+        this.setAttribute('aria-selected', 'true');
+        var panel = document.querySelector('.pricing-panel[data-panel="' + target + '"]');
+        if (panel) { panel.classList.add('is-active'); panel.hidden = false; }
+      });
+    });
+  </script>
 </body>
 </html>
