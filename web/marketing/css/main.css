@@ -1311,8 +1311,130 @@ section {
 }
 
 #carbon-fiber,
-#tire-wheel-service {
+#upholstery-service,
+#dry-cleaning-service,
+#tire-wheel-service,
+#vehicle-polishing-service,
+#chassis-service,
+#window-cleaning-service,
+#varnish-service {
   scroll-margin-top: 6rem;
+}
+
+.vehicle-polish-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  max-width: min(100%, 960px);
+  margin-inline: auto;
+}
+
+.vehicle-polish-photos figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-deep);
+}
+
+.vehicle-polish-photos img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .vehicle-polish-photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .vehicle-polish-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chassis-pdr-photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  max-width: min(100%, 720px);
+  margin-inline: auto;
+}
+
+.chassis-pdr-photos figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-deep);
+}
+
+.chassis-pdr-photos img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (max-width: 520px) {
+  .chassis-pdr-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dry-cleaning-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: min(100%, 880px);
+  margin-inline: auto;
+  align-items: stretch;
+}
+
+.dry-cleaning-split__figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-deep);
+  aspect-ratio: 16 / 9;
+}
+
+.dry-cleaning-split__figure img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.dry-cleaning-split__video {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dry-cleaning-split__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 640px) {
+  .dry-cleaning-split {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 420px);
+  }
 }
 
 .carbon-detail {
@@ -1370,6 +1492,45 @@ section {
   border: 1px solid var(--border);
   background: #000;
   display: block;
+}
+
+.tire-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  max-width: min(100%, 920px);
+  margin-inline: auto;
+}
+
+.tire-video-label {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.tire-videos-grid .video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.tire-videos-grid .video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .tire-videos-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Projects */
