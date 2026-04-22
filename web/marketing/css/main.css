@@ -137,6 +137,37 @@ img {
   gap: 1.5rem;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.logo-affiliation {
+  margin: 0;
+  max-width: 7.25rem;
+  font-size: 0.64rem;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+}
+
+.logo-affiliation__name {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 520px) {
+  .header-brand {
+    gap: 0.45rem;
+  }
+  .logo-affiliation {
+    max-width: 6rem;
+    font-size: 0.58rem;
+  }
+}
+
 .logo-link {
   display: flex;
   align-items: center;
