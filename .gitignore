@@ -45,7 +45,8 @@ app.*.map.json
 /android/app/release
 
 # Marketing site large assets (keep repo lightweight)
-nanofusion-website/assets/gallery/videos/
-web/marketing/assets/gallery/videos/
+# Allow gallery MP4 clips to be versioned; ignore source MOVs.
+nanofusion-website/assets/gallery/videos/*.mov
+web/marketing/assets/gallery/videos/*.mov
 nanofusion-website/assets/trademark-certificate.png
 web/marketing/assets/trademark-certificate.png
