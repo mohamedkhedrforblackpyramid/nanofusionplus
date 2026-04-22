@@ -1,54 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" fill="none" role="img" aria-labelledby="logoTitle">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" fill="none" role="img" aria-labelledby="logoTitle">
   <title id="logoTitle">Nano Fusion</title>
   <defs>
-    <linearGradient id="nanoChrome" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="22%" stop-color="#e4e4e7"/>
-      <stop offset="45%" stop-color="#a1a1aa"/>
-      <stop offset="72%" stop-color="#d4d4d8"/>
-      <stop offset="100%" stop-color="#f4f4f5"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c9a832"/>
+      <stop offset="50%"  stop-color="#f0d060"/>
+      <stop offset="100%" stop-color="#c9a832"/>
     </linearGradient>
-    <linearGradient id="fusionMist" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#9ca3af"/>
-      <stop offset="50%" stop-color="#d1d5db"/>
-      <stop offset="100%" stop-color="#9ca3af"/>
-    </linearGradient>
-    <filter id="logoLift" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#000000" flood-opacity="0.55"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#ffffff" flood-opacity="0.06"/>
-    </filter>
-    <filter id="markGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="1.2" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="s" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.6"/>
     </filter>
   </defs>
-  <g filter="url(#markGlow)" opacity="0.95">
-    <path d="M14 20 L28 28 L28 44 L14 52 L0 44 L0 28 Z" fill="rgba(228,228,231,0.07)" stroke="url(#nanoChrome)" stroke-width="1.25"/>
-    <path d="M28 28 L42 36 L42 44 L28 52" stroke="url(#fusionMist)" stroke-width="1.1" fill="none" opacity="0.9"/>
-  </g>
+
+  <!-- NANO -->
   <text
-    x="52"
-    y="48"
-    font-family="Georgia, 'Times New Roman', Times, serif"
-    font-size="28"
+    x="2" y="40"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="42"
     font-weight="700"
-    letter-spacing="-0.03em"
-    fill="url(#nanoChrome)"
-    filter="url(#logoLift)"
-    style="text-rendering: geometricPrecision"
+    letter-spacing="0.02em"
+    fill="#ffffff"
+    filter="url(#s)"
+    style="text-rendering:geometricPrecision"
   >NANO</text>
+
+  <!-- gold dot separator -->
+  <circle cx="148" cy="30" r="3" fill="url(#gold)" filter="url(#s)"/>
+
+  <!-- FUSION -->
   <text
-    x="158"
-    y="48"
-    font-family="Georgia, 'Times New Roman', Times, serif"
-    font-size="24"
+    x="160" y="40"
+    font-family="Georgia,'Times New Roman',serif"
+    font-size="42"
     font-weight="400"
-    letter-spacing="0.22em"
-    fill="url(#fusionMist)"
-    filter="url(#logoLift)"
-    style="text-rendering: geometricPrecision"
+    letter-spacing="0.02em"
+    fill="rgba(255,255,255,0.90)"
+    filter="url(#s)"
+    style="text-rendering:geometricPrecision"
   >FUSION</text>
+
 </svg>

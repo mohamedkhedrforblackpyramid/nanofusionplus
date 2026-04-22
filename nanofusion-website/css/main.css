@@ -156,16 +156,20 @@ img {
 
 .logo-link img,
 .logo-img {
-  /* أوضح على الشاشات عالية الكثافة: ارتفاع أكبر قليلاً + منطق عرض ثابت */
-  height: clamp(46px, 5.2vw, 58px);
+  height: clamp(48px, 6vw, 70px);
   width: auto;
-  max-width: min(300px, 72vw);
+  max-width: min(360px, 78vw);
   object-fit: contain;
   object-position: center inline-start;
   image-rendering: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
+  transition: filter 0.3s var(--ease);
+}
+
+.logo-link:hover .logo-img {
+  filter: drop-shadow(0 0 14px rgba(212,180,60,0.3)) brightness(1.06);
 }
 
 /* PNG من ملفك: استغلال الدقة الكاملة على Retina */
@@ -879,6 +883,279 @@ section {
   }
 }
 
+/* ═══════════════════════════════════════
+   WARRANTY CARD — HIGH QUALITY HTML
+═══════════════════════════════════════ */
+.wc-section { margin: 0; }
+
+.wc-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(212,180,60,0.25);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  background: #fff;
+}
+
+/* ── Brand panel (left dark) ── */
+.wc-brand {
+  background: linear-gradient(175deg, #111010 0%, #1a1710 60%, #0e0d09 100%);
+  padding: 2.5rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+.wc-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,180,60,0.08), transparent 60%);
+  pointer-events: none;
+}
+.wc-brand__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.wc-brand__nano {
+  font-family: Georgia,'Times New Roman',serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.wc-brand__fusion {
+  font-family: Georgia,'Times New Roman',serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.65);
+  line-height: 1;
+}
+.wc-brand__divider {
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #d4b43c, rgba(212,180,60,0.15));
+  margin-bottom: 1rem;
+}
+.wc-brand__title {
+  font-family: Georgia,'Times New Roman',serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d4b43c;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+.wc-brand__sub {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 1.25rem;
+}
+.wc-brand__car-wrap {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin: 0 -1.75rem;
+  width: calc(100% + 3.5rem);
+}
+.wc-brand__car-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+  opacity: 0.6;
+  filter: grayscale(0.3) contrast(1.1);
+}
+.wc-brand__contact {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212,180,60,0.2);
+  width: 100%;
+}
+.wc-brand__contact p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 0.2rem;
+}
+.wc-brand__contact a {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #d4b43c;
+  text-decoration: none;
+  direction: ltr;
+  display: inline-block;
+}
+
+/* ── Content panel (right light) ── */
+.wc-content {
+  background: #fafaf8;
+  padding: 2rem 2.25rem;
+  overflow-y: auto;
+  color: #1a1a1a;
+  direction: rtl;
+}
+.wc-content__brand {
+  font-family: Georgia,'Times New Roman',serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid #d4b43c;
+  padding-bottom: 0.4rem;
+  display: inline-block;
+}
+.wc-content__intro {
+  font-size: 0.82rem;
+  color: #555;
+  margin: 0.35rem 0 1.25rem;
+  font-weight: 600;
+}
+
+.wc-block { margin-bottom: 1.2rem; }
+.wc-block__title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #d4b43c;
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.wc-block__title::before {
+  content: "◆";
+  color: #d4b43c;
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+.wc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.wc-list li {
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.6;
+  padding-inline-start: 1rem;
+  position: relative;
+}
+.wc-list li::before {
+  content: "–";
+  position: absolute;
+  inset-inline-start: 0;
+  color: #d4b43c;
+  font-weight: 700;
+}
+
+.wc-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Duration grid */
+.wc-duration-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wc-duration-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
+  background: #f0efe8;
+  border-radius: 8px;
+  border-inline-start: 3px solid #ccc;
+}
+.wc-duration-item--gold { border-inline-start-color: #d4b43c; background: #faf7ec; }
+.wc-duration-item--premium { border-inline-start-color: #b8960c; background: #fdf8e8; }
+.wc-duration-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.wc-duration-name small {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: #777;
+  direction: ltr;
+}
+.wc-duration-val {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+  white-space: nowrap;
+}
+.wc-duration-item--gold .wc-duration-val,
+.wc-duration-item--premium .wc-duration-val { color: #b8960c; }
+
+/* Footer note */
+.wc-footer-note {
+  font-size: 0.75rem;
+  color: #666;
+  background: #f0efe8;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border-inline-start: 3px solid #d4b43c;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* Actions row */
+.wc-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .wc-card { grid-template-columns: 1fr; }
+  .wc-brand { flex-direction: row; flex-wrap: wrap; padding: 1.5rem 1.25rem 0; gap: 0.75rem; }
+  .wc-brand__car-wrap { display: none; }
+  .wc-brand__contact { border-top: none; padding-top: 0; }
+  .wc-cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .wc-content { padding: 1.5rem 1.25rem; }
+}
+
+/* Print */
+@media print {
+  .site-header, nav, footer, .wc-actions { display: none !important; }
+  .wc-card { box-shadow: none; border: 1px solid #ccc; }
+  .wc-brand__car-img { opacity: 0.4; }
+}
+
+/* ─── legacy warranty selectors still used in lightbox JS ─── */
 .warranty-card,
 .faq-card {
   border-radius: var(--radius-lg);
@@ -2226,6 +2503,85 @@ html[lang="en"] body {
 #pricing {
   padding: clamp(4rem, 10vw, 7rem) 0;
   scroll-margin-top: 80px;
+}
+
+/* ── Corporate / University discount banner ── */
+.corp-discount-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(120deg, rgba(212,180,60,0.10) 0%, rgba(212,180,60,0.03) 100%);
+  border: 1px solid rgba(212,180,60,0.35);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.corp-discount-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    rgba(212,180,60,0.025) 0px, rgba(212,180,60,0.025) 1px,
+    transparent 1px, transparent 14px
+  );
+  pointer-events: none;
+}
+.corp-discount-icon {
+  font-size: 2.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.corp-discount-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.corp-discount-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.corp-discount-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.corp-discount-range {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+}
+.corp-discount-pct {
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #d4b43c, #f0d060);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.corp-discount-sep {
+  font-size: 1.5rem;
+  color: rgba(212,180,60,0.5);
+  font-weight: 300;
+}
+.corp-discount-cta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.corp-discount-btn {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+@media (max-width: 600px) {
+  .corp-discount-banner { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
+  .corp-discount-pct { font-size: 2rem; }
 }
 
 /* ── Promo strip ───────────────────────── */
