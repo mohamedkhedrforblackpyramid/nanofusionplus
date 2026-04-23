@@ -908,6 +908,14 @@ section {
   align-items: start;
 }
 
+.window-film-extras .warranty-showcase {
+  grid-column: 1 / -1;
+}
+
+.window-film-extras .faq-card {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 900px) {
   .window-film-extras {
     grid-template-columns: 1fr;
@@ -1213,7 +1221,7 @@ section {
   max-width: 60ch;
 }
 
-.warranty-showcase__tabs {
+.warranty-view-tabs {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1221,9 +1229,10 @@ section {
   border-radius: 999px;
   border: 1px solid var(--border);
   background: rgba(9, 9, 11, 0.35);
+  margin-top: 0.75rem;
 }
 
-.warranty-tab {
+.warranty-view-tab {
   font: inherit;
   cursor: pointer;
   border: 1px solid transparent;
@@ -1235,13 +1244,13 @@ section {
   white-space: nowrap;
 }
 
-.warranty-tab:hover {
+.warranty-view-tab:hover {
   color: var(--text);
   border-color: var(--border-strong);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.warranty-tab.is-active {
+.warranty-view-tab.is-active {
   color: var(--bg-deep);
   background: linear-gradient(145deg, #ededed, var(--accent-logo));
   border-color: rgba(255, 255, 255, 0.18);
@@ -1331,6 +1340,73 @@ section {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+/* Text view */
+.warranty-text {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: radial-gradient(1000px 480px at 10% 10%, rgba(228, 228, 231, 0.06), transparent 55%),
+    rgba(9, 9, 11, 0.18);
+  padding: 1rem;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+}
+
+.warranty-text__tools {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.warranty-text__sections {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.warranty-text details {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.25);
+  overflow: hidden;
+}
+
+.warranty-text summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.85rem 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.warranty-text summary::-webkit-details-marker { display: none; }
+
+.warranty-text summary::after {
+  content: "＋";
+  color: rgba(212, 180, 60, 0.9);
+  font-weight: 800;
+}
+
+.warranty-text details[open] summary::after { content: "—"; }
+
+.warranty-text__body {
+  padding: 0 0.95rem 0.95rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.warranty-text__body ul {
+  margin: 0.6rem 0 0;
+  padding-inline-start: 1.1rem;
+}
+
+.warranty-text__body li { margin: 0.25rem 0; }
 
 /* Lightbox */
 body.warranty-lightbox-open {

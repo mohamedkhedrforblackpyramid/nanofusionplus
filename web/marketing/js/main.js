@@ -122,4 +122,160 @@
       }
     });
   }
+
+  // Warranty card showcase (tabs + lightbox)
+  (function initWarrantyShowcase() {
+    var showcase = document.querySelector(".warranty-showcase");
+    if (!showcase) return;
+
+    var previewImg = showcase.querySelector(".warranty-preview__img");
+    var downloadLink = showcase.querySelector(".warranty-download");
+    var openBtn = showcase.querySelector("[data-warranty-open]");
+    var textToggleBtns = Array.prototype.slice.call(showcase.querySelectorAll("[data-warranty-view]"));
+    var previewPanel = showcase.querySelector("[data-warranty-panel='preview']");
+    var textPanel = showcase.querySelector("[data-warranty-panel='text']");
+
+    if (!previewImg || !downloadLink) return;
+
+    var sources = {
+      ar: {
+        file: "warranty-ar.png",
+        alt: "كارت الضمان والعناية — نسخة عربية",
+        hint: "اضغط للتكبير",
+        download: "تحميل الكارت",
+      },
+      en: {
+        file: "warranty-en.png",
+        alt: "Warranty & care card — English version",
+        hint: "Click to zoom",
+        download: "Download card",
+      },
+    };
+
+    var initialSrc = previewImg.getAttribute("src") || "";
+    var basePath = initialSrc.slice(0, initialSrc.lastIndexOf("/") + 1);
+
+    function setLang(lang) {
+      var cfg = sources[lang] || sources.ar;
+      var nextSrc = basePath + cfg.file;
+
+      previewImg.setAttribute("src", nextSrc);
+      previewImg.setAttribute("alt", cfg.alt);
+
+      downloadLink.setAttribute("href", nextSrc);
+      downloadLink.textContent = cfg.download;
+
+      var hint = showcase.querySelector(".warranty-preview__hint");
+      if (hint) hint.textContent = cfg.hint;
+
+      // Text panel language
+      if (textPanel) {
+        var blocks = Array.prototype.slice.call(textPanel.querySelectorAll("[data-warranty-text]"));
+        blocks.forEach(function (b) {
+          var active = b.getAttribute("data-warranty-text") === lang;
+          b.hidden = !active;
+        });
+      }
+
+      showcase.setAttribute("data-warranty-lang", lang);
+    }
+
+    function setView(view) {
+      if (!previewPanel || !textPanel) return;
+      var isText = view === "text";
+      previewPanel.hidden = isText;
+      textPanel.hidden = !isText;
+      showcase.setAttribute("data-warranty-view", isText ? "text" : "preview");
+      textToggleBtns.forEach(function (b) {
+        var active = b.getAttribute("data-warranty-view") === view;
+        if (active) b.classList.add("is-active");
+        else b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    }
+
+    // View toggle (Preview/Text)
+    if (textToggleBtns.length) {
+      textToggleBtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          setView(b.getAttribute("data-warranty-view"));
+        });
+      });
+    }
+
+    // Lightbox
+    var lightbox = null;
+    var lbImg = null;
+    var lbDl = null;
+
+    function ensureLightbox() {
+      if (lightbox) return;
+
+      lightbox = document.createElement("div");
+      lightbox.className = "warranty-lightbox";
+      lightbox.setAttribute("role", "dialog");
+      lightbox.setAttribute("aria-modal", "true");
+      lightbox.setAttribute("aria-label", "Warranty card preview");
+      lightbox.innerHTML =
+        '<div class="warranty-lightbox__backdrop" data-warranty-close></div>' +
+        '<div class="warranty-lightbox__panel" role="document">' +
+        '  <div class="warranty-lightbox__bar">' +
+        '    <a class="btn btn-ghost warranty-lightbox__download" download>Download</a>' +
+        '    <button type="button" class="warranty-lightbox__close" data-warranty-close aria-label="Close">×</button>' +
+        "  </div>" +
+        '  <img class="warranty-lightbox__img" alt="">' +
+        "</div>";
+
+      document.body.appendChild(lightbox);
+
+      lbImg = lightbox.querySelector(".warranty-lightbox__img");
+      lbDl = lightbox.querySelector(".warranty-lightbox__download");
+
+      lightbox.addEventListener("click", function (e) {
+        var target = e.target;
+        if (target && target.hasAttribute && target.hasAttribute("data-warranty-close")) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLightbox();
+      });
+    }
+
+    function openLightbox() {
+      ensureLightbox();
+      if (!lightbox || !lbImg || !lbDl) return;
+
+      var lang = showcase.getAttribute("data-warranty-lang") || "ar";
+      var cfg = sources[lang] || sources.ar;
+      var src = previewImg.getAttribute("src") || "";
+
+      lbImg.setAttribute("src", src);
+      lbImg.setAttribute("alt", cfg.alt);
+      lbDl.setAttribute("href", src);
+      lbDl.textContent = cfg.download;
+
+      body.classList.add("warranty-lightbox-open");
+      lightbox.classList.add("is-open");
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove("is-open");
+      body.classList.remove("warranty-lightbox-open");
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener("click", openLightbox);
+    }
+
+    // Init language from page language (no per-card language toggle)
+    var pageLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    setLang(pageLang.indexOf("en") === 0 ? "en" : "ar");
+
+    // Init view
+    var initialView = showcase.getAttribute("data-warranty-view") || "preview";
+    setView(initialView);
+  })();
 })();

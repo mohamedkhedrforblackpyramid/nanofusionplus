@@ -128,12 +128,14 @@
     var showcase = document.querySelector(".warranty-showcase");
     if (!showcase) return;
 
-    var tabs = Array.prototype.slice.call(showcase.querySelectorAll(".warranty-tab"));
     var previewImg = showcase.querySelector(".warranty-preview__img");
     var downloadLink = showcase.querySelector(".warranty-download");
     var openBtn = showcase.querySelector("[data-warranty-open]");
+    var textToggleBtns = Array.prototype.slice.call(showcase.querySelectorAll("[data-warranty-view]"));
+    var previewPanel = showcase.querySelector("[data-warranty-panel='preview']");
+    var textPanel = showcase.querySelector("[data-warranty-panel='text']");
 
-    if (!tabs.length || !previewImg || !downloadLink) return;
+    if (!previewImg || !downloadLink) return;
 
     var sources = {
       ar: {
@@ -166,21 +168,40 @@
       var hint = showcase.querySelector(".warranty-preview__hint");
       if (hint) hint.textContent = cfg.hint;
 
-      tabs.forEach(function (t) {
-        var active = t.getAttribute("data-warranty-lang") === lang;
-        if (active) t.classList.add("is-active");
-        else t.classList.remove("is-active");
-        t.setAttribute("aria-selected", active ? "true" : "false");
-      });
+      // Text panel language
+      if (textPanel) {
+        var blocks = Array.prototype.slice.call(textPanel.querySelectorAll("[data-warranty-text]"));
+        blocks.forEach(function (b) {
+          var active = b.getAttribute("data-warranty-text") === lang;
+          b.hidden = !active;
+        });
+      }
 
       showcase.setAttribute("data-warranty-lang", lang);
     }
 
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () {
-        setLang(t.getAttribute("data-warranty-lang"));
+    function setView(view) {
+      if (!previewPanel || !textPanel) return;
+      var isText = view === "text";
+      previewPanel.hidden = isText;
+      textPanel.hidden = !isText;
+      showcase.setAttribute("data-warranty-view", isText ? "text" : "preview");
+      textToggleBtns.forEach(function (b) {
+        var active = b.getAttribute("data-warranty-view") === view;
+        if (active) b.classList.add("is-active");
+        else b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", active ? "true" : "false");
       });
-    });
+    }
+
+    // View toggle (Preview/Text)
+    if (textToggleBtns.length) {
+      textToggleBtns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          setView(b.getAttribute("data-warranty-view"));
+        });
+      });
+    }
 
     // Lightbox
     var lightbox = null;
@@ -249,10 +270,12 @@
       openBtn.addEventListener("click", openLightbox);
     }
 
-    // Init to the active tab (or fallback to ar)
-    var activeTab = tabs.find(function (t) {
-      return t.classList.contains("is-active");
-    });
-    setLang((activeTab && activeTab.getAttribute("data-warranty-lang")) || "ar");
+    // Init language from page language (no per-card language toggle)
+    var pageLang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    setLang(pageLang.indexOf("en") === 0 ? "en" : "ar");
+
+    // Init view
+    var initialView = showcase.getAttribute("data-warranty-view") || "preview";
+    setView(initialView);
   })();
 })();

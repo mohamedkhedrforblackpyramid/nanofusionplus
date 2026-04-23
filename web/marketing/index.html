@@ -617,26 +617,160 @@
               <div>
                 <p class="section-label" style="margin:0 0 0.25rem;">الضمان</p>
                 <h3 style="margin:0;">كارت الضمان والعناية</h3>
-                <p class="warranty-showcase__lead">اطّلع على تعليمات العناية بعد التركيب وشروط الضمان — نسخة عربية وإنجليزية.</p>
+                <p class="warranty-showcase__lead">وثيقة ضمان رسمية وإرشادات عناية واضحة بعد التنفيذ — للتحميل بالعربية والإنجليزية.</p>
               </div>
-              <div class="warranty-showcase__tabs" role="tablist" aria-label="لغة كارت الضمان">
-                <button class="warranty-tab is-active" type="button" role="tab" aria-selected="true" data-warranty-lang="ar">العربية</button>
-                <button class="warranty-tab" type="button" role="tab" aria-selected="false" data-warranty-lang="en" dir="ltr" lang="en">English</button>
+              <div>
+                <div class="warranty-view-tabs" role="group" aria-label="طريقة العرض">
+                  <button class="warranty-view-tab is-active" type="button" aria-pressed="true" data-warranty-view="preview">معاينة</button>
+                  <button class="warranty-view-tab" type="button" aria-pressed="false" data-warranty-view="text">النص</button>
+                </div>
               </div>
             </div>
 
             <div class="warranty-showcase__grid">
-              <div class="warranty-showcase__info">
+              <div class="warranty-showcase__info" data-warranty-panel="preview">
                 <ul class="warranty-points" aria-label="ملخص سريع">
-                  <li><strong>تعليمات بعد التركيب</strong> للحفاظ على أفضل نتيجة.</li>
-                  <li><strong>شروط الضمان</strong> حسب نوع الخدمة (العزل/PPF).</li>
-                  <li><strong>صيانة وتنظيف</strong> بمواد غير كاشطة وبطريقة صحيحة.</li>
+                  <li><strong>ما بعد التنفيذ</strong> تعليمات واضحة بالمدد (24 ساعة / 48 ساعة / أسبوع) لضمان أفضل نتيجة.</li>
+                  <li><strong>بنود الضمان</strong> موضحة حسب نوع الخدمة (العزل الحراري / PPF / السيراميك).</li>
+                  <li><strong>العناية والصيانة</strong> طريقة تنظيف صحيحة بمواد غير كاشطة للحفاظ على الجودة.</li>
                 </ul>
                 <div class="warranty-actions">
                   <a class="btn btn-primary" href="#contact">استشارة مجانية</a>
                   <a class="btn btn-ghost" href="tel:+966553332824" dir="ltr">اتصل الآن</a>
                   <a class="btn btn-ghost warranty-download" href="assets/gallery/warranty/warranty-ar.png" download>تحميل الكارت</a>
                 </div>
+              </div>
+
+              <div class="warranty-text" data-warranty-panel="text" hidden>
+                <div class="warranty-text__tools">
+                  <a class="btn btn-ghost warranty-download" href="assets/gallery/warranty/warranty-ar.png" download>تحميل الكارت كما هو</a>
+                </div>
+
+                <div data-warranty-text="ar">
+                  <div class="warranty-text__sections">
+                    <details open>
+                      <summary>إرشادات خاصة بعد تنفيذ الخدمة لأفلام العازل الحراري وأفلام حماية الطلاء</summary>
+                      <div class="warranty-text__body">
+                        <h4 style="margin:0.5rem 0 0.25rem;">أولاً: أفلام العازل الحراري</h4>
+                        <ul>
+                          <li>يتعين مراجعة الفرع خلال مدة لا تتجاوز <strong>24 ساعة</strong> من وقت التركيب في حال ظهور فقاعات، جيوب هوائية، أو تفكك في الأطراف، وذلك للفحص والمعالجة.</li>
+                          <li>يُمنع فتح النوافذ لمدة <strong>48 ساعة</strong> بعد التركيب، مع ضرورة تعريض المركبة لأشعة الشمس.</li>
+                          <li>يُمنع تنظيف أو مسح الزجاج من الداخل لمدة <strong>أسبوع</strong>.</li>
+                          <li>يُمنع تشغيل مكثف الضباب لمدة <strong>أسبوعين</strong>.</li>
+                        </ul>
+
+                        <h4 style="margin:0.9rem 0 0.25rem;">ثانيًا: أفلام حماية الطلاء</h4>
+                        <ul>
+                          <li>يمنع غسل المركبة لمدة <strong>أسبوع</strong> بعد التركيب، مع تعريضها لأشعة الشمس.</li>
+                          <li>يجب مراجعة الفرع خلال <strong>أسبوع</strong> من التركيب لأغراض الفحص الفني والتأكد من سلامة الالتصاق.</li>
+                          <li>يُمنع استخدام المركبة في ظروف الطقس القاسية إلى حين إجراء الفحص وضمان ثبات وجفاف الفيلم بشكل تام.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>شروط العمل و(الضمان)</summary>
+                      <div class="warranty-text__body">
+                        <h4 style="margin:0.5rem 0 0.25rem;">طلب الخدمة</h4>
+                        <p style="margin:0;">يُعد طلب خدمة التركيب نهائيًا وملزمًا قانونيًا ولا يمكن الرجوع عنه. ويقرّ العميل بأنه قرأ بنود الكفالة (الضمان) ووافق على شروط العناية والصيانة الخاصة بعلامة «نانوفيوجن».</p>
+                        <h4 style="margin:0.9rem 0 0.25rem;">شروط الدفع</h4>
+                        <p style="margin:0;">يجب سداد كامل القيمة قبل الشروع في تركيب الخدمة، ويُعد هذا شرطًا أساسيًا ونافذ المفعول. ولا يحق للعميل المطالبة باسترداد المبلغ بعد تنفيذ عملية القص أو التركيب.</p>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>شروط (ضمان) أفلام العزل الحراري</summary>
+                      <div class="warranty-text__body">
+                        <p style="margin:0;">بموجب هذا الضمان، يُمنح مشتري فيلم العزل الحراري من نانوفيوجن ضمانًا طويل الأجل يبدأ من تاريخ التركيب.</p>
+                        <p style="margin:0.6rem 0 0.25rem;"><strong>يشمل الضمان:</strong></p>
+                        <ul>
+                          <li>فشل اللاصق.</li>
+                          <li>تغير اللون.</li>
+                          <li>التآكل.</li>
+                          <li>التأكسد.</li>
+                          <li>العيوب التصنيعية.</li>
+                        </ul>
+                        <p style="margin:0.6rem 0 0;">يتيح هذا الضمان تركيب بديل جديد. لا يشمل الضمان أجور العمالة، كما أنه لا يسري على التلف الناتج عن سوء الاستعمال أو الإهمال أو إخفاق العميل في اتباع التعليمات الخاصة بالعناية والصيانة المرفقة.</p>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>شروط (ضمان) أفلام حماية الطلاء</summary>
+                      <div class="warranty-text__body">
+                        <p style="margin:0;">تمنح نانوفيوجن ضمانًا طويل الأمد على: تغير اللون، التقشير، فشل اللاصق، التآكل، التأكسد، العيوب التصنيعية.</p>
+                        <p style="margin:0.6rem 0 0.25rem;"><strong>استثناءات الكفالة (PPF):</strong></p>
+                        <ul>
+                          <li>لا تشمل الكفالة الأسطح التي تحتوي على كسر، طلاء غير مصنعي، أو تلف ناتج عن الحصى أو الحطام أو العوامل البيئية أو العضوية.</li>
+                          <li>لا تتحمل الشركة أي مسؤولية قانونية عن الخدوش أو أي نوع من أنواع التلف، كما أن الفيلم لا يحمي نفسه من الضرر أو أي تبعات ناتجة عنه خارجة عما هو مذكور.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>شروط (ضمان) التلميع والنانو سيراميك</summary>
+                      <div class="warranty-text__body">
+                        <p style="margin:0.6rem 0 0.25rem;"><strong>لا يشمل الضمان ما يلي:</strong></p>
+                        <ul>
+                          <li>الأضرار الناتجة عن الغسيل غير الاحترافي، بما في ذلك الخدوش أو البهتان.</li>
+                          <li>الأضرار الناتجة عن العوامل الجوية، مثل الرمال، الحصى المتطاير، أو التلوث البيئي والعضوي.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>مدة الضمان</summary>
+                      <div class="warranty-text__body">
+                        <ul>
+                          <li>نانو سيراميك نانوفيوجن: <strong>سنة واحدة</strong> + صيانة مجانية لمرة واحدة.</li>
+                          <li>نانو فيوجن بلس: <strong>سنتان</strong> + صيانة مجانية مرتين.</li>
+                          <li>ضمان فيلم حماية الزجاج الأمامي الخارجي لا يشمله الضمان.</li>
+                          <li>يمنح العميل خصم بنسبة <strong>50%</strong> عند إعادة التركيب.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>إرشادات العناية والصيانة</summary>
+                      <div class="warranty-text__body">
+                        <p style="margin:0;">لضمان أفضل أداء واستمرارية لمنتج «نانوفيوجن»، يُرجى الالتزام بما يلي:</p>
+                        <ul>
+                          <li>خلال أول أسبوع بعد التركيب، يُمنح اللاصق المصمم خصيصًا للفيلم فترة لتثبيت فعال على الزجاج أو الطلاء.</li>
+                          <li>يُمنع استخدام سوائل تحتوي على الكحول، الأمونيا، الصبغات، المواد الكيميائية، أو الأحماض.</li>
+                          <li>يجب إزالة أي شوائب (مثل الحشرات أو فضلات الطيور) فورًا لتجنب البقع الدائمة.</li>
+                          <li>لا يُنصح باستخدام أجهزة الغسيل ذات الضغط العالي.</li>
+                          <li>يُوصى باستخدام صابون مخصص لغسيل السيارات.</li>
+                          <li>يجب استخدام ماء نظيف وأقمشة ناعمة خالية من الشوائب.</li>
+                          <li>يُنصح باستخدام ممسحة مطاطية أو قطعة قماش ناعمة وجافة عند التجفيف.</li>
+                          <li>تُمنع استخدام المناشف الورقية لاحتوائها على ألياف كاشطة.</li>
+                          <li>يُمنع لصق الملصقات أو الشرائط اللاصقة على الفيلم.</li>
+                          <li>يُمنع نزع أو تقشير أطراف الفيلم لتفادي الإضرار بالنظام اللاصق.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>ملاحظات هامة</summary>
+                      <div class="warranty-text__body">
+                        <p style="margin:0;"><strong>في حال عدم الالتزام بالإرشادات أعلاه، تعتبر الكفالة لاغية تلقائيًا.</strong></p>
+                        <h4 style="margin:0.9rem 0 0.25rem;">ملاحظة بخصوص المظهر بعد التركيب</h4>
+                        <p style="margin:0;">قد يظهر مظهر ضبابي أو فقاعات مائية بين الفيلم والزجاج الأمامي بعد التركيب، وهو أمر طبيعي ومؤقت نتيجة للرطوبة المستخدمة أثناء التركيب، وسيختفي هذا المظهر تدريجيًا خلال فترة تتراوح ما بين أربعة (4) إلى عشرة (10) أسابيع.</p>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>نقاط عامة</summary>
+                      <div class="warranty-text__body">
+                        <ul>
+                          <li>تُخلي شركة نانوفيوجن مسؤوليتها عن اختيار العميل لدرجة التظليل (للعزل الحراري)، مع الحرص على توافقها مع أنظمة المرور.</li>
+                          <li>تُخلي الشركة مسؤوليتها من أي كفالات شفهية أو ضمنية غير مذكورة كتابيًا في هذه الوثيقة.</li>
+                          <li>مقدم الخدمة غير مسؤول عن ممتلكات العميل داخل المركبة، أو أي حادثة سرقة أو حريق أو ضرر يحدث أثناء تواجد المركبة في موقع الخدمة بعد الانتهاء من التنفيذ.</li>
+                          <li>تعتبر الكفالة شخصية للعميل الأول (المشتري) وغير قابلة للنقل أو التفويض بعد بيع أو نقل ملكية المركبة.</li>
+                        </ul>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+
               </div>
 
               <figure class="warranty-preview" aria-label="معاينة كارت الضمان">
