@@ -23,9 +23,6 @@
     style="text-rendering:geometricPrecision"
   >NANO</text>
 
-  <!-- gold dot separator -->
-  <circle cx="148" cy="30" r="3" fill="url(#gold)" filter="url(#s)"/>
-
   <!-- FUSION -->
   <text
     x="160" y="40"
