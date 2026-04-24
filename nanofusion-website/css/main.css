@@ -1234,45 +1234,9 @@ section {
   max-width: 60ch;
 }
 
-.warranty-view-tabs {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(9, 9, 11, 0.35);
-  margin-top: 0.75rem;
-}
-
-.warranty-view-tab {
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  padding: 0.45rem 0.85rem;
-  color: var(--muted);
-  background: transparent;
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.25s var(--ease);
-  white-space: nowrap;
-}
-
-.warranty-view-tab:hover {
-  color: var(--text);
-  border-color: var(--border-strong);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.warranty-view-tab.is-active {
-  color: var(--bg-deep);
-  background: linear-gradient(145deg, #ededed, var(--accent-logo));
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
-}
-
 .warranty-showcase__grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   align-items: start;
 }
@@ -1303,55 +1267,6 @@ section {
 
 .warranty-points strong {
   color: var(--text);
-}
-
-.warranty-preview {
-  margin: 0;
-}
-
-.warranty-preview__btn {
-  width: 100%;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  padding: 0;
-  cursor: zoom-in;
-  background: radial-gradient(1000px 480px at 10% 10%, rgba(228, 228, 231, 0.08), transparent 55%),
-    rgba(9, 9, 11, 0.18);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.35s var(--ease), border-color 0.2s, box-shadow 0.2s;
-}
-
-.warranty-preview__btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(228, 228, 231, 0.22);
-  box-shadow: 0 26px 76px rgba(0, 0, 0, 0.48);
-}
-
-.warranty-preview__btn:active {
-  transform: translateY(0);
-}
-
-.warranty-preview__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: contrast(1.02) saturate(1.02);
-}
-
-.warranty-preview__hint {
-  position: absolute;
-  inset-inline-end: 0.75rem;
-  bottom: 0.75rem;
-  font-size: 0.85rem;
-  color: var(--text);
-  background: rgba(9, 9, 11, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Text view */
@@ -1420,86 +1335,6 @@ section {
 }
 
 .warranty-text__body li { margin: 0.25rem 0; }
-
-/* Lightbox */
-body.warranty-lightbox-open {
-  overflow: hidden;
-}
-
-.warranty-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s var(--ease);
-}
-
-.warranty-lightbox.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.warranty-lightbox__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.warranty-lightbox__panel {
-  position: relative;
-  width: min(980px, 92vw);
-  max-height: 86vh;
-  margin: 7vh auto;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(24, 24, 27, 0.92), rgba(9, 9, 11, 0.92));
-  box-shadow: 0 48px 120px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-}
-
-.warranty-lightbox__bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.warranty-lightbox__close {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform 0.25s var(--ease), background 0.2s, border-color 0.2s;
-}
-
-.warranty-lightbox__close:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.warranty-lightbox__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: calc(86vh - 62px);
-  object-fit: contain;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.warranty-lightbox__download {
-  white-space: nowrap;
-}
 
 .warranty-card h3 {
   margin: 0 0 0.5rem;
