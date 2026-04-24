@@ -1658,6 +1658,7 @@ body.warranty-lightbox-open {
 .service-explorer {
   display: flex;
   flex-direction: column;
+  isolation: isolate; /* own stacking context */
 }
 
 .service-explorer__rail {
@@ -1670,6 +1671,8 @@ body.warranty-lightbox-open {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   margin-top: 0.75rem;
   background: rgba(255, 255, 255, 0.012);
+  position: relative;
+  z-index: 10;
 }
 
 .service-explorer__pick {
@@ -1680,6 +1683,7 @@ body.warranty-lightbox-open {
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted);
   cursor: pointer;
+  pointer-events: auto;
   font: inherit;
   font-size: 0.76rem;
   font-weight: 600;
@@ -1709,6 +1713,7 @@ body.warranty-lightbox-open {
   width: 100%;
   aspect-ratio: 16 / 5.5;
   position: relative;
+  z-index: 1; /* stays below rail, copy, filmstrip */
   overflow: hidden;
   background: #000;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -1722,8 +1727,8 @@ body.warranty-lightbox-open {
   background:
     linear-gradient(to top,  rgba(9, 9, 11, 0.72) 0%, transparent 40%),
     linear-gradient(to right, rgba(9, 9, 11, 0.28) 0%, transparent 35%);
-  z-index: 1;
-  pointer-events: none;
+  z-index: 2;
+  pointer-events: none; /* never blocks clicks */
 }
 
 .service-explorer__frame video {
@@ -1737,6 +1742,8 @@ body.warranty-lightbox-open {
 .service-explorer__copy {
   background: rgba(255, 255, 255, 0.012);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 10;
 }
 
 .service-explorer__panel {
@@ -1845,6 +1852,8 @@ body.warranty-lightbox-open {
   padding: 0.6rem clamp(1.1rem, 2.5vw, 1.6rem);
   overflow-x: auto;
   scrollbar-width: none;
+  position: relative;
+  z-index: 10;
 }
 
 .service-explorer__filmstrip::-webkit-scrollbar { display: none; }
@@ -1858,6 +1867,7 @@ body.warranty-lightbox-open {
   border: 1px solid rgba(255, 255, 255, 0.09);
   opacity: 0.7;
   cursor: zoom-in;
+  pointer-events: auto;
   transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
