@@ -1766,6 +1766,19 @@ body.warranty-lightbox-open {
   z-index: 10;
 }
 
+/* 4+ tab pills (e.g. upholstery hub) */
+.service-explorer__rail--compact .service-explorer__pick {
+  font-size: 0.66rem;
+  padding: 0.3rem 0.55rem;
+}
+
+@media (max-width: 520px) {
+  .service-explorer__rail--compact .service-explorer__pick {
+    font-size: 0.58rem;
+    padding: 0.26rem 0.45rem;
+  }
+}
+
 .service-explorer__pick {
   flex: 0 0 auto;
   padding: 0.38rem 0.85rem;

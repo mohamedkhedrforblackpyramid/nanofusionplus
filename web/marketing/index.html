@@ -531,6 +531,7 @@
           </article>
           </div>
 
+          <div class="hubs-row">
           <article class="card card--spotlight reveal" id="repair-correction-hub">
             <div class="phub-header">
               <div class="card-icon" aria-hidden="true">🔧</div>
@@ -612,14 +613,128 @@
             </div>
           </article>
 
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">🪑</div>
-            <h3>خدمات التنجيد</h3>
-            <p style="color:var(--muted);margin:0 0 0.75rem;line-height:1.8;">راحة + فخامة + تصميم حسب الطلب.</p>
-            <ul style="margin:0; padding-inline-start:1.1rem; line-height:1.9;">
-              <li><strong>Full Interior Upholstery</strong> — تنجيد السيارة بالكامل بخامات فاخرة.</li>
-            </ul>
+          <article class="card card--spotlight reveal" id="upholstery-services-hub">
+            <div class="phub-header">
+              <div class="card-icon" aria-hidden="true">🪑</div>
+              <h3>خدمات التنجيد</h3>
+              <p class="paint-hub__lead">راحة + فخامة + تصميم حسب الطلب.</p>
+            </div>
+
+            <div class="service-explorer" data-service-explorer>
+
+              <div class="service-explorer__rail service-explorer__rail--compact" role="tablist" aria-label="خيارات التنجيد">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
+                  id="tab-uphol-full" aria-controls="panel-uphol-full" data-panel="uphol-full"
+                  data-video-src="assets/gallery/videos/video-01.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-1.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-alt="مقصورة بعد التنجيد الكامل"
+                  data-strip2-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip2-alt="تفاصيل المقاعد والأبواب">
+                  تنجيد كامل
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-uphol-custom" aria-controls="panel-uphol-custom" data-panel="uphol-custom"
+                  data-video-src="assets/gallery/videos/video-04.mp4"
+                  data-poster-src="assets/gallery/services/color-change.jpg"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="خامات وألوان حسب الطلب"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="تصميم داخلي متناسق">
+                  تصميم مخصص
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-uphol-renew" aria-controls="panel-uphol-renew" data-panel="uphol-renew"
+                  data-video-src="assets/gallery/videos/video-05.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip1-alt="تجديد المقاعد والإسفنج"
+                  data-strip2-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip2-alt="معالجة التلف والهبوط">
+                  تجديد المقاعد
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-uphol-finish" aria-controls="panel-uphol-finish" data-panel="uphol-finish"
+                  data-video-src="assets/gallery/videos/video-02.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="خياطة متقنة وتشطيب نهائي"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="لمسة نهائية راقية للمقصورة">
+                  تشطيب احترافي
+                </button>
+              </div>
+
+              <div class="service-explorer__frame">
+                <video class="service-explorer__video" controls playsinline preload="metadata"
+                  poster="assets/gallery/services/polish-showcase-1.png"
+                  aria-label="فيديو التنجيد الداخلي الكامل">
+                  <source src="assets/gallery/videos/video-01.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <div class="service-explorer__copy">
+
+                <div class="service-explorer__panel is-active" id="panel-uphol-full" role="tabpanel" aria-labelledby="tab-uphol-full" data-explore-panel="uphol-full">
+                  <h4>🚗 تنجيد داخلي كامل</h4>
+                  <div class="se-copy-main">
+                    <p>تنجيد شامل لمقصورة السيارة بخامات عالية الجودة، مع تنفيذ دقيق لكل الأجزاء من المقاعد حتى الأبواب والسقف.</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>100%</strong>مقصورة</div>
+                    <div class="se-spec"><strong>خامات</strong>فاخرة</div>
+                    <div class="se-spec"><strong>دقة</strong>تنفيذ</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-uphol-custom" role="tabpanel" aria-labelledby="tab-uphol-custom" hidden data-explore-panel="uphol-custom">
+                  <h4>✨ تصميم حسب الطلب</h4>
+                  <div class="se-copy-main">
+                    <p>اختيار الألوان والخامات والتفاصيل الداخلية حسب ذوقك، للحصول على شكل متناسق يعكس شخصيتك ويخلي العربية مميزة.</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>ألوان</strong>مخصصة</div>
+                    <div class="se-spec"><strong>خامات</strong>اختيارك</div>
+                    <div class="se-spec"><strong>تناسق</strong>كامل</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-uphol-renew" role="tabpanel" aria-labelledby="tab-uphol-renew" hidden data-explore-panel="uphol-renew">
+                  <h4>🧵 إصلاح وتجديد المقاعد</h4>
+                  <div class="se-copy-main">
+                    <p>معالجة التلف، إعادة تشكيل الإسفنج، وإصلاح الهبوط أو التآكل، مع الحفاظ على الراحة وتحسينها لأعلى مستوى.</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>إسفنج</strong>جديد</div>
+                    <div class="se-spec"><strong>راحة</strong>أعلى</div>
+                    <div class="se-spec"><strong>تلف</strong>معالجة</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-uphol-finish" role="tabpanel" aria-labelledby="tab-uphol-finish" hidden data-explore-panel="uphol-finish">
+                  <h4>🔥 تشطيب احترافي</h4>
+                  <div class="se-copy-main">
+                    <p>تنفيذ دقيق وخياطة متقنة تضمن شكل نهائي نظيف وأنيق في كل جزء من الداخل.</p>
+                    <span class="service-explorer__callout">النتيجة؟</span>
+                    <p>مقصورة جديدة بالكامل… راحة أعلى… وشكل داخلي راقي يخلي سيارتك مختلفة من أول نظرة 🚗✨</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>خياطة</strong>متقنة</div>
+                    <div class="se-spec"><strong>شكل</strong>نهائي</div>
+                    <div class="se-spec"><strong>100%</strong>أناقة</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="service-explorer__filmstrip" data-se-filmstrip>
+                <img src="assets/gallery/services/polish-showcase-2.png" alt="مقصورة بعد التنجيد" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                <img src="assets/gallery/services/polish-showcase-3.png" alt="تفاصيل التنجيد" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+              </div>
+
+            </div>
           </article>
+          </div>
 
           <article class="card reveal">
             <div class="card-icon" aria-hidden="true">🏆</div>
