@@ -151,15 +151,99 @@
           <p>Complete solutions for protection and finishing at dealership-grade standards.</p>
         </div>
         <div class="cards-grid">
-          <article class="card reveal">
+          <article class="card card--spotlight reveal" id="paint-protection-hub">
             <div class="card-icon" aria-hidden="true">🛡️</div>
-            <h3>Paint protection services</h3>
-            <p style="color:var(--muted);margin:0 0 0.75rem;line-height:1.8;">Strong protection + premium finish + lasting value.</p>
-            <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
-              <li><strong>Paint Protection Film (PPF)</strong> — high‑performance transparent layer that protects from scratches, gravel, and external factors.</li>
-              <li><strong>Microfiber Carbon Paint Protection</strong> — advanced protection with a distinctive, modern aesthetic.</li>
-              <li><strong>Full car color change (PPF)</strong> — change your color without affecting original paint; removable options available.</li>
-            </ul>
+            <h3>Paint protection — Nano Fusion</h3>
+            <p class="paint-hub__lead">Advanced technology that keeps your car protected… with a deep gloss that feels showroom‑fresh every day.</p>
+
+            <div class="service-explorer" data-service-explorer>
+              <div class="service-explorer__rail" role="tablist" aria-label="Paint protection options">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0" id="tab-ppf" aria-controls="panel-ppf" data-panel="ppf"
+                  data-video-src="../assets/gallery/videos/video-01.mp4"
+                  data-poster-src="../assets/gallery/services/polish-showcase-1.png"
+                  data-hero-src="../assets/gallery/services/polish-showcase-2.png"
+                  data-alt-hero="High-gloss finish after paint protection"
+                  data-sub-src="../assets/gallery/services/polish-showcase-3.png"
+                  data-sub-alt="Protected surface detailing"
+                  data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="Precision finishing touches"
+                  data-strip2-src="../assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="Interior and exterior care">
+                  <span class="service-explorer__pick-title">Clear Paint Protection Film (PPF)</span>
+                  <span class="service-explorer__pick-hint">Video + project stills</span>
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1" id="tab-carbon" aria-controls="panel-carbon" data-panel="carbon"
+                  data-video-src="../assets/gallery/videos/video-02.mp4"
+                  data-poster-src="../assets/gallery/services/carbon-fiber-1.png"
+                  data-hero-src="../assets/gallery/services/carbon-fiber-2.png"
+                  data-alt-hero="Carbon-fiber look on body panels"
+                  data-sub-src="../assets/gallery/services/carbon-fiber.jpg"
+                  data-sub-alt="Carbon texture detail"
+                  data-strip1-src="../assets/gallery/services/carbon-fiber-1.png"
+                  data-strip1-alt="Sporty protection finish"
+                  data-strip2-src="../assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="Premium final touch">
+                  <span class="service-explorer__pick-title">Microfiber carbon protection</span>
+                  <span class="service-explorer__pick-hint">Bold look, stronger shield</span>
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1" id="tab-color" aria-controls="panel-color" data-panel="color"
+                  data-video-src="../assets/gallery/videos/video-03.mp4"
+                  data-poster-src="../assets/gallery/services/color-change.jpg"
+                  data-hero-src="../assets/gallery/services/color-change.jpg"
+                  data-alt-hero="Full wrap color identity"
+                  data-sub-src="../assets/gallery/services/polish-showcase-1.png"
+                  data-sub-alt="Gloss and protection after color change"
+                  data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-alt="Edges and corners detail"
+                  data-strip2-src="../assets/gallery/services/polish-showcase-3.png"
+                  data-strip2-alt="Professional finishing">
+                  <span class="service-explorer__pick-title">Full color change (PPF)</span>
+                  <span class="service-explorer__pick-hint">New identity, original paint untouched</span>
+                </button>
+              </div>
+
+              <div class="service-explorer__stage">
+                <div class="service-explorer__media">
+                  <div class="service-explorer__frame">
+                    <video class="service-explorer__video" controls playsinline preload="metadata" poster="../assets/gallery/services/polish-showcase-1.png" aria-label="Clear PPF highlight video">
+                      <source src="../assets/gallery/videos/video-01.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="service-explorer__stills">
+                    <img class="service-explorer__still service-explorer__still--hero" src="../assets/gallery/services/polish-showcase-2.png" alt="High-gloss finish after paint protection" width="1200" height="800" loading="lazy" decoding="async" data-se-hero>
+                    <img class="service-explorer__still" src="../assets/gallery/services/polish-showcase-3.png" alt="Protected surface detailing" width="900" height="700" loading="lazy" decoding="async" data-se-sub>
+                  </div>
+                </div>
+                <div class="service-explorer__filmstrip" data-se-filmstrip>
+                  <img src="../assets/gallery/services/polish-showcase-4.png" alt="Precision finishing touches" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                  <img src="../assets/gallery/services/polish-showcase-5.png" alt="Interior and exterior care" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+                </div>
+
+                <div class="service-explorer__copy">
+                  <div class="service-explorer__panel is-active" id="panel-ppf" role="tabpanel" aria-labelledby="tab-ppf" data-explore-panel="ppf">
+                    <h4>Clear PPF from Nano Fusion</h4>
+                    <p>A near‑invisible shield engineered around <strong>~200 microns</strong> of real‑world protection… built with <strong>self‑healing</strong> technology that helps fine swirls recover with heat.</p>
+                    <p>Strong defense against gravel, abrasion, and harsh daily conditions… with a top layer engineered to resist yellowing and UV exposure.</p>
+                    <p class="service-explorer__callout">The result?</p>
+                    <p>Deep gloss and exceptional clarity… keeping your car looking “just detailed” every single day.</p>
+                  </div>
+                  <div class="service-explorer__panel" id="panel-carbon" role="tabpanel" aria-labelledby="tab-carbon" hidden data-explore-panel="carbon">
+                    <h4>Microfiber carbon protection</h4>
+                    <p>More than a look — it’s an advanced protective layer with a 3D carbon weave texture, engineered to take daily abrasion and harsh conditions with confidence.</p>
+                    <p>A surface that resists scratches and fingerprints, with outstanding color stability against sun and UV… without dulling or cracking.</p>
+                    <p class="service-explorer__callout">The result?</p>
+                    <p>A sporty, assertive presence with a premium feel… a car that looks intentional on the road.</p>
+                  </div>
+                  <div class="service-explorer__panel" id="panel-color" role="tabpanel" aria-labelledby="tab-color" hidden data-explore-panel="color">
+                    <h4>Full vehicle color change (PPF) with Nano Fusion</h4>
+                    <p>Transform the entire identity of your car… using high‑grade colored protection films for a bold or classic finish — without touching the factory paint.</p>
+                    <p>Advanced film technology with strong color stability and UV resistance, plus added protection against scratches and the elements.</p>
+                    <p class="service-explorer__callout">Best part?</p>
+                    <p>Fully removable whenever you want… return to your original paint in the same condition — with zero permanent risk.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
 
           <article class="card reveal">

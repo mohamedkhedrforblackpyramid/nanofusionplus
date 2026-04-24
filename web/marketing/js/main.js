@@ -278,4 +278,113 @@
     var initialView = showcase.getAttribute("data-warranty-view") || "preview";
     setView(initialView);
   })();
+
+  // Car services — interactive paint-protection explorer (tabs + media)
+  (function initServiceExplorer() {
+    var roots = document.querySelectorAll("[data-service-explorer]");
+    if (!roots.length) return;
+
+    roots.forEach(function (root) {
+      var picks = Array.prototype.slice.call(root.querySelectorAll(".service-explorer__pick"));
+      var video = root.querySelector(".service-explorer__video");
+      var vSource = video ? video.querySelector("source") : null;
+      var heroImg = root.querySelector("[data-se-hero]");
+      var subImg = root.querySelector("[data-se-sub]");
+      var strips = root.querySelectorAll("[data-se-filmstrip] [data-se-strip]");
+      var panels = Array.prototype.slice.call(root.querySelectorAll("[data-explore-panel]"));
+
+      function pauseVideo() {
+        if (video && typeof video.pause === "function") {
+          try {
+            video.pause();
+          } catch (_e) {}
+        }
+      }
+
+      function setStrip(idx, src, alt) {
+        var el = strips[idx];
+        if (!el) return;
+        if (src) {
+          el.removeAttribute("hidden");
+          el.setAttribute("src", src);
+          el.setAttribute("alt", alt || "");
+        } else {
+          el.setAttribute("hidden", "");
+        }
+      }
+
+      function activate(btn) {
+        if (!btn) return;
+
+        picks.forEach(function (p) {
+          var on = p === btn;
+          p.classList.toggle("is-active", on);
+          p.setAttribute("aria-selected", on ? "true" : "false");
+          p.setAttribute("tabindex", on ? "0" : "-1");
+        });
+
+        var id = btn.getAttribute("data-panel");
+        panels.forEach(function (pan) {
+          var match = pan.getAttribute("data-explore-panel") === id;
+          pan.classList.toggle("is-active", match);
+          pan.hidden = !match;
+        });
+
+        pauseVideo();
+
+        var vs = btn.getAttribute("data-video-src");
+        var poster = btn.getAttribute("data-poster-src") || "";
+        if (video && vSource && vs) {
+          video.removeAttribute("hidden");
+          vSource.setAttribute("src", vs);
+          video.setAttribute("poster", poster);
+          try {
+            video.load();
+          } catch (_e2) {}
+        }
+
+        if (heroImg) {
+          var hs = btn.getAttribute("data-hero-src");
+          if (hs) {
+            heroImg.removeAttribute("hidden");
+            heroImg.setAttribute("src", hs);
+            heroImg.setAttribute("alt", btn.getAttribute("data-alt-hero") || "");
+          }
+        }
+
+        if (subImg) {
+          var sub = btn.getAttribute("data-sub-src");
+          if (sub) {
+            subImg.removeAttribute("hidden");
+            subImg.setAttribute("src", sub);
+            subImg.setAttribute("alt", btn.getAttribute("data-sub-alt") || "");
+          } else {
+            subImg.setAttribute("hidden", "");
+          }
+        }
+
+        setStrip(0, btn.getAttribute("data-strip1-src"), btn.getAttribute("data-strip1-alt"));
+        setStrip(1, btn.getAttribute("data-strip2-src"), btn.getAttribute("data-strip2-alt"));
+      }
+
+      picks.forEach(function (p) {
+        p.addEventListener("click", function () {
+          activate(p);
+        });
+        p.addEventListener("keydown", function (e) {
+          if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+          e.preventDefault();
+          var i = picks.indexOf(p);
+          var next = e.key === "ArrowDown" ? picks[i + 1] : picks[i - 1];
+          if (next) {
+            next.focus();
+            activate(next);
+          }
+        });
+      });
+
+      var initial = root.querySelector(".service-explorer__pick.is-active") || picks[0];
+      activate(initial);
+    });
+  })();
 })();
