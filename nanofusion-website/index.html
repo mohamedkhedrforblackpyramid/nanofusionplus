@@ -265,29 +265,91 @@
             </div>
           </article>
 
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">🌡️</div>
-            <h3>العزل والحماية الزجاجية من نانو فيوجن</h3>
-            <p class="card-lead">راحة داخلية + حماية + أداء أفضل.</p>
-
-            <div class="card-marketing-block">
-              <h4>عازل الحرارة المتطور – نانو فيوجن</h4>
-              <p>مش بس راحة… دي تجربة قيادة مختلفة تمامًا.</p>
-              <p>بتقنية نانو فيوجن المتقدمة، العازل الحراري الأقوى من نانو فيوجن بيقلل دخول الحرارة بشكل ملحوظ، ويحجب نسبة عالية من الأشعة تحت الحمراء (IR) بنسبة 99% والأشعة فوق البنفسجية (UV) بنسبة 99%، مع أداء عزل حراري يصل إلى حوالي 75%، علشان يحافظ على برودة المقصورة ويحميك أنت ومكونات سيارتك من تأثير الشمس القاسي.</p>
-              <p>شفافية عالية بدون تأثير على الرؤية… مع مظهر أنيق وثبات لون طويل المدى بدون بهتان أو تقشير.</p>
-              <span class="card-callout">النتيجة؟</span>
-              <p>راحة أكبر… تكييف أقوى… وحماية مستمرة كل يوم.</p>
+          <article class="card card--spotlight reveal" id="glass-protection-hub">
+            <div class="phub-header">
+              <div class="card-icon" aria-hidden="true">🌡️</div>
+              <h3>العزل والحماية الزجاجية من نانو فيوجن</h3>
+              <p class="paint-hub__lead">راحة داخلية + حماية + أداء أفضل… بتقنية متقدمة تحميك كل يوم.</p>
             </div>
 
-            <hr class="card-marketing-sep" aria-hidden="true">
+            <div class="service-explorer" data-service-explorer>
 
-            <div class="card-marketing-block">
-              <h4>فيلم حماية الزجاج من الكسر والترميل</h4>
-              <p>مش مجرد طبقة شفافة… ده أمان إضافي لسيارتك على الطريق.</p>
-              <p>بيوفّر حماية قوية ضد الحصى والترميل والصدمات المفاجئة اللي ممكن تسبب تشققات أو كسر في الزجاج. لو حصلت صدمة قوية، الفيلم بيساعد على تثبيت الزجاج ومنع تفتته وانتشاره، وده بيزود الأمان بشكل كبير أثناء القيادة.</p>
-              <p>كمان بيقلل من آثار الخدوش الدقيقة مع الاستخدام اليومي، وبيحافظ على وضوح الرؤية بدون تشويش أو تأثير على الإضاءة.</p>
-              <span class="card-callout">النتيجة؟</span>
-              <p>راحة بال أكبر… حماية أعلى… وزجاج يعيش أطول بنفس الجودة والوضوح. 🚗✨</p>
+              <!-- Tab pills -->
+              <div class="service-explorer__rail" role="tablist" aria-label="خيارات العزل والحماية الزجاجية">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
+                  id="tab-tint" aria-controls="panel-tint" data-panel="tint"
+                  data-video-src="assets/gallery/videos/video-04.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-1.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-alt="نتيجة العزل الحراري على الزجاج"
+                  data-strip2-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip2-alt="شفافية بدون تأثير على الرؤية">
+                  عازل الحرارة المتطور
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-windshield" aria-controls="panel-windshield" data-panel="windshield"
+                  data-video-src="assets/gallery/videos/video-05.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="حماية الزجاج ضد الترميل"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="وضوح الرؤية بعد الحماية">
+                  فيلم حماية الزجاج
+                </button>
+              </div>
+
+              <!-- Video — full bleed edge to edge -->
+              <div class="service-explorer__frame">
+                <video class="service-explorer__video" controls playsinline preload="metadata"
+                  poster="assets/gallery/services/polish-showcase-1.png"
+                  aria-label="فيديو عازل الحرارة المتطور">
+                  <source src="assets/gallery/videos/video-04.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <!-- Info panels -->
+              <div class="service-explorer__copy">
+
+                <div class="service-explorer__panel is-active" id="panel-tint" role="tabpanel" aria-labelledby="tab-tint" data-explore-panel="tint">
+                  <h4>عازل الحرارة المتطور – نانو فيوجن</h4>
+                  <div class="se-copy-main">
+                    <p>مش بس راحة… دي تجربة قيادة مختلفة تمامًا.</p>
+                    <p>بتقنية نانو فيوجن المتقدمة، العازل الحراري الأقوى بيقلل دخول الحرارة بشكل ملحوظ، ويحجب الأشعة تحت الحمراء (IR) بنسبة 99% والأشعة فوق البنفسجية (UV) بنسبة 99%، مع أداء عزل حراري حوالي 75%.</p>
+                    <p>شفافية عالية بدون تأثير على الرؤية… مع مظهر أنيق وثبات لون طويل المدى بدون بهتان أو تقشير.</p>
+                    <span class="service-explorer__callout">النتيجة؟</span>
+                    <p>راحة أكبر… تكييف أقوى… وحماية مستمرة كل يوم.</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>99%</strong>حجب UV</div>
+                    <div class="se-spec"><strong>99%</strong>حجب IR</div>
+                    <div class="se-spec"><strong>75%</strong>عزل حراري</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-windshield" role="tabpanel" aria-labelledby="tab-windshield" hidden data-explore-panel="windshield">
+                  <h4>فيلم حماية الزجاج من الكسر والترميل</h4>
+                  <div class="se-copy-main">
+                    <p>مش مجرد طبقة شفافة… ده أمان إضافي لسيارتك على الطريق.</p>
+                    <p>بيوفّر حماية قوية ضد الحصى والترميل والصدمات المفاجئة اللي ممكن تسبب تشققات أو كسر في الزجاج. لو حصلت صدمة قوية، الفيلم بيساعد على تثبيت الزجاج ومنع تفتته وانتشاره.</p>
+                    <p>بيقلل من آثار الخدوش الدقيقة مع الاستخدام اليومي، وبيحافظ على وضوح الرؤية بدون تشويش أو تأثير على الإضاءة.</p>
+                    <span class="service-explorer__callout">النتيجة؟</span>
+                    <p>راحة بال أكبر… حماية أعلى… وزجاج يعيش أطول بنفس الجودة والوضوح. 🚗✨</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>ضد</strong>الترميل</div>
+                    <div class="se-spec"><strong>ضد</strong>الكسر</div>
+                    <div class="se-spec"><strong>100%</strong>وضوح</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Thumbnail filmstrip -->
+              <div class="service-explorer__filmstrip" data-se-filmstrip>
+                <img src="assets/gallery/services/polish-showcase-2.png" alt="نتيجة العزل الحراري" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                <img src="assets/gallery/services/polish-showcase-3.png" alt="شفافية الزجاج بعد الحماية" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+              </div>
+
             </div>
           </article>
 

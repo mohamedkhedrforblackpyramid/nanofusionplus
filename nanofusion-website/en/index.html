@@ -265,29 +265,91 @@
             </div>
           </article>
 
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">🌡️</div>
-            <h3>Glass insulation &amp; protection — Nano Fusion</h3>
-            <p class="card-lead">Cabin comfort + protection + better everyday performance.</p>
-
-            <div class="card-marketing-block">
-              <h4>Advanced heat insulation — Nano Fusion</h4>
-              <p>Not just comfort — it’s a noticeably different driving experience.</p>
-              <p>With Nano Fusion advanced film technology, our strongest heat-blocking tint reduces heat ingress, blocks up to <strong>99%</strong> of infrared (IR) and <strong>99%</strong> of ultraviolet (UV), and delivers around <strong>75%</strong> solar heat rejection — helping keep the cabin cooler and protecting you and your vehicle from harsh sun exposure.</p>
-              <p>High optical clarity without compromising visibility… with a refined look and long-term color stability — no yellowing or peeling.</p>
-              <span class="card-callout">The result?</span>
-              <p>More comfort… stronger A/C efficiency… and protection you feel every day.</p>
+                    <article class="card card--spotlight reveal" id="glass-protection-hub">
+            <div class="phub-header">
+              <div class="card-icon" aria-hidden="true">🌡️</div>
+              <h3>Glass insulation &amp; protection — Nano Fusion</h3>
+              <p class="paint-hub__lead">Cabin comfort + protection + better everyday performance.</p>
             </div>
 
-            <hr class="card-marketing-sep" aria-hidden="true">
+            <div class="service-explorer" data-service-explorer>
 
-            <div class="card-marketing-block">
-              <h4>Windshield protection film — chip &amp; impact resistance</h4>
-              <p>Not just a clear layer — it’s added safety where it matters most.</p>
-              <p>It provides strong protection against gravel, sandblast, and sudden impacts that can lead to cracks or glass failure. In a severe impact, the film helps hold the glass together and reduce dangerous shattering — a meaningful safety benefit on the road.</p>
-              <p>It also helps reduce fine scratch marks from daily use while keeping visibility sharp — without haze or distortion.</p>
-              <span class="card-callout">The result?</span>
-              <p>Greater peace of mind… higher protection… and glass that stays clearer for longer. 🚗✨</p>
+              <!-- Tab pills -->
+              <div class="service-explorer__rail" role="tablist" aria-label="Glass protection options">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
+                  id="tab-tint" aria-controls="panel-tint" data-panel="tint"
+                  data-video-src="assets/gallery/videos/video-04.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-1.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-alt="Heat tint result on glass"
+                  data-strip2-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip2-alt="Clarity without visibility impact">
+                  Advanced Heat Insulation
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-windshield" aria-controls="panel-windshield" data-panel="windshield"
+                  data-video-src="assets/gallery/videos/video-05.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="Windshield chip protection"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="Visibility after protection">
+                  Windshield Protection Film
+                </button>
+              </div>
+
+              <!-- Video — full bleed edge to edge -->
+              <div class="service-explorer__frame">
+                <video class="service-explorer__video" controls playsinline preload="metadata"
+                  poster="assets/gallery/services/polish-showcase-1.png"
+                  aria-label="Advanced heat insulation video">
+                  <source src="assets/gallery/videos/video-04.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <!-- Info panels -->
+              <div class="service-explorer__copy">
+
+                <div class="service-explorer__panel is-active" id="panel-tint" role="tabpanel" aria-labelledby="tab-tint" data-explore-panel="tint">
+                  <h4>Advanced heat insulation — Nano Fusion</h4>
+                  <div class="se-copy-main">
+                    <p>Not just comfort — it's a noticeably different driving experience.</p>
+                    <p>With Nano Fusion advanced film technology, our strongest heat-blocking tint reduces heat ingress, blocks up to <strong>99%</strong> of infrared (IR) and <strong>99%</strong> of ultraviolet (UV), and delivers around <strong>75%</strong> solar heat rejection — keeping the cabin cooler and protecting you from harsh sun exposure.</p>
+                    <p>High optical clarity without compromising visibility… with a refined look and long-term color stability — no yellowing or peeling.</p>
+                    <span class="service-explorer__callout">The result?</span>
+                    <p>More comfort… stronger A/C efficiency… and protection you feel every day.</p>
+                  </div>
+                  <div class="se-specs" aria-label="Key specifications">
+                    <div class="se-spec"><strong>99%</strong>UV block</div>
+                    <div class="se-spec"><strong>99%</strong>IR block</div>
+                    <div class="se-spec"><strong>75%</strong>Heat rejection</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-windshield" role="tabpanel" aria-labelledby="tab-windshield" hidden data-explore-panel="windshield">
+                  <h4>Windshield protection film — chip &amp; impact resistance</h4>
+                  <div class="se-copy-main">
+                    <p>Not just a clear layer — it's added safety where it matters most.</p>
+                    <p>It provides strong protection against gravel, sandblast, and sudden impacts that can lead to cracks or glass failure. In a severe impact, the film helps hold the glass together and reduce dangerous shattering.</p>
+                    <p>It also reduces fine scratch marks from daily use while keeping visibility sharp — without haze or distortion.</p>
+                    <span class="service-explorer__callout">The result?</span>
+                    <p>Greater peace of mind… higher protection… and glass that stays clearer for longer. 🚗✨</p>
+                  </div>
+                  <div class="se-specs" aria-label="Key specifications">
+                    <div class="se-spec"><strong>Anti</strong>chip</div>
+                    <div class="se-spec"><strong>Anti</strong>shatter</div>
+                    <div class="se-spec"><strong>100%</strong>clarity</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Thumbnail filmstrip -->
+              <div class="service-explorer__filmstrip" data-se-filmstrip>
+                <img src="assets/gallery/services/polish-showcase-2.png" alt="Heat tint result" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                <img src="assets/gallery/services/polish-showcase-3.png" alt="Glass clarity after protection" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+              </div>
+
             </div>
           </article>
 
