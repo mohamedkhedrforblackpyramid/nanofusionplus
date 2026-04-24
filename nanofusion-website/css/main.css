@@ -1611,6 +1611,60 @@ body.warranty-lightbox-open {
   margin-bottom: 0.35rem;
 }
 
+/* Long-form copy inside #cars service cards */
+.card-lead {
+  color: var(--muted);
+  margin: 0 0 0.85rem;
+  line-height: 1.8;
+  font-size: 0.98rem;
+}
+
+.card-marketing-block {
+  margin-top: 1.05rem;
+}
+
+.card-marketing-block:first-of-type {
+  margin-top: 0.35rem;
+}
+
+.card-marketing-block h4 {
+  margin: 0 0 0.55rem;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.38;
+}
+
+.card-marketing-block p {
+  margin: 0 0 0.55rem;
+  color: var(--muted);
+  line-height: 1.85;
+  font-size: 0.9rem;
+}
+
+.card-marketing-block p:last-child {
+  margin-bottom: 0;
+}
+
+.card-callout {
+  display: inline-block;
+  margin: 0.55rem 0 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(212, 180, 60, 0.1);
+  border: 1px solid rgba(212, 180, 60, 0.22);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #e8dcc0;
+}
+
+.card-marketing-sep {
+  border: 0;
+  height: 1px;
+  margin: 1.15rem 0;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+}
+
 /* ═══════════════════════════════════════════════════
    PAINT PROTECTION HUB — full-bleed video card
 ═══════════════════════════════════════════════════ */
