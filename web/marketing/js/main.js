@@ -372,10 +372,12 @@
           activate(p);
         });
         p.addEventListener("keydown", function (e) {
-          if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+          var isNext = e.key === "ArrowDown" || e.key === "ArrowRight";
+          var isPrev = e.key === "ArrowUp" || e.key === "ArrowLeft";
+          if (!isNext && !isPrev) return;
           e.preventDefault();
           var i = picks.indexOf(p);
-          var next = e.key === "ArrowDown" ? picks[i + 1] : picks[i - 1];
+          var next = isNext ? picks[i + 1] : picks[i - 1];
           if (next) {
             next.focus();
             activate(next);
