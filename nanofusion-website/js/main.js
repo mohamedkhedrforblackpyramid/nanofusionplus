@@ -292,7 +292,6 @@
       var subImg = root.querySelector("[data-se-sub]");
       var strips = root.querySelectorAll("[data-se-filmstrip] [data-se-strip]");
       var panels = Array.prototype.slice.call(root.querySelectorAll("[data-explore-panel]"));
-      var shouldAutoplay = root.hasAttribute("data-se-autoplay");
 
       function pauseVideo() {
         if (video && typeof video.pause === "function") {
@@ -338,16 +337,10 @@
         if (video && vSource && vs) {
           video.removeAttribute("hidden");
           vSource.setAttribute("src", vs);
-          video.setAttribute("poster", shouldAutoplay ? "" : poster);
+          video.setAttribute("poster", poster);
           try {
             video.load();
           } catch (_e2) {}
-          if (shouldAutoplay && typeof video.play === "function") {
-            try {
-              var p = video.play();
-              if (p && typeof p.catch === "function") p.catch(function () {});
-            } catch (_e3) {}
-          }
         }
 
         if (heroImg) {
