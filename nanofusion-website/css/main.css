@@ -155,7 +155,7 @@ img {
 .logo-affiliation {
   margin: 0;
   max-width: min(22rem, 92vw);
-  font-size: 0.72rem;
+  font-size: 0.6rem;
   line-height: 1.35;
   letter-spacing: 0.02em;
   text-align: center;
@@ -172,7 +172,7 @@ img {
   }
   .logo-affiliation {
     max-width: min(19rem, 94vw);
-    font-size: 0.64rem;
+    font-size: 0.54rem;
   }
 }
 
