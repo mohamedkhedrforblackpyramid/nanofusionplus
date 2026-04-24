@@ -433,23 +433,4 @@
       activate(initial);
     });
   })();
-
-  // Intro video: render real first frame at 0:00
-  (function initVideoFirstFrame() {
-    var videos = document.querySelectorAll("video[data-first-frame]");
-    if (!videos.length) return;
-
-    videos.forEach(function (video) {
-      function applyFirstFrame() {
-        // Tiny seek to force frame decode in Safari/Chrome
-        var target = 0.05;
-        try {
-          video.currentTime = target;
-        } catch (_e) {}
-      }
-
-      if (video.readyState >= 1) applyFirstFrame();
-      else video.addEventListener("loadedmetadata", applyFirstFrame, { once: true });
-    });
-  })();
 })();
