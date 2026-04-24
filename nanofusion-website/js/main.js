@@ -341,13 +341,6 @@
           try {
             video.load();
           } catch (_e2) {}
-          // If the video is configured to autoplay, start immediately
-          if (video.hasAttribute("autoplay")) {
-            try {
-              var p = video.play();
-              if (p && typeof p.catch === "function") p.catch(function () {});
-            } catch (_e3) {}
-          }
         }
 
         if (heroImg) {
