@@ -129,6 +129,11 @@ img {
   border-bottom: 1px solid var(--border);
 }
 
+/* Gap after «بعض خدماتنا» cards before «خدمات المباني» */
+#buildings {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
 .header-inner {
   display: flex;
   align-items: center;
