@@ -365,7 +365,7 @@
               <div class="service-explorer__rail" role="tablist" aria-label="Nano ceramic protection options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
                   id="tab-ext-ceramic" aria-controls="panel-ext-ceramic" data-panel="ext-ceramic"
-                  data-video-src="assets/gallery/videos/video-06.mp4"
+                  data-video-src="assets/gallery/videos/video-03.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
                   data-strip1-alt="Paint gloss after ceramic protection"
@@ -375,7 +375,7 @@
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
                   id="tab-int-nano" aria-controls="panel-int-nano" data-panel="int-nano"
-                  data-video-src="assets/gallery/videos/video-07.mp4"
+                  data-video-src="assets/gallery/videos/video-05.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-4.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
                   data-strip1-alt="Interior nano protection"
@@ -390,7 +390,7 @@
                 <video class="service-explorer__video" controls playsinline preload="metadata"
                   poster="assets/gallery/services/polish-showcase-1.png"
                   aria-label="Exterior ceramic paint protection video">
-                  <source src="assets/gallery/videos/video-06.mp4" type="video/mp4">
+                  <source src="assets/gallery/videos/video-03.mp4" type="video/mp4">
                 </video>
               </div>
 
@@ -439,13 +439,93 @@
             </div>
           </article>
 
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">🎨</div>
-            <h3>Styling &amp; customization</h3>
-            <p style="color:var(--muted);margin:0 0 0.75rem;line-height:1.8;">Small changes—big impact.</p>
-            <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
-              <li><strong>Wheel color change (Rubber Paint)</strong> — renew wheel look with removable rubber paint.</li>
-            </ul>
+          <article class="card card--spotlight reveal" id="styling-services-hub">
+            <div class="phub-header">
+              <div class="card-icon" aria-hidden="true">🎨</div>
+              <h3>Styling &amp; customization</h3>
+              <p class="paint-hub__lead">Small details—sporty touch, fresh look.</p>
+            </div>
+
+            <div class="service-explorer" data-service-explorer>
+
+              <div class="service-explorer__rail" role="tablist" aria-label="Styling options">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
+                  id="tab-wheels" aria-controls="panel-wheels" data-panel="wheels"
+                  data-video-src="assets/gallery/videos/video-01.mp4"
+                  data-poster-src="assets/gallery/services/color-change.jpg"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="Sporty wheel finish"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="Professional wheel detailing">
+                  Wheel color change
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-int-ceramic-style" aria-controls="panel-int-ceramic-style" data-panel="int-ceramic-style"
+                  data-video-src="assets/gallery/videos/video-02.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-1.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-alt="Protected interior cabin"
+                  data-strip2-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip2-alt="Leather and dashboard nano care">
+                  Interior protection
+                </button>
+              </div>
+
+              <div class="service-explorer__frame">
+                <video class="service-explorer__video" controls playsinline preload="metadata"
+                  poster="assets/gallery/services/color-change.jpg"
+                  aria-label="Wheel color change video">
+                  <source src="assets/gallery/videos/video-01.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <div class="service-explorer__copy">
+
+                <div class="service-explorer__panel is-active" id="panel-wheels" role="tabpanel" aria-labelledby="tab-wheels" data-explore-panel="wheels">
+                  <h4>Wheel color change — a detail that completes your car&apos;s personality</h4>
+                  <div class="se-copy-main">
+                    <p>Not just a color swap — it redefines your car&apos;s look from the first detail.</p>
+                    <ul class="styling-hub-list">
+                      <li><strong>🎯 Multiple colors</strong> so you can choose sporty, premium, or bold.</li>
+                      <li><strong>🛡️ High-durability coating</strong> resistant to scratches, heat, and frequent washing.</li>
+                      <li><strong>✨ Professional finish</strong> in gloss or matte to match your taste.</li>
+                      <li><strong>🚗 Wheel protection</strong> from wear and harsh conditions over time.</li>
+                      <li><strong>🔄 Fully changeable</strong> anytime without affecting the original finish.</li>
+                    </ul>
+                    <span class="service-explorer__callout">The result?</span>
+                    <p>Wheels that speak your style… and complete your car&apos;s presence on the road.</p>
+                  </div>
+                  <div class="se-specs" aria-label="Key specifications">
+                    <div class="se-spec"><strong>Multi</strong>color</div>
+                    <div class="se-spec"><strong>Rubber</strong>removable</div>
+                    <div class="se-spec"><strong>Gloss</strong>/ matte</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-int-ceramic-style" role="tabpanel" aria-labelledby="tab-int-ceramic-style" hidden data-explore-panel="int-ceramic-style">
+                  <h4>Interior protection — Nano Fusion ceramic</h4>
+                  <div class="se-copy-main">
+                    <p>Not just interior care — it&apos;s a smart protection layer that keeps your cabin feeling brand new.</p>
+                    <p>Advanced ceramic technology forms a protective barrier on interior surfaces, helping protect leather, dashboard, and fabrics from stains, dust, sun, and cracking over time.</p>
+                    <p>It also delivers a surface that resists liquids and fingerprints, so spills and dirt clean up easily without leaving marks.</p>
+                    <span class="service-explorer__callout">The result?</span>
+                    <p>A clean, premium, protected cabin… with that &quot;new car&quot; feeling every day. ✨</p>
+                  </div>
+                  <div class="se-specs" aria-label="Key specifications">
+                    <div class="se-spec"><strong>Nano</strong>ceramic</div>
+                    <div class="se-spec"><strong>Anti</strong>stain</div>
+                    <div class="se-spec"><strong>UV</strong>care</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="service-explorer__filmstrip" data-se-filmstrip>
+                <img src="assets/gallery/services/polish-showcase-4.png" alt="Sporty wheel look" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                <img src="assets/gallery/services/polish-showcase-5.png" alt="Wheel finish detail" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+              </div>
+
+            </div>
           </article>
 
           <article class="card reveal">

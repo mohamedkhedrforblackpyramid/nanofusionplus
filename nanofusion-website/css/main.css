@@ -1665,6 +1665,23 @@ body.warranty-lightbox-open {
   background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
 }
 
+/* Bullet list inside styling hub panels */
+.styling-hub-list {
+  margin: 0.55rem 0 0;
+  padding-inline-start: 1.15rem;
+  color: var(--muted);
+  line-height: 1.85;
+  font-size: 0.88rem;
+}
+
+.styling-hub-list li {
+  margin-bottom: 0.42rem;
+}
+
+.styling-hub-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* ═══════════════════════════════════════════════════
    PAINT PROTECTION HUB — full-bleed video card
 ═══════════════════════════════════════════════════ */
