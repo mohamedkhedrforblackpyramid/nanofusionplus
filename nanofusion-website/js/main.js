@@ -367,6 +367,50 @@
         setStrip(1, btn.getAttribute("data-strip2-src"), btn.getAttribute("data-strip2-alt"));
       }
 
+      // Lightbox for filmstrip images
+      function openLightbox(src, alt) {
+        var lb = document.createElement("div");
+        lb.className = "phub-lightbox";
+        lb.setAttribute("role", "dialog");
+        lb.setAttribute("aria-modal", "true");
+        lb.setAttribute("aria-label", alt || "صورة مكبّرة");
+
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = alt || "";
+        img.className = "phub-lightbox__img";
+
+        var closeBtn = document.createElement("button");
+        closeBtn.className = "phub-lightbox__close";
+        closeBtn.setAttribute("aria-label", "إغلاق");
+        closeBtn.textContent = "×";
+
+        lb.appendChild(img);
+        lb.appendChild(closeBtn);
+        document.body.appendChild(lb);
+        closeBtn.focus();
+
+        function closeLb() {
+          lb.remove();
+          document.removeEventListener("keydown", onKey);
+        }
+        function onKey(e) {
+          if (e.key === "Escape") closeLb();
+        }
+        lb.addEventListener("click", function (e) {
+          if (e.target === lb) closeLb();
+        });
+        closeBtn.addEventListener("click", closeLb);
+        document.addEventListener("keydown", onKey);
+      }
+
+      var filmstripImgs = root.querySelectorAll("[data-se-filmstrip] img");
+      filmstripImgs.forEach(function (img) {
+        img.addEventListener("click", function () {
+          openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
+        });
+      });
+
       picks.forEach(function (p) {
         p.addEventListener("click", function () {
           activate(p);

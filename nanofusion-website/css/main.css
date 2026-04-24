@@ -1630,16 +1630,17 @@ body.warranty-lightbox-open {
 
 /* --- header (icon + title + lead) --- */
 .phub-header {
-  padding: clamp(1.4rem, 3vw, 2rem) clamp(1.4rem, 3vw, 2rem) 0;
+  padding: clamp(1rem, 2.2vw, 1.4rem) clamp(1.1rem, 2.5vw, 1.6rem) 0;
 }
 
 .phub-header .card-icon {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .phub-header h3 {
-  margin: 0 0 0.45rem;
-  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  margin: 0 0 0.3rem;
+  font-size: clamp(0.98rem, 2vw, 1.22rem);
   font-weight: 800;
   line-height: 1.28;
   letter-spacing: -0.01em;
@@ -1648,8 +1649,8 @@ body.warranty-lightbox-open {
 .paint-hub__lead {
   margin: 0;
   color: var(--muted);
-  line-height: 1.8;
-  font-size: 0.92rem;
+  line-height: 1.7;
+  font-size: 0.82rem;
   max-width: 64ch;
 }
 
@@ -1663,24 +1664,24 @@ body.warranty-lightbox-open {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 1.1rem clamp(1.4rem, 3vw, 2rem);
+  gap: 0.4rem;
+  padding: 0.75rem clamp(1.1rem, 2.5vw, 1.6rem);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   background: rgba(255, 255, 255, 0.012);
 }
 
 .service-explorer__pick {
   flex: 0 0 auto;
-  padding: 0.5rem 1.05rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted);
   cursor: pointer;
   font: inherit;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   transition: border-color 0.22s var(--ease), background 0.22s var(--ease), color 0.22s var(--ease);
@@ -1706,7 +1707,7 @@ body.warranty-lightbox-open {
 /* --- video — full bleed edge to edge --- */
 .service-explorer__frame {
   width: 100%;
-  aspect-ratio: 16 / 7.5;
+  aspect-ratio: 16 / 5.5;
   position: relative;
   overflow: hidden;
   background: #000;
@@ -1745,9 +1746,9 @@ body.warranty-lightbox-open {
 .service-explorer__panel.is-active {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 0.65rem 2rem;
+  gap: 0.5rem 1.5rem;
   align-items: start;
-  padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1.4rem, 3vw, 2rem);
+  padding: clamp(0.75rem, 1.8vw, 1.1rem) clamp(1.1rem, 2.5vw, 1.6rem);
   animation: se-fade-in 0.38s var(--ease);
 }
 
@@ -1769,8 +1770,8 @@ body.warranty-lightbox-open {
 
 .service-explorer__panel h4 {
   grid-column: 1 / -1;
-  margin: 0 0 0.5rem;
-  font-size: clamp(0.98rem, 2vw, 1.2rem);
+  margin: 0 0 0.35rem;
+  font-size: clamp(0.88rem, 1.7vw, 1.05rem);
   font-weight: 800;
   color: #f0d060;
   line-height: 1.28;
@@ -1780,23 +1781,23 @@ body.warranty-lightbox-open {
 .se-copy-main { min-width: 0; }
 
 .service-explorer__panel p {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.4rem;
   color: var(--muted);
-  line-height: 1.85;
-  font-size: 0.875rem;
+  line-height: 1.75;
+  font-size: 0.82rem;
 }
 
 .service-explorer__panel p:last-child { margin-bottom: 0; }
 
 .service-explorer__callout {
   display: inline-block;
-  margin: 0.55rem 0 0.3rem;
-  padding: 0.3rem 0.7rem;
+  margin: 0.35rem 0 0.2rem;
+  padding: 0.22rem 0.6rem;
   border-radius: 999px;
   background: rgba(212, 180, 60, 0.12);
   border: 1px solid rgba(212, 180, 60, 0.28);
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: #f0d060;
   letter-spacing: 0.02em;
 }
@@ -1805,9 +1806,9 @@ body.warranty-lightbox-open {
 .se-specs {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  min-width: 110px;
-  padding-block-start: 2.2rem;
+  gap: 0.35rem;
+  min-width: 96px;
+  padding-block-start: 1.8rem;
 }
 
 @media (max-width: 640px) {
@@ -1819,19 +1820,19 @@ body.warranty-lightbox-open {
 }
 
 .se-spec {
-  padding: 0.45rem 0.7rem;
+  padding: 0.35rem 0.55rem;
   border-radius: var(--radius);
   border: 1px solid rgba(212, 180, 60, 0.18);
   background: rgba(212, 180, 60, 0.06);
   text-align: center;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .se-spec strong {
   display: block;
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   color: #f0d060;
   font-weight: 800;
   letter-spacing: 0.01em;
@@ -1840,8 +1841,8 @@ body.warranty-lightbox-open {
 /* thumbnail filmstrip */
 .service-explorer__filmstrip {
   display: flex;
-  gap: 0.5rem;
-  padding: 0.8rem clamp(1.4rem, 3vw, 2rem);
+  gap: 0.45rem;
+  padding: 0.6rem clamp(1.1rem, 2.5vw, 1.6rem);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -1850,18 +1851,71 @@ body.warranty-lightbox-open {
 
 .service-explorer__filmstrip img {
   flex: 0 0 auto;
-  width: clamp(100px, 14vw, 148px);
-  height: 82px;
-  border-radius: 10px;
+  width: clamp(80px, 11vw, 120px);
+  height: 66px;
+  border-radius: 8px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.09);
   opacity: 0.7;
+  cursor: zoom-in;
   transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
 .service-explorer__filmstrip img:hover {
   opacity: 1;
   transform: scale(1.05) translateY(-2px);
+}
+
+/* Lightbox overlay */
+.phub-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  cursor: zoom-out;
+  animation: lb-in 0.2s ease;
+}
+
+@keyframes lb-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.phub-lightbox__img {
+  max-width: min(92vw, 1100px);
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.7);
+  cursor: default;
+}
+
+.phub-lightbox__close {
+  position: fixed;
+  top: 1.1rem;
+  inset-inline-end: 1.1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+  backdrop-filter: blur(4px);
+}
+
+.phub-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 /* Split */
