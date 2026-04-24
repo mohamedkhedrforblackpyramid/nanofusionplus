@@ -1668,6 +1668,22 @@ body.warranty-lightbox-open {
 /* ═══════════════════════════════════════════════════
    PAINT PROTECTION HUB — full-bleed video card
 ═══════════════════════════════════════════════════ */
+
+/* Wrapper that sits full-width in the grid, holds two hubs side by side */
+.hubs-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 860px) {
+  .hubs-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Spotlight card — spans full width when standalone, auto when inside .hubs-row */
 .cards-grid > .card--spotlight {
   grid-column: 1 / -1;
   padding: 0;
@@ -1675,6 +1691,10 @@ body.warranty-lightbox-open {
   border-color: rgba(212, 180, 60, 0.18);
   overflow: hidden;
   cursor: default;
+}
+
+.hubs-row > .card--spotlight {
+  grid-column: auto; /* each hub takes 1 column inside hubs-row */
 }
 
 .cards-grid > .card--spotlight:hover {
