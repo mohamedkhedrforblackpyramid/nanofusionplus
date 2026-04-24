@@ -541,14 +541,85 @@
             </ul>
           </article>
 
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">🔧</div>
-            <h3>الإصلاح والمعالجة</h3>
-            <p style="color:var(--muted);margin:0 0 0.75rem;line-height:1.8;">حلول ذكية بدون إضرار بالدهان.</p>
-            <ul style="margin:0; padding-inline-start:1.1rem; line-height:1.9;">
-              <li><strong>Paintless Dent Repair (PDR)</strong> — شفط الضربات البسيطة بدون بوية.</li>
-              <li><strong>Paint Correction</strong> — معالجة الطلاء وإزالة الخدوش والدوامات واستعادة الجودة.</li>
-            </ul>
+          <article class="card card--spotlight reveal" id="repair-correction-hub">
+            <div class="phub-header">
+              <div class="card-icon" aria-hidden="true">🔧</div>
+              <h3>الإصلاح والمعالجة – نانو فيوجن</h3>
+              <p class="paint-hub__lead">مش مجرد تصليح… دي إعادة إحياء كاملة لسيارتك بأعلى دقة واحترافية.</p>
+              <p class="paint-hub__lead" style="margin-top:0.45rem;font-size:0.86rem;opacity:0.95;">نرجّع سيارتك لأفضل حالاتها بدون ما نلمس جودتها الأصلية.</p>
+            </div>
+
+            <div class="service-explorer" data-service-explorer>
+
+              <div class="service-explorer__rail" role="tablist" aria-label="خيارات الإصلاح والمعالجة">
+                <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
+                  id="tab-repair-pdr" aria-controls="panel-repair-pdr" data-panel="repair-pdr"
+                  data-video-src="assets/gallery/videos/video-02.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-2.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-3.png"
+                  data-strip1-alt="إصلاح خبطة بدون إعادة دهان"
+                  data-strip2-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip2-alt="سطح السيارة بعد PDR">
+                  إصلاح بدون دهان (PDR)
+                </button>
+                <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
+                  id="tab-repair-correction" aria-controls="panel-repair-correction" data-panel="repair-correction"
+                  data-video-src="assets/gallery/videos/video-03.mp4"
+                  data-poster-src="assets/gallery/services/polish-showcase-1.png"
+                  data-strip1-src="assets/gallery/services/polish-showcase-4.png"
+                  data-strip1-alt="معالجة الطلاء واستعادة اللمعان"
+                  data-strip2-src="assets/gallery/services/polish-showcase-5.png"
+                  data-strip2-alt="تشطيب احترافي للطلاء">
+                  معالجة الطلاء والعيوب
+                </button>
+              </div>
+
+              <div class="service-explorer__frame">
+                <video class="service-explorer__video" controls playsinline preload="metadata"
+                  poster="assets/gallery/services/polish-showcase-2.png"
+                  aria-label="فيديو إصلاح الصدمات بدون دهان">
+                  <source src="assets/gallery/videos/video-02.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <div class="service-explorer__copy">
+
+                <div class="service-explorer__panel is-active" id="panel-repair-pdr" role="tabpanel" aria-labelledby="tab-repair-pdr" data-explore-panel="repair-pdr">
+                  <h4>🚗 إصلاح الصدمات بدون دهان (PDR)</h4>
+                  <div class="se-copy-main">
+                    <p>تقنية متقدمة لإزالة الخبطات والصدمات البسيطة بدقة ميكروسكوبية، من غير أي إعادة دهان ومن غير ما تأثر على الطلاء الأصلي… وكأن الضرر ما حصلش من الأساس.</p>
+                    <span class="service-explorer__callout">النتيجة؟</span>
+                    <p>سيارة شكلها متجدد… طلاءها نقي… وحالتها أقرب للجديد بدون تغيير الأصل. 🚗🔥</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>0</strong>بوية</div>
+                    <div class="se-spec"><strong>100%</strong>أصلي</div>
+                    <div class="se-spec"><strong>PDR</strong>دقة</div>
+                  </div>
+                </div>
+
+                <div class="service-explorer__panel" id="panel-repair-correction" role="tabpanel" aria-labelledby="tab-repair-correction" hidden data-explore-panel="repair-correction">
+                  <h4>✨ معالجة الطلاء وإزالة العيوب</h4>
+                  <div class="se-copy-main">
+                    <p>إزالة الخدوش السطحية، آثار الدوران، والعيوب الدقيقة في الطلاء، واستعادة العمق واللمعان الأصلي للسيارة بتشطيب احترافي عالي الجودة.</p>
+                    <span class="service-explorer__callout">النتيجة؟</span>
+                    <p>سيارة شكلها متجدد… طلاءها نقي… وحالتها أقرب للجديد بدون تغيير الأصل. 🚗🔥</p>
+                  </div>
+                  <div class="se-specs" aria-label="مواصفات رئيسية">
+                    <div class="se-spec"><strong>لمعان</strong>عميق</div>
+                    <div class="se-spec"><strong>احترافي</strong>تشطيب</div>
+                    <div class="se-spec"><strong>UV</strong>نقاء</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="service-explorer__filmstrip" data-se-filmstrip>
+                <img src="assets/gallery/services/polish-showcase-3.png" alt="PDR قبل وبعد" width="600" height="450" loading="lazy" decoding="async" data-se-strip="0">
+                <img src="assets/gallery/services/polish-showcase-4.png" alt="معالجة الطلاء" width="600" height="450" loading="lazy" decoding="async" data-se-strip="1">
+              </div>
+
+            </div>
           </article>
 
           <article class="card reveal">
