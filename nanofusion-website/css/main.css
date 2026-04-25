@@ -1631,16 +1631,16 @@ section {
 }
 
 .service-explorer__pick:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  border-color: rgba(212, 180, 60, 0.5);
+  background: rgba(212, 180, 60, 0.08);
+  color: var(--text);
 }
 
 .service-explorer__pick.is-active {
-  border-color: rgba(255, 255, 255, 0.42);
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  border-color: rgba(212, 180, 60, 0.75);
+  background: rgba(212, 180, 60, 0.13);
+  color: #f0d060;
+  box-shadow: 0 0 12px rgba(212, 180, 60, 0.15);
 }
 
 .service-explorer__pick-hint {
