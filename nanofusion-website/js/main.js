@@ -46,16 +46,24 @@
     else body.setAttribute("data-view", view);
     syncNavActive(view);
 
+    // Always reset scroll position when navigating via the top bar.
+    // Using "auto" avoids mid-scroll states and ensures the view starts at the top.
+    try {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
+    } catch (_e0) {}
+
     // For nested sections (warranty/faq/tips), scroll to sub-element after paint
     if (scrollTargetId) {
       requestAnimationFrame(function () {
         var el = document.getElementById(scrollTargetId);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-        else window.scrollTo({ top: 0, behavior: "smooth" });
+        if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
+        else window.scrollTo({ top: 0, behavior: "auto" });
       });
     } else {
       try {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "auto" });
       } catch (_e) {
         window.scrollTo(0, 0);
       }
@@ -78,8 +86,9 @@
     history.pushState({ view: view }, "", url.toString());
   }
 
-  // Sections nested inside a parent view need scrolling to sub-element
-  const NEEDS_SCROLL = { warranty: true, faq: true, tips: true };
+  // Nested views (warranty/faq/tips) are rendered inside #window-film,
+  // but we always want to land at the top of the view (not mid-page).
+  const NEEDS_SCROLL = {};
 
   function goToSection(id) {
     const view = VIEW_BY_ID[id] || "home";
@@ -92,7 +101,7 @@
   (function () {
     const initView = parseInitialView();
     const initHash = (window.location.hash || "").replace(/^#/, "");
-    const scrollTarget = NEEDS_SCROLL[initView] ? initHash || null : null;
+    const scrollTarget = null;
     setView(initView, scrollTarget);
   })();
 
