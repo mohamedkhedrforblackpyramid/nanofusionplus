@@ -91,7 +91,17 @@
   const NEEDS_SCROLL = {};
 
   function goToSection(id) {
-    const view = VIEW_BY_ID[id] || "home";
+    const mappedView = VIEW_BY_ID[id];
+    const el = id ? document.getElementById(id) : null;
+    // If the hash points to an element that is NOT a view root (e.g. footer anchors),
+    // keep the current page as home and scroll to that element.
+    if (!mappedView && el) {
+      setView("home", id);
+      updateUrlForView("home", id);
+      return;
+    }
+
+    const view = mappedView || "home";
     const scrollTarget = NEEDS_SCROLL[view] ? id : null;
     setView(view, scrollTarget);
     updateUrlForView(view, id);

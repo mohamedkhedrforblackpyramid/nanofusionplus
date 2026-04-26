@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110" width="200" height="110">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#006633"/>
+      <stop offset="100%" stop-color="#004422"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="110" fill="url(#g)" rx="10"/>
+  <rect x="0" y="0" width="200" height="5" fill="rgba(255,255,255,0.18)" rx="3"/>
+  <circle cx="100" cy="22" r="10" fill="rgba(255,255,255,0.15)"/>
+  <text x="100" y="60" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" fill="#FFD700" text-anchor="middle">جامعة</text>
+<text x="100" y="94" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" fill="#FFD700" text-anchor="middle">الإمام</text>
+
+</svg>
