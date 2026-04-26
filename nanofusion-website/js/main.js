@@ -4,6 +4,98 @@
   const nav = document.querySelector(".nav-primary");
   const backdrop = document.getElementById("nav-backdrop");
 
+  // ── Smart views router (turn sections into "pages") ──
+  const VIEW_BY_ID = {
+    hero: "home",
+    video: "video",
+    cars: "cars",
+    buildings: "buildings",
+    "window-film": "window-film",
+    "warranty-card": "warranty",
+    "window-film-faq": "faq",
+    "tips-care": "tips",
+    about: "about",
+    offers: "offers",
+    pricing: "pricing",
+    gallery: "gallery",
+    contact: "contact",
+  };
+
+  function syncNavActive(view) {
+    if (!nav) return;
+    // Mark the exact clicked view as active (even if content is nested under another section)
+    const wanted = view || "home";
+    nav.querySelectorAll("a").forEach(function (a) {
+      const href = a.getAttribute("href") || "";
+      const m = href.match(/[?&]view=([^&#]+)/);
+      const v = m ? decodeURIComponent(m[1]) : "";
+      if (v && v === wanted) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+
+    // Highlight dropdown root buttons too (cars/buildings)
+    nav.querySelectorAll(".nav-dropdown > button[data-nav-go]").forEach(function (btn) {
+      const go = btn.getAttribute("data-nav-go");
+      if (go && go === wanted) btn.setAttribute("aria-current", "page");
+      else btn.removeAttribute("aria-current");
+    });
+  }
+
+  function setView(view, scrollTargetId) {
+    if (!view || view === "home") body.setAttribute("data-view", "home");
+    else body.setAttribute("data-view", view);
+    syncNavActive(view);
+
+    // For nested sections (warranty/faq/tips), scroll to sub-element after paint
+    if (scrollTargetId) {
+      requestAnimationFrame(function () {
+        var el = document.getElementById(scrollTargetId);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    } else {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (_e) {
+        window.scrollTo(0, 0);
+      }
+    }
+  }
+
+  function parseInitialView() {
+    const params = new URLSearchParams(window.location.search);
+    const v = (params.get("view") || "").trim().toLowerCase();
+    if (v) return v;
+    const hash = (window.location.hash || "").replace(/^#/, "");
+    if (hash && VIEW_BY_ID[hash]) return VIEW_BY_ID[hash];
+    return "home";
+  }
+
+  function updateUrlForView(view, idForHash) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("view", view);
+    if (idForHash) url.hash = "#" + idForHash;
+    history.pushState({ view: view }, "", url.toString());
+  }
+
+  // Sections nested inside a parent view need scrolling to sub-element
+  const NEEDS_SCROLL = { warranty: true, faq: true, tips: true };
+
+  function goToSection(id) {
+    const view = VIEW_BY_ID[id] || "home";
+    const scrollTarget = NEEDS_SCROLL[view] ? id : null;
+    setView(view, scrollTarget);
+    updateUrlForView(view, id);
+  }
+
+  // Init view on load — handle nested scroll targets too
+  (function () {
+    const initView = parseInitialView();
+    const initHash = (window.location.hash || "").replace(/^#/, "");
+    const scrollTarget = NEEDS_SCROLL[initView] ? initHash || null : null;
+    setView(initView, scrollTarget);
+  })();
+
   function closeNav() {
     body.classList.remove("nav-open");
     if (toggle) toggle.setAttribute("aria-expanded", "false");
@@ -17,10 +109,47 @@
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function (e) {
+        const href = link.getAttribute("href") || "";
+        // Smart router: support both hash links and ?view= links (no full reload)
+        const hashOnly = href.match(/^#(.+)/);
+        if (hashOnly && hashOnly[1]) {
+          e.preventDefault();
+          goToSection(hashOnly[1]);
+        } else if (href.indexOf("view=") !== -1) {
+          const viewMatch = href.match(/[?&]view=([^&#]+)/);
+          const view = viewMatch ? decodeURIComponent(viewMatch[1]) : "home";
+          const hash = href.split("#")[1] || "";
+          const scrollTarget = NEEDS_SCROLL[view] ? (hash || null) : null;
+          e.preventDefault();
+          setView(view, scrollTarget);
+          updateUrlForView(view, hash || null);
+        }
         if (window.matchMedia("(max-width: 960px)").matches) {
           closeNav();
         }
+      });
+    });
+
+    // Dropdown main buttons: click navigates to cars/buildings.
+    // Chevron click opens/closes the panel (useful on mobile).
+    nav.querySelectorAll(".nav-dropdown > button[data-nav-go]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        const go = btn.getAttribute("data-nav-go");
+        const isChevron = e.target && e.target.classList && e.target.classList.contains("nav-dropdown__chev");
+        if (isChevron) {
+          e.preventDefault();
+          btn.parentElement.classList.toggle("is-open");
+          return;
+        }
+        if (go === "cars") {
+          e.preventDefault();
+          goToSection("cars");
+        } else if (go === "buildings") {
+          e.preventDefault();
+          goToSection("buildings");
+        }
+        if (window.matchMedia("(max-width: 960px)").matches) closeNav();
       });
     });
   }
@@ -38,6 +167,10 @@
     },
     { passive: true }
   );
+
+  window.addEventListener("popstate", function () {
+    setView(parseInitialView());
+  });
 
   const year = document.getElementById("year");
 

@@ -246,24 +246,54 @@ img {
 .nav-primary {
   display: flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.2rem;
   position: relative;
   z-index: 200;
+  padding: 0.2rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-primary a {
+  position: relative;
   padding: 0.5rem 0.85rem;
   border-radius: 10px;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
 .nav-primary a:hover,
 .nav-primary a[aria-current="page"] {
   color: var(--text);
-  background: var(--accent-soft);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.nav-primary a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.65rem;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #4d86f5, transparent);
+  opacity: 0.85;
+}
+
+.nav-dropdown > button[aria-current="page"] {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.nav-dropdown > button[aria-current="page"] .nav-dropdown__chev {
+  opacity: 0.95;
 }
 
 .nav-dropdown {
@@ -281,11 +311,14 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  font-weight: 600;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
 .nav-dropdown > button:hover {
   color: var(--text);
-  background: var(--accent-soft);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
 }
 
 .nav-dropdown-panel {
@@ -294,14 +327,14 @@ img {
   top: calc(100% + 6px);
   min-width: 260px;
   padding: 0.5rem;
-  background: var(--surface-2);
-  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, rgba(43, 43, 43, 0.98), rgba(30, 30, 33, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: var(--radius);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s;
+  transform: translateY(-8px) scale(0.98);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
   z-index: 300;
 }
 
@@ -309,7 +342,7 @@ img {
 .nav-dropdown:focus-within .nav-dropdown-panel {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .nav-dropdown-panel a {
@@ -318,11 +351,13 @@ img {
   border-radius: 8px;
   color: var(--muted);
   font-size: 0.9rem;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease), transform 0.18s var(--ease);
 }
 
 .nav-dropdown-panel a:hover {
-  background: var(--accent-soft);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--text);
+  transform: translateX(-2px);
 }
 
 .menu-toggle {
@@ -402,15 +437,26 @@ img {
 
   .nav-dropdown-panel {
     position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
     box-shadow: none;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
     margin-top: 0.35rem;
     margin-inline: 0.5rem;
+
+    /* collapsed by default; open via chevron */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    transition: max-height 0.22s var(--ease), opacity 0.22s var(--ease), visibility 0.22s;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown-panel {
+    max-height: 520px;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-dropdown-panel a {
@@ -466,6 +512,95 @@ body.nav-open .nav-backdrop {
 /* ══════════════════════════════════════════════
    SECTION LAYOUT SYSTEM — professional rhythm
 ══════════════════════════════════════════════ */
+
+/* ── Smart views (turn long scroll into pages) ──
+   Only hides DIRECT section children of main (preserves nested sections). */
+body[data-view] main > section {
+  display: none;
+}
+
+/* Home shows hero + video + projects + contact */
+body[data-view="home"] #hero,
+body[data-view="home"] #video,
+body[data-view="home"] #offers,
+body[data-view="home"] #contact {
+  display: block;
+}
+
+/* All standalone page-views */
+body[data-view="cars"]        #cars        { display: block; }
+body[data-view="buildings"]   #buildings   { display: block; }
+body[data-view="window-film"] #window-film { display: block; }
+body[data-view="about"]       #about       { display: block; }
+body[data-view="offers"]      #offers      { display: block; }
+body[data-view="pricing"]     #pricing     { display: block; }
+body[data-view="gallery"]     #gallery     { display: block; }
+body[data-view="contact"]     #contact     { display: block; }
+body[data-view="video"]       #video       { display: block; }
+
+/* warranty / faq / tips are NESTED inside #window-film — show the parent */
+body[data-view="warranty"] #window-film,
+body[data-view="faq"]      #window-film,
+body[data-view="tips"]     #window-film { display: block; }
+
+/* Split nested content inside Window Film */
+body[data-view="window-film"] #warranty-card,
+body[data-view="window-film"] #window-film-faq,
+body[data-view="window-film"] #tips-care {
+  display: none !important;
+}
+
+body[data-view="warranty"] #window-film-faq,
+body[data-view="warranty"] #tips-care {
+  display: none !important;
+}
+
+/* In warranty view, hide Window Film content and show warranty only */
+body[data-view="warranty"] #window-film > .container > :not(.window-film-extras) {
+  display: none !important;
+}
+
+body[data-view="warranty"] #window-film .window-film-extras > :not(#warranty-card) {
+  display: none !important;
+}
+
+/* In FAQ view, show FAQ only */
+body[data-view="faq"] #window-film > .container > :not(.window-film-extras) {
+  display: none !important;
+}
+
+body[data-view="faq"] #window-film .window-film-extras > :not(#window-film-faq) {
+  display: none !important;
+}
+
+/* In Tips view, show tips only */
+body[data-view="tips"] #window-film > .container > :not(.window-film-extras) {
+  display: none !important;
+}
+
+body[data-view="tips"] #window-film .window-film-extras > :not(#tips-care) {
+  display: none !important;
+}
+
+body[data-view="faq"] #warranty-card,
+body[data-view="faq"] #tips-care {
+  display: none !important;
+}
+
+body[data-view="tips"] #warranty-card,
+body[data-view="tips"] #window-film-faq {
+  display: none !important;
+}
+
+/* Smooth page-like transition */
+body[data-view] main > section {
+  animation: view-in 0.35s var(--ease);
+}
+
+@keyframes view-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* Consistent padding on every section */
 main > section {

@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="ar" href="index.html">
   <link rel="alternate" hreflang="en" href="en/index.html">
 </head>
-<body>
+<body data-view="home">
   <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
   <button type="button" class="nav-backdrop" id="nav-backdrop" aria-label="إغلاق القائمة"></button>
 
@@ -53,38 +53,38 @@
   </header>
 
   <nav class="nav-primary" id="primary-nav" aria-label="القائمة الرئيسية">
-    <a href="#hero" aria-current="page">الرئيسية</a>
-    <a href="#offers">العروض</a>
-    <a href="#pricing">الأسعار</a>
-    <a href="#gallery">معرض الصور</a>
-    <a href="#video">فيديو</a>
-    <a href="#about">من نحن</a>
-    <a href="#window-film">أفلام النوافذ</a>
-    <a href="#warranty-card">كارت الضمان</a>
-    <a href="#window-film-faq">الأسئلة الشائعة</a>
+    <a href="?view=home#hero" aria-current="page">الرئيسية</a>
+    <a href="?view=offers#offers">العروض</a>
+    <a href="?view=pricing#pricing">الأسعار</a>
+    <a href="?view=gallery#gallery">معرض الصور</a>
+    <a href="?view=video#video">فيديو</a>
+    <a href="?view=about#about">من نحن</a>
+    <a href="?view=window-film#window-film">أفلام النوافذ</a>
+    <a href="?view=warranty#warranty-card">كارت الضمان</a>
+    <a href="?view=faq#window-film-faq">الأسئلة الشائعة</a>
     <div class="nav-dropdown">
-      <button type="button">خدمات السيارات <span aria-hidden="true">▼</span></button>
+      <button type="button" data-nav-go="cars">خدمات السيارات <span class="nav-dropdown__chev" aria-hidden="true">▼</span></button>
       <div class="nav-dropdown-panel" role="menu">
-        <a href="#cars" role="menuitem">فلم حماية الزجاج</a>
-        <a href="#cars" role="menuitem">رقائق السيراميك لعزل الزجاج</a>
-        <a href="#cars" role="menuitem">أفلام نانو سيراميك الشفافة</a>
-        <a href="#cars" role="menuitem">الحماية من الصدأ</a>
-        <a href="#cars" role="menuitem">حماية داخلية مخملية وجلد</a>
-        <a href="#cars" role="menuitem">تلميع داخلي وخارجي</a>
-        <a href="#cars" role="menuitem">تنجيد داخلي</a>
+        <a href="?view=cars#cars" role="menuitem">فلم حماية الزجاج</a>
+        <a href="?view=cars#cars" role="menuitem">رقائق السيراميك لعزل الزجاج</a>
+        <a href="?view=cars#cars" role="menuitem">أفلام نانو سيراميك الشفافة</a>
+        <a href="?view=cars#cars" role="menuitem">الحماية من الصدأ</a>
+        <a href="?view=cars#cars" role="menuitem">حماية داخلية مخملية وجلد</a>
+        <a href="?view=cars#cars" role="menuitem">تلميع داخلي وخارجي</a>
+        <a href="?view=cars#cars" role="menuitem">تنجيد داخلي</a>
       </div>
     </div>
     <div class="nav-dropdown">
-      <button type="button">خدمات المباني <span aria-hidden="true">▼</span></button>
+      <button type="button" data-nav-go="buildings">خدمات المباني <span class="nav-dropdown__chev" aria-hidden="true">▼</span></button>
       <div class="nav-dropdown-panel" role="menu">
-        <a href="#buildings" role="menuitem">أفلام النانو للنوافذ</a>
-        <a href="#buildings" role="menuitem">فلم سوبر ألوي للنوافذ</a>
-        <a href="#buildings" role="menuitem">فلم نانو فيوجن للنوافذ</a>
-        <a href="#buildings" role="menuitem">فلم أشعة الشمس</a>
+        <a href="?view=buildings#buildings" role="menuitem">أفلام النانو للنوافذ</a>
+        <a href="?view=buildings#buildings" role="menuitem">فلم سوبر ألوي للنوافذ</a>
+        <a href="?view=buildings#buildings" role="menuitem">فلم نانو فيوجن للنوافذ</a>
+        <a href="?view=buildings#buildings" role="menuitem">فلم أشعة الشمس</a>
       </div>
     </div>
-    <a href="#tips-care">نصائح وإرشادات</a>
-    <a href="#contact">اتصل بنا</a>
+    <a href="?view=tips#tips-care">نصائح وإرشادات</a>
+    <a href="?view=contact#contact">اتصل بنا</a>
     <a href="#privacy-policy">سياسة الخصوصية</a>
   </nav>
 
@@ -96,8 +96,8 @@
           <h1>نانو فيوجن… تجربة تتجاوز الحماية إلى الفخامة</h1>
           <p class="hero-lead">شاهد كيف نحول سيارتك إلى تحفة محمية بأحدث تقنيات النانوفيوجن المعالجة ذاتيا بالسيلف هيلنج بأداء يفوق التوقعات ولمسة تعكس أسلوبك الخاص.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">احجز موعداً</a>
-            <a class="btn btn-ghost" href="#cars">استكشف خدمات السيارات</a>
+            <a class="btn btn-primary" href="?view=contact#contact">احجز موعداً</a>
+            <a class="btn btn-ghost" href="?view=cars#cars">استكشف خدمات السيارات</a>
           </div>
         </div>
         <div class="hero-visual reveal" aria-hidden="true">
@@ -857,7 +857,7 @@
             </div>
           </div>
           <div class="steps-actions">
-            <a class="btn btn-primary" href="#contact">اطلب عرض سعر</a>
+            <a class="btn btn-primary" href="?view=contact#contact">اطلب عرض سعر</a>
             <a class="btn btn-ghost" href="https://wa.me/966555002813" target="_blank" rel="noopener" dir="ltr">واتساب</a>
           </div>
         </div>
@@ -880,7 +880,7 @@
                   <li><strong>العناية والصيانة</strong> طريقة تنظيف صحيحة بمواد غير كاشطة للحفاظ على الجودة.</li>
                 </ul>
                 <div class="warranty-actions">
-                  <a class="btn btn-primary" href="#contact">استشارة مجانية</a>
+                  <a class="btn btn-primary" href="?view=contact#contact">استشارة مجانية</a>
                   <a class="btn btn-ghost" href="tel:+966553332824" dir="ltr">اتصل الآن</a>
                   <a class="btn btn-ghost warranty-download" href="assets/gallery/warranty/warranty-ar.png" download>تحميل الكارت</a>
                 </div>
@@ -1130,7 +1130,7 @@
               <h4 style="margin:0 0 0.35rem;">📞 احجز الآن</h4>
               <p style="margin:0;color:var(--muted);line-height:1.8;">لا تنتظر حتى تتعرض سيارتك للخدوش أو التلف. احمِ استثمارك اليوم مع Nano Fusion. تواصل معنا الآن واحصل على استشارة مجانية.</p>
               <div style="margin-top:0.75rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
-                <a class="btn btn-primary" href="#contact">استشارة مجانية</a>
+                <a class="btn btn-primary" href="?view=contact#contact">استشارة مجانية</a>
                 <a class="btn btn-ghost" href="tel:+966553332824" dir="ltr">0553332824</a>
               </div>
             </div>
@@ -1751,25 +1751,25 @@
         <div class="footer-links">
           <h4>روابط سريعة</h4>
           <ul>
-            <li><a href="#hero">الرئيسية</a></li>
-            <li><a href="#about">من نحن</a>
-        <a href="#window-film">أفلام النوافذ</a>
-        <a href="#window-film-faq">الأسئلة الشائعة</a></li>
-            <li><a href="#cars">خدمات السيارات</a></li>
-            <li><a href="#buildings">خدمات المباني</a></li>
-            <li><a href="#gallery">معرض الصور</a></li>
-            <li><a href="#video">فيديو</a></li>
-            <li><a href="#contact">اتصل بنا</a></li>
+            <li><a href="?view=home#hero">الرئيسية</a></li>
+            <li><a href="?view=about#about">من نحن</a>
+        <a href="?view=window-film#window-film">أفلام النوافذ</a>
+        <a href="?view=faq#window-film-faq">الأسئلة الشائعة</a></li>
+            <li><a href="?view=cars#cars">خدمات السيارات</a></li>
+            <li><a href="?view=buildings#buildings">خدمات المباني</a></li>
+            <li><a href="?view=gallery#gallery">معرض الصور</a></li>
+            <li><a href="?view=video#video">فيديو</a></li>
+            <li><a href="?view=contact#contact">اتصل بنا</a></li>
             <li><a href="#privacy-policy">سياسة الخصوصية</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>خدماتنا</h4>
           <ul>
-            <li><a href="#cars">تركيب أفلام الحماية الذاتية الإصلاح</a></li>
-            <li><a href="#cars">تظليل عزل حراري نانو سيراميك</a></li>
-            <li><a href="#cars">تلميع خارجي وداخلي</a></li>
-            <li><a href="#buildings">أفلام المباني والنوافذ</a></li>
+            <li><a href="?view=cars#cars">تركيب أفلام الحماية الذاتية الإصلاح</a></li>
+            <li><a href="?view=cars#cars">تظليل عزل حراري نانو سيراميك</a></li>
+            <li><a href="?view=cars#cars">تلميع خارجي وداخلي</a></li>
+            <li><a href="?view=buildings#buildings">أفلام المباني والنوافذ</a></li>
           </ul>
         </div>
       </div>

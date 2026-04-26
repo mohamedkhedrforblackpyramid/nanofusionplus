@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="ar" href="../index.html">
   <link rel="alternate" hreflang="en" href="index.html">
 </head>
-<body>
+<body data-view="home">
   <a class="skip-link" href="#main">Skip to content</a>
   <button type="button" class="nav-backdrop" id="nav-backdrop" aria-label="Close menu"></button>
 
@@ -53,38 +53,38 @@
   </header>
 
   <nav class="nav-primary" id="primary-nav" aria-label="Primary">
-    <a href="#hero" aria-current="page">Home</a>
-    <a href="#offers">Offers</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#video">Video</a>
-    <a href="#about">About</a>
-    <a href="#window-film">Window films</a>
-    <a href="#warranty-card">Warranty card</a>
-    <a href="#window-film-faq">FAQ</a>
+    <a href="?view=home#hero" aria-current="page">Home</a>
+    <a href="?view=offers#offers">Offers</a>
+    <a href="?view=pricing#pricing">Pricing</a>
+    <a href="?view=gallery#gallery">Gallery</a>
+    <a href="?view=video#video">Video</a>
+    <a href="?view=about#about">About</a>
+    <a href="?view=window-film#window-film">Window films</a>
+    <a href="?view=warranty#warranty-card">Warranty card</a>
+    <a href="?view=faq#window-film-faq">FAQ</a>
     <div class="nav-dropdown">
-      <button type="button">Car services <span aria-hidden="true">▼</span></button>
+      <button type="button" data-nav-go="cars">Car services <span class="nav-dropdown__chev" aria-hidden="true">▼</span></button>
       <div class="nav-dropdown-panel" role="menu">
-        <a href="#cars" role="menuitem">Glass protection film</a>
-        <a href="#cars" role="menuitem">Ceramic glass coating</a>
-        <a href="#cars" role="menuitem">Clear nano-ceramic films</a>
-        <a href="#cars" role="menuitem">Anti-corrosion protection</a>
-        <a href="#cars" role="menuitem">Velvet &amp; leather interior protection</a>
-        <a href="#cars" role="menuitem">Interior &amp; exterior detailing</a>
-        <a href="#cars" role="menuitem">Interior upholstery</a>
+        <a href="?view=cars#cars" role="menuitem">Glass protection film</a>
+        <a href="?view=cars#cars" role="menuitem">Ceramic glass coating</a>
+        <a href="?view=cars#cars" role="menuitem">Clear nano-ceramic films</a>
+        <a href="?view=cars#cars" role="menuitem">Anti-corrosion protection</a>
+        <a href="?view=cars#cars" role="menuitem">Velvet &amp; leather interior protection</a>
+        <a href="?view=cars#cars" role="menuitem">Interior &amp; exterior detailing</a>
+        <a href="?view=cars#cars" role="menuitem">Interior upholstery</a>
       </div>
     </div>
     <div class="nav-dropdown">
-      <button type="button">Building services <span aria-hidden="true">▼</span></button>
+      <button type="button" data-nav-go="buildings">Building services <span class="nav-dropdown__chev" aria-hidden="true">▼</span></button>
       <div class="nav-dropdown-panel" role="menu">
-        <a href="#buildings" role="menuitem">Nano Fusion window films</a>
-        <a href="#buildings" role="menuitem">Nano Fusion Plus window film</a>
-        <a href="#buildings" role="menuitem">Nano Fusion window film</a>
-        <a href="#buildings" role="menuitem">Solar control film</a>
+        <a href="?view=buildings#buildings" role="menuitem">Nano Fusion window films</a>
+        <a href="?view=buildings#buildings" role="menuitem">Nano Fusion Plus window film</a>
+        <a href="?view=buildings#buildings" role="menuitem">Nano Fusion window film</a>
+        <a href="?view=buildings#buildings" role="menuitem">Solar control film</a>
       </div>
     </div>
-    <a href="#tips-care">Tips &amp; Care Guide</a>
-    <a href="#contact">Contact</a>
+    <a href="?view=tips#tips-care">Tips &amp; Care Guide</a>
+    <a href="?view=contact#contact">Contact</a>
     <a href="#privacy-policy">Privacy</a>
   </nav>
 
@@ -96,8 +96,8 @@
           <h1>Nano Fusion — an experience beyond protection, into luxury</h1>
           <p class="hero-lead">See how we transform your car into a protected masterpiece with the latest Nano Fusion self‑healing technologies—performance beyond expectations and a finish that reflects your personal style.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Book an appointment</a>
-            <a class="btn btn-ghost" href="#cars">Explore car services</a>
+            <a class="btn btn-primary" href="?view=contact#contact">Book an appointment</a>
+            <a class="btn btn-ghost" href="?view=cars#cars">Explore car services</a>
           </div>
         </div>
         <div class="hero-visual reveal" aria-hidden="true">
@@ -857,7 +857,7 @@
             </div>
           </div>
           <div class="steps-actions">
-            <a class="btn btn-primary" href="#contact">Get a quote</a>
+            <a class="btn btn-primary" href="?view=contact#contact">Get a quote</a>
             <a class="btn btn-ghost" href="https://wa.me/966555002813" target="_blank" rel="noopener" dir="ltr">WhatsApp</a>
           </div>
         </div>
@@ -880,7 +880,7 @@
                   <li><strong>Care &amp; maintenance</strong> non-abrasive cleaning rules to preserve quality.</li>
                 </ul>
                 <div class="warranty-actions">
-                  <a class="btn btn-primary" href="#contact">Free consultation</a>
+                  <a class="btn btn-primary" href="?view=contact#contact">Free consultation</a>
                   <a class="btn btn-ghost" href="tel:+966553332824" dir="ltr">Call now</a>
                   <a class="btn btn-ghost warranty-download" href="../assets/gallery/warranty/warranty-en.png" download>Download card</a>
                 </div>
@@ -1144,7 +1144,7 @@
               <h4 style="margin:0 0 0.35rem;">📞 Book now</h4>
               <p style="margin:0;color:var(--muted);line-height:1.8;">Don’t wait for scratches or damage—protect your investment today with Nano Fusion. Contact us now for a free consultation.</p>
               <div style="margin-top:0.75rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
-                <a class="btn btn-primary" href="#contact">Free consultation</a>
+                <a class="btn btn-primary" href="?view=contact#contact">Free consultation</a>
                 <a class="btn btn-ghost" href="tel:+966553332824" dir="ltr">0553332824</a>
               </div>
             </div>
@@ -1722,25 +1722,25 @@
         <div class="footer-links">
           <h4>Quick links</h4>
           <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a>
-        <a href="#window-film">Window films</a>
-        <a href="#window-film-faq">FAQ</a></li>
-            <li><a href="#cars">Car services</a></li>
-            <li><a href="#buildings">Building services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#video">Video</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="?view=home#hero">Home</a></li>
+            <li><a href="?view=about#about">About</a>
+        <a href="?view=window-film#window-film">Window films</a>
+        <a href="?view=faq#window-film-faq">FAQ</a></li>
+            <li><a href="?view=cars#cars">Car services</a></li>
+            <li><a href="?view=buildings#buildings">Building services</a></li>
+            <li><a href="?view=gallery#gallery">Gallery</a></li>
+            <li><a href="?view=video#video">Video</a></li>
+            <li><a href="?view=contact#contact">Contact</a></li>
             <li><a href="#privacy-policy">Privacy</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>Services</h4>
           <ul>
-            <li><a href="#cars">Self-healing protection film installation</a></li>
-            <li><a href="#cars">Nano-ceramic heat-rejecting tint</a></li>
-            <li><a href="#cars">Exterior &amp; interior detailing</a></li>
-            <li><a href="#buildings">Building &amp; window films</a></li>
+            <li><a href="?view=cars#cars">Self-healing protection film installation</a></li>
+            <li><a href="?view=cars#cars">Nano-ceramic heat-rejecting tint</a></li>
+            <li><a href="?view=cars#cars">Exterior &amp; interior detailing</a></li>
+            <li><a href="?view=buildings#buildings">Building &amp; window films</a></li>
           </ul>
         </div>
       </div>
