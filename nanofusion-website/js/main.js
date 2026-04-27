@@ -350,6 +350,18 @@
     showcase.removeAttribute("data-warranty-view");
   })();
 
+  // FAQ — open all items by default
+  (function openAllFaqItems() {
+    var faqRoots = document.querySelectorAll("#window-film-faq, .wfbr-faq");
+    if (!faqRoots.length) return;
+    faqRoots.forEach(function (root) {
+      var items = root.querySelectorAll("details");
+      items.forEach(function (d) {
+        d.setAttribute("open", "");
+      });
+    });
+  })();
+
   // Car services — interactive paint-protection explorer (tabs + media)
   (function initServiceExplorer() {
     var roots = document.querySelectorAll("[data-service-explorer]");
