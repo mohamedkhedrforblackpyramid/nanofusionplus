@@ -352,7 +352,7 @@
 
   // FAQ — open all items by default
   (function openAllFaqItems() {
-    var faqRoots = document.querySelectorAll("#window-film-faq, .wfbr-faq");
+    var faqRoots = document.querySelectorAll("#window-film-faq, #tips-care, .wfbr-faq");
     if (!faqRoots.length) return;
     faqRoots.forEach(function (root) {
       var items = root.querySelectorAll("details");
