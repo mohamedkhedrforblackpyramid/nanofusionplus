@@ -718,9 +718,9 @@ html[dir="ltr"] .hero-grid {
 
 html[dir="ltr"] .hero-visual {
   order: 2;
-  /* Full-bleed slider under copy (screen width) */
-  width: min(100vw, 1400px);
-  margin-inline: calc(50% - 50vw);
+  /* Match Arabic centered hero slider */
+  width: min(88vw, 1140px);
+  margin-inline: auto;
   border-radius: 18px;
   aspect-ratio: 16 / 9;
 }
