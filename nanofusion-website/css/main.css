@@ -710,16 +710,16 @@ html[dir="ltr"] .hero-grid {
 
 @media (max-width: 900px) {
   html[dir="ltr"] .hero-visual {
-    width: 100%;
-    margin-inline: 0;
-    border-radius: var(--radius-lg);
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    border-radius: 0;
   }
 }
 
 html[dir="ltr"] .hero-visual {
   order: 2;
-  /* Full width hero slider */
-  width: min(100vw, 1400px);
+  /* Full viewport width hero slider */
+  width: 100vw;
   margin-inline: calc(50% - 50vw);
   border-radius: 0;
   aspect-ratio: 16 / 9;
@@ -735,9 +735,9 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   }
 
   .hero-visual {
-    width: 100%;
-    margin-inline: 0;
-    border-radius: var(--radius-lg);
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    border-radius: 0;
     aspect-ratio: 4 / 3;
   }
 }
@@ -834,8 +834,8 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   border-radius: 0;
   border: 0;
   background: transparent;
-  /* full-bleed under hero copy */
-  width: min(100vw, 1400px);
+  /* full viewport width (edge-to-edge) */
+  width: 100vw;
   margin-inline: calc(50% - 50vw);
   aspect-ratio: 16 / 9;
   overflow: hidden;
