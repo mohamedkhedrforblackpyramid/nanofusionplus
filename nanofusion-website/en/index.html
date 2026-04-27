@@ -94,7 +94,6 @@
         <div class="reveal">
           <h1>
             <span style="display:block; font-family: var(--nf-logo-serif); letter-spacing: 0.14em; text-transform: uppercase;">NANO FUSION</span>
-            <span style="display:block; font-size:0.72em; color:var(--muted); font-weight:700; letter-spacing:0.02em;">Nano Fusion technology</span>
             <span style="display:block;">An experience beyond protection, into luxury</span>
           </h1>
           <p class="hero-lead">See how we transform your car into a protected masterpiece with the latest Nano Fusion self‑healing technologies—performance beyond expectations and a finish that reflects your personal style.</p>
@@ -531,13 +530,43 @@
       </div>
     </section>
 
-    <section id="cars">
+    <section id="cars" class="cars-section" aria-labelledby="cars-title">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">Car services</p>
-          <h2>Nano Fusion services</h2>
-          <p>Complete solutions for protection and finishing at dealership-grade standards.</p>
-        </div>
+        <header class="cars-hero reveal" aria-label="Car services introduction">
+          <div class="cars-hero__grid">
+            <div class="cars-hero__copy">
+              <p class="section-label">Car services</p>
+              <h2 id="cars-title" class="cars-hero__title">Automotive services hub</h2>
+              <p class="cars-hero__lead">A smarter showcase: live footage, technical detail, and instant jumps between each service module.</p>
+              <nav class="cars-hero__chips" aria-label="Quick navigation inside this section">
+                <a class="cars-chip" href="#paint-protection-hub">Paint protection</a>
+                <a class="cars-chip" href="#glass-protection-hub">Glass</a>
+                <a class="cars-chip" href="#ceramic-protection-hub">Ceramic</a>
+                <a class="cars-chip" href="#styling-services-hub">Styling</a>
+                <a class="cars-chip" href="#repair-correction-hub">Repair</a>
+                <a class="cars-chip" href="#upholstery-services-hub">Upholstery</a>
+              </nav>
+            </div>
+            <div class="cars-hero__panel" aria-hidden="true">
+              <div class="cars-hero__orbit"></div>
+              <div class="cars-hero__stats">
+                <div class="cars-stat">
+                  <span class="cars-stat__k">PPF</span>
+                  <span class="cars-stat__v">Self‑healing</span>
+                </div>
+                <div class="cars-stat">
+                  <span class="cars-stat__k">IR / UV</span>
+                  <span class="cars-stat__v">99%</span>
+                </div>
+                <div class="cars-stat">
+                  <span class="cars-stat__k">Ceramic</span>
+                  <span class="cars-stat__v">Nano stack</span>
+                </div>
+              </div>
+              <p class="cars-hero__note">Precision execution… with a finish that reads dealership-grade.</p>
+            </div>
+          </div>
+        </header>
         <div class="cards-grid">
                     <div class="hubs-row">
 <article class="card card--spotlight reveal" id="paint-protection-hub">
@@ -552,7 +581,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="Paint protection options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-ppf" aria-controls="panel-ppf" data-panel="ppf"
+                  id="paint-protection-hub-tab-ppf" aria-controls="paint-protection-hub-panel-ppf" data-panel="ppf"
                   data-video-src="../assets/gallery/videos/video-01.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -562,7 +591,7 @@
                   Transparent PPF Films
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-carbon" aria-controls="panel-carbon" data-panel="carbon"
+                  id="paint-protection-hub-tab-carbon" aria-controls="paint-protection-hub-panel-carbon" data-panel="carbon"
                   data-video-src="../assets/gallery/videos/video-02.mp4"
                   data-poster-src="../assets/gallery/services/carbon-fiber-1.png"
                   data-strip1-src="../assets/gallery/services/carbon-fiber-1.png"
@@ -572,7 +601,7 @@
                   Carbon Microfiber Protection
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-color" aria-controls="panel-color" data-panel="color"
+                  id="paint-protection-hub-tab-color" aria-controls="paint-protection-hub-panel-color" data-panel="color"
                   data-video-src="../assets/gallery/videos/video-03.mp4"
                   data-poster-src="../assets/gallery/services/color-change.jpg"
                   data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
@@ -595,7 +624,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-ppf" role="tabpanel" aria-labelledby="tab-ppf" data-explore-panel="ppf">
+                <div class="service-explorer__panel is-active" id="paint-protection-hub-panel-ppf" role="tabpanel" aria-labelledby="paint-protection-hub-tab-ppf" data-explore-panel="ppf">
                   <h4>Transparent PPF Films by Nano Fusion</h4>
                   <div class="se-copy-main">
                     <p>An almost invisible shield up to <strong>200 microns</strong> thick, engineered with <strong>Self-Healing</strong> technology to automatically repair surface scratches through heat.</p>
@@ -610,7 +639,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-carbon" role="tabpanel" aria-labelledby="tab-carbon" hidden data-explore-panel="carbon">
+                <div class="service-explorer__panel" id="paint-protection-hub-panel-carbon" role="tabpanel" aria-labelledby="paint-protection-hub-tab-carbon" hidden data-explore-panel="carbon">
                   <h4>Carbon Microfiber Protection by Nano Fusion</h4>
                   <div class="se-copy-main">
                     <p>More than a look — an advanced protection layer using 3D carbon fiber weave technology with high thickness to withstand daily friction and harsh conditions with stability and strength.</p>
@@ -625,7 +654,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-color" role="tabpanel" aria-labelledby="tab-color" hidden data-explore-panel="color">
+                <div class="service-explorer__panel" id="paint-protection-hub-panel-color" role="tabpanel" aria-labelledby="paint-protection-hub-tab-color" hidden data-explore-panel="color">
                   <h4>Full Color Change (PPF Color Change) — Nano Fusion</h4>
                   <div class="se-copy-main">
                     <p>Give your car a completely new identity — with high-quality colored protection films that deliver a bold or classic color with a premium touch, without touching the original paint.</p>
@@ -663,7 +692,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="Glass protection options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-tint" aria-controls="panel-tint" data-panel="tint"
+                  id="glass-protection-hub-tab-tint" aria-controls="glass-protection-hub-panel-tint" data-panel="tint"
                   data-video-src="../assets/gallery/videos/video-04.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
@@ -673,7 +702,7 @@
                   Advanced Heat Insulation
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-windshield" aria-controls="panel-windshield" data-panel="windshield"
+                  id="glass-protection-hub-tab-windshield" aria-controls="glass-protection-hub-panel-windshield" data-panel="windshield"
                   data-video-src="../assets/gallery/videos/video-05.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-4.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -696,7 +725,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-tint" role="tabpanel" aria-labelledby="tab-tint" data-explore-panel="tint">
+                <div class="service-explorer__panel is-active" id="glass-protection-hub-panel-tint" role="tabpanel" aria-labelledby="glass-protection-hub-tab-tint" data-explore-panel="tint">
                   <h4>Advanced heat insulation — Nano Fusion</h4>
                   <div class="se-copy-main">
                     <p>Not just comfort — it's a noticeably different driving experience.</p>
@@ -712,7 +741,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-windshield" role="tabpanel" aria-labelledby="tab-windshield" hidden data-explore-panel="windshield">
+                <div class="service-explorer__panel" id="glass-protection-hub-panel-windshield" role="tabpanel" aria-labelledby="glass-protection-hub-tab-windshield" hidden data-explore-panel="windshield">
                   <h4>Windshield protection film — chip &amp; impact resistance</h4>
                   <div class="se-copy-main">
                     <p>Not just a clear layer — it's added safety where it matters most.</p>
@@ -753,7 +782,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="Nano ceramic protection options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-ext-ceramic" aria-controls="panel-ext-ceramic" data-panel="ext-ceramic"
+                  id="ceramic-protection-hub-tab-ext-ceramic" aria-controls="ceramic-protection-hub-panel-ext-ceramic" data-panel="ext-ceramic"
                   data-video-src="../assets/gallery/videos/video-03.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
@@ -763,7 +792,7 @@
                   Exterior Paint Protection
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-int-nano" aria-controls="panel-int-nano" data-panel="int-nano"
+                  id="ceramic-protection-hub-tab-int-nano" aria-controls="ceramic-protection-hub-panel-int-nano" data-panel="int-nano"
                   data-video-src="../assets/gallery/videos/video-05.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-4.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -786,7 +815,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-ext-ceramic" role="tabpanel" aria-labelledby="tab-ext-ceramic" data-explore-panel="ext-ceramic">
+                <div class="service-explorer__panel is-active" id="ceramic-protection-hub-panel-ext-ceramic" role="tabpanel" aria-labelledby="ceramic-protection-hub-tab-ext-ceramic" data-explore-panel="ext-ceramic">
                   <h4>Exterior paint protection — Nano Fusion multi-layer nano ceramic</h4>
                   <div class="se-copy-main">
                     <p>Not just a coating — it’s an integrated nano shield built with a multi-layer ceramic structure that forms an ultra-hard surface, acting as a strong barrier against micro-scratches, dust, and harsh weather.</p>
@@ -802,7 +831,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-int-nano" role="tabpanel" aria-labelledby="tab-int-nano" hidden data-explore-panel="int-nano">
+                <div class="service-explorer__panel" id="ceramic-protection-hub-panel-int-nano" role="tabpanel" aria-labelledby="ceramic-protection-hub-tab-int-nano" hidden data-explore-panel="int-nano">
                   <h4>Interior nano protection — Nano Fusion</h4>
                   <div class="se-copy-main">
                     <p>Full protection for interior surfaces — seats, dashboard, headliner — with an invisible nano layer that blocks stains and dirt, preserving material quality for as long as possible.</p>
@@ -839,7 +868,7 @@
 
               <div class="service-explorer__rail" role="tablist" aria-label="Styling options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-wheels" aria-controls="panel-wheels" data-panel="wheels"
+                  id="styling-services-hub-tab-wheels" aria-controls="styling-services-hub-panel-wheels" data-panel="wheels"
                   data-video-src="../assets/gallery/videos/video-01.mp4"
                   data-poster-src="../assets/gallery/services/color-change.jpg"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -849,7 +878,7 @@
                   Wheel color change
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-int-ceramic-style" aria-controls="panel-int-ceramic-style" data-panel="int-ceramic-style"
+                  id="styling-services-hub-tab-int-ceramic-style" aria-controls="styling-services-hub-panel-int-ceramic-style" data-panel="int-ceramic-style"
                   data-video-src="../assets/gallery/videos/video-02.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
@@ -870,7 +899,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-wheels" role="tabpanel" aria-labelledby="tab-wheels" data-explore-panel="wheels">
+                <div class="service-explorer__panel is-active" id="styling-services-hub-panel-wheels" role="tabpanel" aria-labelledby="styling-services-hub-tab-wheels" data-explore-panel="wheels">
                   <h4>Wheel color change — a detail that completes your car&apos;s personality</h4>
                   <div class="se-copy-main">
                     <p>Not just a color swap — it redefines your car&apos;s look from the first detail.</p>
@@ -891,7 +920,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-int-ceramic-style" role="tabpanel" aria-labelledby="tab-int-ceramic-style" hidden data-explore-panel="int-ceramic-style">
+                <div class="service-explorer__panel" id="styling-services-hub-panel-int-ceramic-style" role="tabpanel" aria-labelledby="styling-services-hub-tab-int-ceramic-style" hidden data-explore-panel="int-ceramic-style">
                   <h4>Interior protection — Nano Fusion ceramic</h4>
                   <div class="se-copy-main">
                     <p>Not just interior care — it&apos;s a smart protection layer that keeps your cabin feeling brand new.</p>
@@ -931,7 +960,7 @@
 
               <div class="service-explorer__rail" role="tablist" aria-label="Repair and correction options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-repair-pdr" aria-controls="panel-repair-pdr" data-panel="repair-pdr"
+                  id="repair-correction-hub-tab-repair-pdr" aria-controls="repair-correction-hub-panel-repair-pdr" data-panel="repair-pdr"
                   data-video-src="../assets/gallery/videos/video-02.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-2.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-3.png"
@@ -941,7 +970,7 @@
                   PDR (no paint)
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-repair-correction" aria-controls="panel-repair-correction" data-panel="repair-correction"
+                  id="repair-correction-hub-tab-repair-correction" aria-controls="repair-correction-hub-panel-repair-correction" data-panel="repair-correction"
                   data-video-src="../assets/gallery/videos/video-03.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -962,7 +991,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-repair-pdr" role="tabpanel" aria-labelledby="tab-repair-pdr" data-explore-panel="repair-pdr">
+                <div class="service-explorer__panel is-active" id="repair-correction-hub-panel-repair-pdr" role="tabpanel" aria-labelledby="repair-correction-hub-tab-repair-pdr" data-explore-panel="repair-pdr">
                   <h4>🚗 Paintless Dent Repair (PDR)</h4>
                   <div class="se-copy-main">
                     <p>Advanced techniques to remove light dents and dings with microscopic precision — no repainting and no compromise to factory paint… as if the damage never happened.</p>
@@ -976,7 +1005,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-repair-correction" role="tabpanel" aria-labelledby="tab-repair-correction" hidden data-explore-panel="repair-correction">
+                <div class="service-explorer__panel" id="repair-correction-hub-panel-repair-correction" role="tabpanel" aria-labelledby="repair-correction-hub-tab-repair-correction" hidden data-explore-panel="repair-correction">
                   <h4>✨ Paint correction &amp; defect removal</h4>
                   <div class="se-copy-main">
                     <p>Removes light scratches, swirl marks, and fine paint defects — restoring depth and original gloss with high-quality professional finishing.</p>
@@ -1011,7 +1040,7 @@
 
               <div class="service-explorer__rail service-explorer__rail--compact" role="tablist" aria-label="Upholstery options">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-uphol-full" aria-controls="panel-uphol-full" data-panel="uphol-full"
+                  id="upholstery-services-hub-tab-uphol-full" aria-controls="upholstery-services-hub-panel-uphol-full" data-panel="uphol-full"
                   data-video-src="../assets/gallery/videos/video-01.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-2.png"
@@ -1021,7 +1050,7 @@
                   Full retrim
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-custom" aria-controls="panel-uphol-custom" data-panel="uphol-custom"
+                  id="upholstery-services-hub-tab-uphol-custom" aria-controls="upholstery-services-hub-panel-uphol-custom" data-panel="uphol-custom"
                   data-video-src="../assets/gallery/videos/video-04.mp4"
                   data-poster-src="../assets/gallery/services/color-change.jpg"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -1031,7 +1060,7 @@
                   Custom design
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-renew" aria-controls="panel-uphol-renew" data-panel="uphol-renew"
+                  id="upholstery-services-hub-tab-uphol-renew" aria-controls="upholstery-services-hub-panel-uphol-renew" data-panel="uphol-renew"
                   data-video-src="../assets/gallery/videos/video-05.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-2.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-3.png"
@@ -1041,7 +1070,7 @@
                   Seat renewal
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-finish" aria-controls="panel-uphol-finish" data-panel="uphol-finish"
+                  id="upholstery-services-hub-tab-uphol-finish" aria-controls="upholstery-services-hub-panel-uphol-finish" data-panel="uphol-finish"
                   data-video-src="../assets/gallery/videos/video-02.mp4"
                   data-poster-src="../assets/gallery/services/polish-showcase-5.png"
                   data-strip1-src="../assets/gallery/services/polish-showcase-4.png"
@@ -1062,7 +1091,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-uphol-full" role="tabpanel" aria-labelledby="tab-uphol-full" data-explore-panel="uphol-full">
+                <div class="service-explorer__panel is-active" id="upholstery-services-hub-panel-uphol-full" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-full" data-explore-panel="uphol-full">
                   <h4>🚗 Full interior upholstery</h4>
                   <div class="se-copy-main">
                     <p>Complete cabin retrim with high-quality materials and precise execution for every area — from seats to doors and headliner.</p>
@@ -1074,7 +1103,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-custom" role="tabpanel" aria-labelledby="tab-uphol-custom" hidden data-explore-panel="uphol-custom">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-custom" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-custom" hidden data-explore-panel="uphol-custom">
                   <h4>✨ Custom design</h4>
                   <div class="se-copy-main">
                     <p>Choose colors, materials, and interior details to match your taste — for a cohesive look that reflects your personality and makes your car stand out.</p>
@@ -1086,7 +1115,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-renew" role="tabpanel" aria-labelledby="tab-uphol-renew" hidden data-explore-panel="uphol-renew">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-renew" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-renew" hidden data-explore-panel="uphol-renew">
                   <h4>🧵 Seat repair &amp; renewal</h4>
                   <div class="se-copy-main">
                     <p>Address wear, reshape foam, and fix sagging or deterioration — while preserving comfort and elevating it to the highest level.</p>
@@ -1098,7 +1127,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-finish" role="tabpanel" aria-labelledby="tab-uphol-finish" hidden data-explore-panel="uphol-finish">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-finish" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-finish" hidden data-explore-panel="uphol-finish">
                   <h4>🔥 Professional finishing</h4>
                   <div class="se-copy-main">
                     <p>Precise execution and refined stitching for a clean, elegant final look in every interior detail.</p>

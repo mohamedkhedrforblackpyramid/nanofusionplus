@@ -94,7 +94,6 @@
         <div class="reveal">
           <h1>
             <span style="display:block; font-family: var(--nf-logo-serif); letter-spacing: 0.14em; text-transform: uppercase;" dir="ltr">NANO FUSION</span>
-            <span style="display:block; font-size:0.72em; color:var(--muted); font-weight:700; letter-spacing:0.02em;">تقنية نانو فيوجن</span>
             <span style="display:block;">تجربة تتجاوز الحماية إلى الفخامة</span>
           </h1>
           <p class="hero-lead">شاهد كيف نحول سيارتك إلى تحفة محمية بأحدث تقنيات النانوفيوجن المعالجة ذاتيا بالسيلف هيلنج بأداء يفوق التوقعات ولمسة تعكس أسلوبك الخاص.</p>
@@ -534,13 +533,43 @@
       </div>
     </section>
 
-    <section id="cars">
+    <section id="cars" class="cars-section" aria-labelledby="cars-title">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="section-label">خدمات السيارات</p>
-          <h2>خدمات نانو فيوجن</h2>
-          <p>حلول متكاملة للحماية واللمسات النهائية بمعايير وكالة.</p>
-        </div>
+        <header class="cars-hero reveal" aria-label="مقدمة خدمات السيارات">
+          <div class="cars-hero__grid">
+            <div class="cars-hero__copy">
+              <p class="section-label">خدمات السيارات</p>
+              <h2 id="cars-title" class="cars-hero__title">مركز خدمات السيارات</h2>
+              <p class="cars-hero__lead">تجربة عرض ذكية: فيديو حيّ + تفاصيل تقنية + مسار تنقّل سريع بين كل وحدات الخدمة.</p>
+              <nav class="cars-hero__chips" aria-label="انتقال سريع داخل القسم">
+                <a class="cars-chip" href="#paint-protection-hub">حماية الطلاء</a>
+                <a class="cars-chip" href="#glass-protection-hub">الزجاج</a>
+                <a class="cars-chip" href="#ceramic-protection-hub">السيراميك</a>
+                <a class="cars-chip" href="#styling-services-hub">التجميل</a>
+                <a class="cars-chip" href="#repair-correction-hub">الإصلاح</a>
+                <a class="cars-chip" href="#upholstery-services-hub">التنجيد</a>
+              </nav>
+            </div>
+            <div class="cars-hero__panel" aria-hidden="true">
+              <div class="cars-hero__orbit"></div>
+              <div class="cars-hero__stats">
+                <div class="cars-stat">
+                  <span class="cars-stat__k">PPF</span>
+                  <span class="cars-stat__v">Self‑Healing</span>
+                </div>
+                <div class="cars-stat">
+                  <span class="cars-stat__k">IR / UV</span>
+                  <span class="cars-stat__v">99%</span>
+                </div>
+                <div class="cars-stat">
+                  <span class="cars-stat__k">Ceramic</span>
+                  <span class="cars-stat__v">Nano stack</span>
+                </div>
+              </div>
+              <p class="cars-hero__note">معايير تنفيذ دقيقة… ولمسة نهائية تليق بسيارات فئة الوكالة.</p>
+            </div>
+          </div>
+        </header>
         <div class="cards-grid">
                     <div class="hubs-row">
 <article class="card card--spotlight reveal" id="paint-protection-hub">
@@ -555,7 +584,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="خيارات حماية الطلاء">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-ppf" aria-controls="panel-ppf" data-panel="ppf"
+                  id="paint-protection-hub-tab-ppf" aria-controls="paint-protection-hub-panel-ppf" data-panel="ppf"
                   data-video-src="assets/gallery/videos/video-01.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -565,7 +594,7 @@
                   أفلام الحماية الشفافة (PPF)
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-carbon" aria-controls="panel-carbon" data-panel="carbon"
+                  id="paint-protection-hub-tab-carbon" aria-controls="paint-protection-hub-panel-carbon" data-panel="carbon"
                   data-video-src="assets/gallery/videos/video-02.mp4"
                   data-poster-src="assets/gallery/services/carbon-fiber-1.png"
                   data-strip1-src="assets/gallery/services/carbon-fiber-1.png"
@@ -575,7 +604,7 @@
                   كاربون مايكروفايبر
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-color" aria-controls="panel-color" data-panel="color"
+                  id="paint-protection-hub-tab-color" aria-controls="paint-protection-hub-panel-color" data-panel="color"
                   data-video-src="assets/gallery/videos/video-03.mp4"
                   data-poster-src="assets/gallery/services/color-change.jpg"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
@@ -598,7 +627,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-ppf" role="tabpanel" aria-labelledby="tab-ppf" data-explore-panel="ppf">
+                <div class="service-explorer__panel is-active" id="paint-protection-hub-panel-ppf" role="tabpanel" aria-labelledby="paint-protection-hub-tab-ppf" data-explore-panel="ppf">
                   <h4>أفلام الحماية الشفافة (PPF) من نانو فيوجن</h4>
                   <div class="se-copy-main">
                     <p>درع شبه شفاف بسماكة تقنية تقارب <strong>200 ميكرون</strong>… مصمَّم بتقنية <strong>Self-Healing</strong> لمعالجة الخدوش السطحية تلقائيًا بالحرارة.</p>
@@ -613,7 +642,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-carbon" role="tabpanel" aria-labelledby="tab-carbon" hidden data-explore-panel="carbon">
+                <div class="service-explorer__panel" id="paint-protection-hub-panel-carbon" role="tabpanel" aria-labelledby="paint-protection-hub-tab-carbon" hidden data-explore-panel="carbon">
                   <h4>حماية كاربون مايكروفايبر من نانوفيوجن</h4>
                   <div class="se-copy-main">
                     <p>مش مجرد شكل… دي طبقة حماية متقدمة بتقنية نسيج الكاربون ثلاثي الأبعاد، بسماكة عالية تتحمّل الاحتكاك اليومي والعوامل القاسية بثبات وقوة.</p>
@@ -628,7 +657,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-color" role="tabpanel" aria-labelledby="tab-color" hidden data-explore-panel="color">
+                <div class="service-explorer__panel" id="paint-protection-hub-panel-color" role="tabpanel" aria-labelledby="paint-protection-hub-tab-color" hidden data-explore-panel="color">
                   <h4>تغيير لون السيارة بالكامل (PPF Color Change) — نانو فيوجن</h4>
                   <div class="se-copy-main">
                     <p>حوّل سيارتك لهوية جديدة بالكامل… بأفلام حماية ملونة عالية الجودة، تمنحك لونًا جريئًا أو كلاسيكيًا بلمسة فخمة دون أن تلمس الدهان الأصلي.</p>
@@ -666,7 +695,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="خيارات العزل والحماية الزجاجية">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-tint" aria-controls="panel-tint" data-panel="tint"
+                  id="glass-protection-hub-tab-tint" aria-controls="glass-protection-hub-panel-tint" data-panel="tint"
                   data-video-src="assets/gallery/videos/video-04.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
@@ -676,7 +705,7 @@
                   عازل الحرارة المتطور
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-windshield" aria-controls="panel-windshield" data-panel="windshield"
+                  id="glass-protection-hub-tab-windshield" aria-controls="glass-protection-hub-panel-windshield" data-panel="windshield"
                   data-video-src="assets/gallery/videos/video-05.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-4.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -699,7 +728,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-tint" role="tabpanel" aria-labelledby="tab-tint" data-explore-panel="tint">
+                <div class="service-explorer__panel is-active" id="glass-protection-hub-panel-tint" role="tabpanel" aria-labelledby="glass-protection-hub-tab-tint" data-explore-panel="tint">
                   <h4>عازل الحرارة المتطور – نانو فيوجن</h4>
                   <div class="se-copy-main">
                     <p>مش بس راحة… دي تجربة قيادة مختلفة تمامًا.</p>
@@ -715,7 +744,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-windshield" role="tabpanel" aria-labelledby="tab-windshield" hidden data-explore-panel="windshield">
+                <div class="service-explorer__panel" id="glass-protection-hub-panel-windshield" role="tabpanel" aria-labelledby="glass-protection-hub-tab-windshield" hidden data-explore-panel="windshield">
                   <h4>فيلم حماية الزجاج من الكسر والترميل</h4>
                   <div class="se-copy-main">
                     <p>مش مجرد طبقة شفافة… ده أمان إضافي لسيارتك على الطريق.</p>
@@ -756,7 +785,7 @@
               <!-- Tab pills -->
               <div class="service-explorer__rail" role="tablist" aria-label="خيارات الحماية بالنانو سيراميك">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-ext-ceramic" aria-controls="panel-ext-ceramic" data-panel="ext-ceramic"
+                  id="ceramic-protection-hub-tab-ext-ceramic" aria-controls="ceramic-protection-hub-panel-ext-ceramic" data-panel="ext-ceramic"
                   data-video-src="assets/gallery/videos/video-03.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
@@ -766,7 +795,7 @@
                   حماية الطلاء الخارجي
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-int-nano" aria-controls="panel-int-nano" data-panel="int-nano"
+                  id="ceramic-protection-hub-tab-int-nano" aria-controls="ceramic-protection-hub-panel-int-nano" data-panel="int-nano"
                   data-video-src="assets/gallery/videos/video-05.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-4.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -789,7 +818,7 @@
               <!-- Info panels -->
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-ext-ceramic" role="tabpanel" aria-labelledby="tab-ext-ceramic" data-explore-panel="ext-ceramic">
+                <div class="service-explorer__panel is-active" id="ceramic-protection-hub-panel-ext-ceramic" role="tabpanel" aria-labelledby="ceramic-protection-hub-tab-ext-ceramic" data-explore-panel="ext-ceramic">
                   <h4>حماية الطلاء الخارجي – نانو فيوجن سيراميك متعدد الطبقات</h4>
                   <div class="se-copy-main">
                     <p>مش مجرد طبقة حماية… دي درع نانوي متكامل بتركيبة سيراميكية متعددة الطبقات، بيكوّن سطح شديد الصلابة يعمل كحاجز قوي ضد الخدوش الدقيقة، الأتربة، والعوامل الجوية القاسية.</p>
@@ -805,7 +834,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-int-nano" role="tabpanel" aria-labelledby="tab-int-nano" hidden data-explore-panel="int-nano">
+                <div class="service-explorer__panel" id="ceramic-protection-hub-panel-int-nano" role="tabpanel" aria-labelledby="ceramic-protection-hub-tab-int-nano" hidden data-explore-panel="int-nano">
                   <h4>الحماية الداخلية بالنانو – نانو فيوجن</h4>
                   <div class="se-copy-main">
                     <p>حماية شاملة للأسطح الداخلية من المقاعد والتابلوه والأسقف… بطبقة نانو غير مرئية تمنع تسرب البقع والأوساخ وتحافظ على جودة الخامات لأطول فترة ممكنة.</p>
@@ -842,7 +871,7 @@
 
               <div class="service-explorer__rail" role="tablist" aria-label="خيارات التجميل والتغيير">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-wheels" aria-controls="panel-wheels" data-panel="wheels"
+                  id="styling-services-hub-tab-wheels" aria-controls="styling-services-hub-panel-wheels" data-panel="wheels"
                   data-video-src="assets/gallery/videos/video-01.mp4"
                   data-poster-src="assets/gallery/services/color-change.jpg"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -852,7 +881,7 @@
                   تغيير لون الجنوط
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-int-ceramic-style" aria-controls="panel-int-ceramic-style" data-panel="int-ceramic-style"
+                  id="styling-services-hub-tab-int-ceramic-style" aria-controls="styling-services-hub-panel-int-ceramic-style" data-panel="int-ceramic-style"
                   data-video-src="assets/gallery/videos/video-02.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
@@ -873,7 +902,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-wheels" role="tabpanel" aria-labelledby="tab-wheels" data-explore-panel="wheels">
+                <div class="service-explorer__panel is-active" id="styling-services-hub-panel-wheels" role="tabpanel" aria-labelledby="styling-services-hub-tab-wheels" data-explore-panel="wheels">
                   <h4>تغيير لون الجنوط – لمسة تكمّل شخصية سيارتك</h4>
                   <div class="se-copy-main">
                     <p>مش مجرد تغيير لون… دي إعادة تعريف لشكل السيارة من أول تفصيلة.</p>
@@ -894,7 +923,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-int-ceramic-style" role="tabpanel" aria-labelledby="tab-int-ceramic-style" hidden data-explore-panel="int-ceramic-style">
+                <div class="service-explorer__panel" id="styling-services-hub-panel-int-ceramic-style" role="tabpanel" aria-labelledby="styling-services-hub-tab-int-ceramic-style" hidden data-explore-panel="int-ceramic-style">
                   <h4>الحماية الداخلية – نانو فيوجن سيراميك</h4>
                   <div class="se-copy-main">
                     <p>مش مجرد عناية بالداخل… دي طبقة حماية ذكية تحافظ على فخامة المقصورة من الداخل كأنها جديدة دائمًا.</p>
@@ -934,7 +963,7 @@
 
               <div class="service-explorer__rail" role="tablist" aria-label="خيارات الإصلاح والمعالجة">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-repair-pdr" aria-controls="panel-repair-pdr" data-panel="repair-pdr"
+                  id="repair-correction-hub-tab-repair-pdr" aria-controls="repair-correction-hub-panel-repair-pdr" data-panel="repair-pdr"
                   data-video-src="assets/gallery/videos/video-02.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-2.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-3.png"
@@ -944,7 +973,7 @@
                   إصلاح بدون دهان (PDR)
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-repair-correction" aria-controls="panel-repair-correction" data-panel="repair-correction"
+                  id="repair-correction-hub-tab-repair-correction" aria-controls="repair-correction-hub-panel-repair-correction" data-panel="repair-correction"
                   data-video-src="assets/gallery/videos/video-03.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -965,7 +994,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-repair-pdr" role="tabpanel" aria-labelledby="tab-repair-pdr" data-explore-panel="repair-pdr">
+                <div class="service-explorer__panel is-active" id="repair-correction-hub-panel-repair-pdr" role="tabpanel" aria-labelledby="repair-correction-hub-tab-repair-pdr" data-explore-panel="repair-pdr">
                   <h4>🚗 إصلاح الصدمات بدون دهان (PDR)</h4>
                   <div class="se-copy-main">
                     <p>تقنية متقدمة لإزالة الخبطات والصدمات البسيطة بدقة ميكروسكوبية، من غير أي إعادة دهان ومن غير ما تأثر على الطلاء الأصلي… وكأن الضرر ما حصلش من الأساس.</p>
@@ -979,7 +1008,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-repair-correction" role="tabpanel" aria-labelledby="tab-repair-correction" hidden data-explore-panel="repair-correction">
+                <div class="service-explorer__panel" id="repair-correction-hub-panel-repair-correction" role="tabpanel" aria-labelledby="repair-correction-hub-tab-repair-correction" hidden data-explore-panel="repair-correction">
                   <h4>✨ معالجة الطلاء وإزالة العيوب</h4>
                   <div class="se-copy-main">
                     <p>إزالة الخدوش السطحية، آثار الدوران، والعيوب الدقيقة في الطلاء، واستعادة العمق واللمعان الأصلي للسيارة بتشطيب احترافي عالي الجودة.</p>
@@ -1014,7 +1043,7 @@
 
               <div class="service-explorer__rail service-explorer__rail--compact" role="tablist" aria-label="خيارات التنجيد">
                 <button type="button" class="service-explorer__pick is-active" role="tab" aria-selected="true" tabindex="0"
-                  id="tab-uphol-full" aria-controls="panel-uphol-full" data-panel="uphol-full"
+                  id="upholstery-services-hub-tab-uphol-full" aria-controls="upholstery-services-hub-panel-uphol-full" data-panel="uphol-full"
                   data-video-src="assets/gallery/videos/video-01.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-1.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-2.png"
@@ -1024,7 +1053,7 @@
                   تنجيد كامل
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-custom" aria-controls="panel-uphol-custom" data-panel="uphol-custom"
+                  id="upholstery-services-hub-tab-uphol-custom" aria-controls="upholstery-services-hub-panel-uphol-custom" data-panel="uphol-custom"
                   data-video-src="assets/gallery/videos/video-04.mp4"
                   data-poster-src="assets/gallery/services/color-change.jpg"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -1034,7 +1063,7 @@
                   تصميم مخصص
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-renew" aria-controls="panel-uphol-renew" data-panel="uphol-renew"
+                  id="upholstery-services-hub-tab-uphol-renew" aria-controls="upholstery-services-hub-panel-uphol-renew" data-panel="uphol-renew"
                   data-video-src="assets/gallery/videos/video-05.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-2.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-3.png"
@@ -1044,7 +1073,7 @@
                   تجديد المقاعد
                 </button>
                 <button type="button" class="service-explorer__pick" role="tab" aria-selected="false" tabindex="-1"
-                  id="tab-uphol-finish" aria-controls="panel-uphol-finish" data-panel="uphol-finish"
+                  id="upholstery-services-hub-tab-uphol-finish" aria-controls="upholstery-services-hub-panel-uphol-finish" data-panel="uphol-finish"
                   data-video-src="assets/gallery/videos/video-02.mp4"
                   data-poster-src="assets/gallery/services/polish-showcase-5.png"
                   data-strip1-src="assets/gallery/services/polish-showcase-4.png"
@@ -1065,7 +1094,7 @@
 
               <div class="service-explorer__copy">
 
-                <div class="service-explorer__panel is-active" id="panel-uphol-full" role="tabpanel" aria-labelledby="tab-uphol-full" data-explore-panel="uphol-full">
+                <div class="service-explorer__panel is-active" id="upholstery-services-hub-panel-uphol-full" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-full" data-explore-panel="uphol-full">
                   <h4>🚗 تنجيد داخلي كامل</h4>
                   <div class="se-copy-main">
                     <p>تنجيد شامل لمقصورة السيارة بخامات عالية الجودة، مع تنفيذ دقيق لكل الأجزاء من المقاعد حتى الأبواب والسقف.</p>
@@ -1077,7 +1106,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-custom" role="tabpanel" aria-labelledby="tab-uphol-custom" hidden data-explore-panel="uphol-custom">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-custom" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-custom" hidden data-explore-panel="uphol-custom">
                   <h4>✨ تصميم حسب الطلب</h4>
                   <div class="se-copy-main">
                     <p>اختيار الألوان والخامات والتفاصيل الداخلية حسب ذوقك، للحصول على شكل متناسق يعكس شخصيتك ويخلي العربية مميزة.</p>
@@ -1089,7 +1118,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-renew" role="tabpanel" aria-labelledby="tab-uphol-renew" hidden data-explore-panel="uphol-renew">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-renew" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-renew" hidden data-explore-panel="uphol-renew">
                   <h4>🧵 إصلاح وتجديد المقاعد</h4>
                   <div class="se-copy-main">
                     <p>معالجة التلف، إعادة تشكيل الإسفنج، وإصلاح الهبوط أو التآكل، مع الحفاظ على الراحة وتحسينها لأعلى مستوى.</p>
@@ -1101,7 +1130,7 @@
                   </div>
                 </div>
 
-                <div class="service-explorer__panel" id="panel-uphol-finish" role="tabpanel" aria-labelledby="tab-uphol-finish" hidden data-explore-panel="uphol-finish">
+                <div class="service-explorer__panel" id="upholstery-services-hub-panel-uphol-finish" role="tabpanel" aria-labelledby="upholstery-services-hub-tab-uphol-finish" hidden data-explore-panel="uphol-finish">
                   <h4>🔥 تشطيب احترافي</h4>
                   <div class="se-copy-main">
                     <p>تنفيذ دقيق وخياطة متقنة تضمن شكل نهائي نظيف وأنيق في كل جزء من الداخل.</p>

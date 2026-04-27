@@ -1,10 +1,28 @@
 (function () {
+  try {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  } catch (_sr) {}
+
   const body = document.body;
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav-primary");
   const backdrop = document.getElementById("nav-backdrop");
 
   // ── Smart views router (turn sections into "pages") ──
+  /** Full reload to Arabic/English index with ?view= — used from standalone pages (e.g. privacy) that ship the same nav but are not the SPA shell. */
+  function hrefToMainIndexWithView(view) {
+    try {
+      var path = window.location.pathname || "";
+      if (/\/en\/index\.html$/i.test(path)) {
+        return null;
+      }
+      if (/\/en\//.test(path)) {
+        return "../index.html?view=" + encodeURIComponent(view);
+      }
+    } catch (_e) {}
+    return "index.html?view=" + encodeURIComponent(view);
+  }
+
   const VIEW_BY_ID = {
     hero: "home",
     video: "video",
@@ -26,6 +44,12 @@
     // Mark the exact clicked view as active (even if content is nested under another section)
     const wanted = view || "home";
     nav.querySelectorAll("a").forEach(function (a) {
+      /* Dropdown items all share the same ?view=cars — highlighting every row fights the root
+         button state. Only top-level links use aria-current here; cars/buildings use the button. */
+      if (a.closest(".nav-dropdown-panel")) {
+        a.removeAttribute("aria-current");
+        return;
+      }
       const href = a.getAttribute("href") || "";
       const m = href.match(/[?&]view=([^&#]+)/);
       const v = m ? decodeURIComponent(m[1]) : "";
@@ -82,7 +106,11 @@
   function updateUrlForView(view, idForHash) {
     const url = new URL(window.location.href);
     url.searchParams.set("view", view);
-    if (idForHash) url.hash = "#" + idForHash;
+    if (idForHash) {
+      url.hash = "#" + idForHash;
+    } else {
+      url.hash = "";
+    }
     history.pushState({ view: view }, "", url.toString());
   }
 
@@ -96,22 +124,45 @@
     // If the hash points to an element that is NOT a view root (e.g. footer anchors),
     // keep the current page as home and scroll to that element.
     if (!mappedView && el) {
+      const carsRoot = document.getElementById("cars");
+      const insideCars = !!(carsRoot && (el === carsRoot || carsRoot.contains(el)));
+      if (insideCars) {
+        setView("cars", id);
+        updateUrlForView("cars", id);
+        return;
+      }
       setView("home", id);
       updateUrlForView("home", id);
       return;
     }
 
     const view = mappedView || "home";
-    const scrollTarget = NEEDS_SCROLL[view] ? id : null;
+    var scrollTarget = NEEDS_SCROLL[view] ? id : null;
+    /* Only scroll to a *nested* cars anchor (e.g. #paint-protection-hub). Do not
+       treat #cars as a scroll target: Node.contains(node) is true for self, which
+       wrongly forced scrollIntoView(cars) and skipped a clean “start from top”. */
+    if (!scrollTarget && view === "cars" && el) {
+      var carsRoot2 = document.getElementById("cars");
+      if (carsRoot2 && el !== carsRoot2 && carsRoot2.contains(el)) {
+        scrollTarget = id;
+      }
+    }
     setView(view, scrollTarget);
-    updateUrlForView(view, id);
+    updateUrlForView(view, scrollTarget);
   }
 
   // Init view on load — handle nested scroll targets too
   (function () {
     const initView = parseInitialView();
     const initHash = (window.location.hash || "").replace(/^#/, "");
-    const scrollTarget = null;
+    var scrollTarget = null;
+    if (initHash) {
+      var hEl = document.getElementById(initHash);
+      var carsRoot = document.getElementById("cars");
+      if (initView === "cars" && hEl && carsRoot && hEl !== carsRoot && carsRoot.contains(hEl)) {
+        scrollTarget = initHash;
+      }
+    }
     setView(initView, scrollTarget);
   })();
 
@@ -150,7 +201,14 @@
           const viewMatch = href.match(/[?&]view=([^&#]+)/);
           const view = viewMatch ? decodeURIComponent(viewMatch[1]) : "home";
           const hash = href.split("#")[1] || "";
-          const scrollTarget = NEEDS_SCROLL[view] ? (hash || null) : null;
+          var scrollTarget = NEEDS_SCROLL[view] ? (hash || null) : null;
+          if (!scrollTarget && view === "cars" && hash) {
+            var tel = document.getElementById(hash);
+            var tcr = document.getElementById("cars");
+            if (tel && tcr && tel !== tcr && tcr.contains(tel)) {
+              scrollTarget = hash;
+            }
+          }
           e.preventDefault();
           setView(view, scrollTarget);
           updateUrlForView(view, hash || null);
@@ -174,9 +232,19 @@
         }
         if (go === "cars") {
           e.preventDefault();
+          if (!document.getElementById("cars")) {
+            var carsHref = hrefToMainIndexWithView("cars");
+            if (carsHref) window.location.href = carsHref;
+            return;
+          }
           goToSection("cars");
         } else if (go === "buildings") {
           e.preventDefault();
+          if (!document.getElementById("buildings")) {
+            var bHref = hrefToMainIndexWithView("buildings");
+            if (bHref) window.location.href = bHref;
+            return;
+          }
           goToSection("buildings");
         }
         if (window.matchMedia("(max-width: 960px)").matches) closeNav();
@@ -199,7 +267,17 @@
   );
 
   window.addEventListener("popstate", function () {
-    setView(parseInitialView());
+    const psView = parseInitialView();
+    const psHash = (window.location.hash || "").replace(/^#/, "");
+    var psScroll = null;
+    if (psHash) {
+      var psEl = document.getElementById(psHash);
+      var psCars = document.getElementById("cars");
+      if (psView === "cars" && psEl && psCars && psEl !== psCars && psCars.contains(psEl)) {
+        psScroll = psHash;
+      }
+    }
+    setView(psView, psScroll);
   });
 
   const year = document.getElementById("year");

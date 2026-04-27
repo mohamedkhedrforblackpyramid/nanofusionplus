@@ -2855,6 +2855,277 @@ section {
    PAINT PROTECTION HUB — full-bleed video card
 ═══════════════════════════════════════════════════ */
 
+/* Brochure-aligned tokens + per‑hub accent (Window Film brochure palette) */
+#cars {
+  --cars-h: 218;
+  --cars-br-pro: #93c5fd;
+  --cars-br-ink: rgba(244, 244, 245, 0.94);
+  --cars-br-ink-muted: rgba(244, 244, 245, 0.72);
+  --cars-br-chrome: rgba(255, 255, 255, 0.08);
+  --cars-br-widget-a: rgba(9, 9, 11, 0.82);
+  --cars-br-widget-b: rgba(2, 6, 23, 0.72);
+}
+
+#cars #paint-protection-hub {
+  --cars-h: 218;
+}
+
+#cars #glass-protection-hub {
+  --cars-h: 198;
+}
+
+#cars #ceramic-protection-hub {
+  --cars-h: 232;
+}
+
+#cars #styling-services-hub {
+  --cars-h: 258;
+}
+
+#cars #repair-correction-hub {
+  --cars-h: 36;
+}
+
+#cars #upholstery-services-hub {
+  --cars-h: 292;
+}
+
+/* ── Car services — premium section header + quick jumps ── */
+.cars-section {
+  position: relative;
+  padding: clamp(1.5rem, 3.5vw, 2.65rem) 0 clamp(0.35rem, 1.4vw, 0.85rem);
+  overflow: hidden;
+}
+
+.cars-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(820px 540px at 50% 0%, rgba(26, 86, 219, 0.11), transparent 72%),
+    radial-gradient(900px 620px at 50% 100%, rgba(0, 0, 0, 0.42), transparent 66%),
+    radial-gradient(closest-side at 8% 40%, hsla(var(--cars-h), 70%, 52%, 0.12), transparent 55%),
+    radial-gradient(closest-side at 96% 22%, hsla(calc(var(--cars-h) + 22), 75%, 58%, 0.1), transparent 52%);
+  opacity: 1;
+}
+
+.cars-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(closest-side at 50% 12%, #000 0%, transparent 74%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.cars-hero {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 clamp(1rem, 2.4vw, 1.6rem);
+}
+
+#cars .cars-hero .section-label {
+  color: rgba(77, 134, 245, 0.88);
+  font-weight: 800;
+  font-size: 0.72rem;
+}
+
+html[lang^="en"] #cars .cars-hero .section-label {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cars-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1rem, 2.4vw, 1.75rem);
+  align-items: stretch;
+}
+
+@media (max-width: 980px) {
+  .cars-hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cars-hero__title {
+  margin: 0.35rem 0 0.55rem;
+  font-size: clamp(1.55rem, 3.6vw, 2.55rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 950;
+  color: var(--cars-br-ink);
+  text-shadow:
+    0 0 48px rgba(26, 86, 219, 0.2),
+    0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+html[lang^="en"] .cars-hero__title {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.cars-hero__title .cars-hero__title-accent,
+#cars .cars-hero__title em {
+  font-style: normal;
+  color: var(--cars-br-pro);
+}
+
+.cars-hero__lead {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+  color: var(--cars-br-ink-muted);
+  line-height: 1.75;
+  font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+}
+
+.cars-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.cars-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.92rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 9, 11, 0.42);
+  color: var(--cars-br-ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.cars-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(77, 134, 245, 0.42);
+  background: rgba(26, 86, 219, 0.16);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.cars-chip:focus-visible {
+  outline: 2px solid rgba(120, 190, 255, 0.95);
+  outline-offset: 3px;
+}
+
+.cars-hero__panel {
+  position: relative;
+  border-radius: 18px;
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+  border: 1px solid var(--cars-br-chrome);
+  background: linear-gradient(145deg, var(--cars-br-widget-a), var(--cars-br-widget-b));
+  box-shadow:
+    0 18px 80px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.cars-hero__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 18% 0%, rgba(26, 86, 219, 0.2), transparent 58%);
+  opacity: 0.95;
+}
+
+.cars-hero__orbit {
+  position: absolute;
+  width: clamp(240px, 42vw, 360px);
+  height: clamp(240px, 42vw, 360px);
+  right: -18%;
+  top: -22%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cars-hero__orbit {
+    animation: cars-orbit-spin 18s linear infinite;
+  }
+}
+
+@keyframes cars-orbit-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cars-hero__stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+@media (max-width: 520px) {
+  .cars-hero__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cars-stat {
+  border-radius: 16px;
+  padding: 0.65rem 0.72rem;
+  border: 1px solid rgba(77, 134, 245, 0.32);
+  background:
+    radial-gradient(circle at 28% 18%, rgba(77, 134, 245, 0.22), transparent 58%),
+    rgba(0, 0, 0, 0.32);
+  box-shadow: 0 0 26px rgba(26, 86, 219, 0.14);
+}
+
+.cars-stat__k {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 245, 0.62);
+}
+
+.cars-stat__v {
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 0 16px rgba(77, 134, 245, 0.45);
+}
+
+.cars-hero__note {
+  position: relative;
+  z-index: 1;
+  margin: 0.85rem 0 0;
+  color: var(--cars-br-ink-muted);
+  line-height: 1.65;
+  font-size: 0.84rem;
+  max-width: 52ch;
+}
+
+/* Keep deep-linked hubs from hiding under the sticky header */
+#cars .card--spotlight {
+  scroll-margin-top: clamp(4.75rem, 10vw, 6.25rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cars-hero__orbit { animation: none; }
+  .cars-chip:hover { transform: none; }
+}
+
 /* Wrapper that sits full-width in the grid, holds two hubs side by side */
 .hubs-row {
   grid-column: 1 / -1;
@@ -2886,6 +3157,329 @@ section {
 .cards-grid > .card--spotlight:hover {
   transform: none;
   box-shadow: 0 0 0 1px rgba(26, 86, 219, 0.14), 0 32px 80px rgba(0, 0, 0, 0.4);
+}
+
+/* #cars — service hubs: Window Film brochure language (wf-brochure / wfbr-card) */
+#cars .cards-grid .card--spotlight {
+  position: relative;
+  isolation: isolate;
+  border-radius: 18px;
+  border: 1px solid var(--cars-br-chrome);
+  background:
+    radial-gradient(520px 220px at 14% 0%, hsla(var(--cars-h), 72%, 54%, 0.26), transparent 58%),
+    radial-gradient(420px 200px at 94% 6%, hsla(calc(var(--cars-h) + 16), 70%, 58%, 0.14), transparent 55%),
+    linear-gradient(145deg, var(--cars-br-widget-a), var(--cars-br-widget-b));
+  box-shadow:
+    0 22px 88px rgba(0, 0, 0, 0.68),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 90px hsla(var(--cars-h), 70%, 50%, 0.1);
+}
+
+#cars .cards-grid .card--spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    128deg,
+    hsla(calc(var(--cars-h) + 24), 88%, 72%, 0.55) 0%,
+    hsla(var(--cars-h), 72%, 58%, 0.22) 38%,
+    rgba(255, 255, 255, 0.08) 55%,
+    hsla(var(--cars-h), 78%, 56%, 0.32) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+#cars .cards-grid .card--spotlight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsla(calc(var(--cars-h) + 10), 90%, 72%, 0.95),
+    hsla(var(--cars-h), 82%, 58%, 0.75),
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #cars .cards-grid .card--spotlight {
+    transition: box-shadow 0.45s var(--ease), transform 0.45s var(--ease), border-color 0.45s var(--ease);
+  }
+
+  #cars .cards-grid .card--spotlight:hover {
+    transform: translateY(-4px);
+    border-color: hsla(var(--cars-h), 72%, 62%, 0.35);
+    box-shadow:
+      0 26px 96px rgba(0, 0, 0, 0.72),
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 0 1px hsla(var(--cars-h), 70%, 55%, 0.22),
+      0 0 120px hsla(var(--cars-h), 75%, 52%, 0.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cars .cards-grid .card--spotlight:hover {
+    transform: none;
+  }
+}
+
+#cars .cards-grid .card--spotlight .phub-header {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: clamp(0.85rem, 2vw, 1.15rem);
+  row-gap: 0.35rem;
+  align-items: start;
+  padding: clamp(1rem, 2.3vw, 1.35rem) clamp(1.05rem, 2.5vw, 1.55rem) clamp(0.55rem, 1.3vw, 0.8rem);
+  border-bottom: 1px solid var(--cars-br-chrome);
+  background: radial-gradient(circle at 18% 0%, hsla(var(--cars-h), 70%, 52%, 0.2), transparent 58%);
+}
+
+#cars .cards-grid .card--spotlight .phub-header .card-icon {
+  grid-row: 1 / span 2;
+  margin: 0;
+  align-self: start;
+  width: 56px;
+  height: 56px;
+  font-size: 1.4rem;
+  border-radius: 18px;
+  border: 1px solid hsla(var(--cars-h), 70%, 58%, 0.45);
+  background:
+    radial-gradient(circle at 30% 22%, hsla(var(--cars-h), 78%, 62%, 0.38), transparent 56%),
+    rgba(0, 0, 0, 0.38);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35) inset,
+    0 0 34px hsla(var(--cars-h), 72%, 50%, 0.22);
+}
+
+#cars .cards-grid .card--spotlight .phub-header h3 {
+  grid-column: 2;
+  margin: 0 0 0.15rem;
+  font-size: clamp(1.04rem, 2.1vw, 1.32rem);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+  color: var(--cars-br-ink);
+  text-shadow: 0 0 26px hsla(var(--cars-h), 70%, 55%, 0.25);
+}
+
+#cars .cards-grid .card--spotlight .paint-hub__lead {
+  grid-column: 2;
+  font-size: 0.86rem;
+  line-height: 1.74;
+  color: var(--cars-br-ink-muted);
+  max-width: 58ch;
+}
+
+#cars .cards-grid .card--spotlight .service-explorer {
+  position: relative;
+  z-index: 2;
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__rail {
+  margin-top: 0;
+  padding: 0.95rem clamp(1rem, 2.4vw, 1.35rem);
+  gap: 0.55rem;
+  border-top: 0;
+  border-bottom: 1px solid var(--cars-br-chrome);
+  background:
+    radial-gradient(circle at 18% 0%, hsla(var(--cars-h), 70%, 52%, 0.18), transparent 56%),
+    rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__pick {
+  padding: 0.48rem 0.92rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  color: var(--cars-br-ink);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 9, 11, 0.4);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__rail--compact .service-explorer__pick {
+  font-size: 0.68rem;
+  padding: 0.36rem 0.62rem;
+}
+
+@media (max-width: 520px) {
+  #cars .cards-grid .card--spotlight .service-explorer__rail--compact .service-explorer__pick {
+    font-size: 0.6rem;
+    padding: 0.32rem 0.52rem;
+  }
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__pick:hover {
+  transform: translateY(-1px);
+  border-color: hsla(var(--cars-h), 72%, 58%, 0.42);
+  background: hsla(var(--cars-h), 55%, 40%, 0.14);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
+  color: #fff;
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__pick.is-active {
+  border-color: hsla(var(--cars-h), 74%, 58%, 0.75);
+  background: linear-gradient(
+    180deg,
+    hsla(var(--cars-h), 58%, 46%, 0.34),
+    hsla(var(--cars-h), 62%, 38%, 0.16)
+  );
+  color: #e5f0ff;
+  box-shadow:
+    0 0 30px hsla(var(--cars-h), 72%, 52%, 0.22),
+    0 0 0 1px hsla(var(--cars-h), 80%, 62%, 0.35) inset;
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__copy {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(2, 6, 23, 0.38));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__panel h4 {
+  color: hsl(calc(var(--cars-h) + 6) 88% 78%);
+  text-shadow: 0 0 22px hsla(var(--cars-h), 80%, 58%, 0.22);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__panel p {
+  color: var(--cars-br-ink-muted);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__callout {
+  border-color: hsla(var(--cars-h), 72%, 58%, 0.42);
+  background: hsla(var(--cars-h), 58%, 42%, 0.16);
+  color: hsl(calc(var(--cars-h) + 8) 92% 84%);
+}
+
+#cars .cards-grid .card--spotlight .se-spec {
+  border: 2px solid hsla(var(--cars-h), 70%, 58%, 0.68);
+  background:
+    radial-gradient(circle at 38% 30%, hsla(var(--cars-h), 72%, 54%, 0.38) 0%, transparent 62%),
+    radial-gradient(circle at 50% 50%, #0a1120, #060c18);
+  box-shadow:
+    0 0 0 1px hsla(var(--cars-h), 75%, 62%, 0.14) inset,
+    0 0 22px hsla(var(--cars-h), 72%, 52%, 0.48),
+    0 0 48px hsla(var(--cars-h), 78%, 56%, 0.12);
+}
+
+#cars .cards-grid .card--spotlight .se-spec::before {
+  border-color: hsla(var(--cars-h), 68%, 58%, 0.28);
+}
+
+#cars .cards-grid .card--spotlight .se-spec strong {
+  text-shadow:
+    0 0 14px hsla(var(--cars-h), 82%, 62%, 0.95),
+    0 0 32px hsla(var(--cars-h), 72%, 52%, 0.45);
+}
+
+#cars .cards-grid .card--spotlight .se-spec:hover {
+  box-shadow:
+    0 0 0 1px hsla(var(--cars-h), 78%, 62%, 0.22) inset,
+    0 0 30px hsla(var(--cars-h), 74%, 54%, 0.65),
+    0 0 64px hsla(var(--cars-h), 78%, 56%, 0.18);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__frame {
+  border-top: 1px solid var(--cars-br-chrome);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px hsla(var(--cars-h), 65%, 55%, 0.12);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__filmstrip {
+  padding-block: 0.85rem;
+  background: rgba(0, 0, 0, 0.28);
+  border-top: 1px solid var(--cars-br-chrome);
+}
+
+#cars .cards-grid .card--spotlight .service-explorer__filmstrip img {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+}
+
+/* “Why Nano Fusion” — brochure wfbr-card */
+#cars .cards-grid > .card:not(.card--spotlight) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 100%;
+  max-width: min(420px, 100%);
+  padding: clamp(0.95rem, 2.2vw, 1.15rem) clamp(1rem, 2.4vw, 1.25rem);
+  border-radius: 14px;
+  border: 1px solid var(--cars-br-chrome);
+  background: linear-gradient(145deg, rgba(9, 9, 11, 0.74), rgba(2, 6, 23, 0.58));
+  box-shadow: 0 12px 52px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) .card-icon {
+  margin-inline: auto;
+  margin-bottom: 0.5rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  border-radius: 11px;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) h3 {
+  color: var(--cars-br-ink);
+  max-width: 26ch;
+  margin-inline: auto;
+  font-size: 1.05rem;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) .nf-list {
+  color: var(--cars-br-ink-muted);
+  width: fit-content;
+  max-width: min(34ch, 100%);
+  margin-block: 0.55rem 0;
+  margin-inline: auto;
+  text-align: start;
+  padding-inline-start: 1.05rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) .nf-list li {
+  margin: 0.22rem 0;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) .nf-list strong {
+  color: #fff;
+}
+
+#cars .cards-grid > .card:not(.card--spotlight) .nf-list li::marker {
+  color: hsl(var(--cars-h) 72% 58%);
+}
+
+#cars .cards-grid .card--spotlight .styling-hub-list {
+  color: var(--cars-br-ink-muted);
+}
+
+#cars .cards-grid .card--spotlight .styling-hub-list strong {
+  color: var(--cars-br-ink);
 }
 
 /* --- header (icon + title + lead) --- */
