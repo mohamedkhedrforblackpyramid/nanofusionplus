@@ -1028,6 +1028,8 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
 .wf-brochure__tabs {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.6rem;
   padding: 0.95rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
