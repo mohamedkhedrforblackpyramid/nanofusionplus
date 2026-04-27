@@ -23,6 +23,7 @@
   --radius: 14px;
   --radius-lg: 22px;
   --font: "Cairo", "Tajawal", system-ui, sans-serif;
+  --nf-logo-serif: Georgia, "Times New Roman", serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -44,6 +45,16 @@ body {
   line-height: 1.65;
   font-size: 1.0625rem;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Use the logo serif for any "NANO FUSION" wordmark on home */
+.bt-name,
+#wf-brochure-title,
+.wf-brochure__tab,
+.wfbr-brand,
+.poffer__name,
+.psvc__cat-name small {
+  font-family: var(--nf-logo-serif) !important;
 }
 
 a {
@@ -1005,6 +1016,13 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   z-index: 1;
 }
 
+/* Match the logo-like serif feel for COOL title */
+#wf-brochure-title {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .wf-brochure__widget {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
@@ -1050,8 +1068,16 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   cursor: pointer;
   font-weight: 700;
   font-size: 0.92rem;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: transform 0.2s var(--ease), background 0.2s, border-color 0.2s, box-shadow 0.2s;
   user-select: none;
+}
+
+/* Force override any inherited font rules */
+.wf-brochure__tabs .wf-brochure__tab {
+  font-family: Georgia, "Times New Roman", serif !important;
 }
 
 .wf-brochure__tab:hover {
@@ -1269,6 +1295,7 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   inset: 10px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.10);
+  z-index: 1;
 }
 
 .wfbr-ring__wrap--pro {
@@ -1276,9 +1303,56 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   box-shadow: 0 0 44px rgba(26,86,219,0.32);
 }
 
+.wfbr-ring__wrap--pro .wfbr-ring__value {
+  position: relative;
+  z-index: 2;
+}
+
+/* PRO card: make the photo fill the whole card */
+.wfbr-panel--10 .wfbr-ring {
+  position: relative;
+  overflow: hidden;
+  background: url("/assets/brochure/fusion-cool-pro-circle.png");
+  background-size: cover;
+  background-position: 50% 55%;
+  background-repeat: no-repeat;
+}
+
+.wfbr-panel--10 .wfbr-ring > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* COOL card: make the photo fill the whole card */
+.wfbr-panel--7 .wfbr-ring {
+  position: relative;
+  overflow: hidden;
+  background: url("/assets/brochure/fusion-cool-bg.png");
+  background-size: cover;
+  background-position: 50% 55%;
+  background-repeat: no-repeat;
+}
+
+.wfbr-panel--7 .wfbr-ring > * {
+  position: relative;
+  z-index: 1;
+}
+
 .wfbr-ring__value strong { display: block; font-size: 2.4rem; font-weight: 950; text-shadow: 0 0 18px rgba(77,134,245,0.65); }
 .wfbr-ring__value span { color: rgba(244,244,245,0.78); font-weight: 700; font-size: 0.9rem; }
 .wfbr-ring__note { margin: 0; color: rgba(244,244,245,0.65); font-size: 0.84rem; line-height: 1.55; }
+
+/* Improve readability over COOL PRO photo background */
+.wfbr-panel--10 .wfbr-ring__note {
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 2px 14px rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 0.45rem 0.65rem;
+  border-radius: 12px;
+  display: inline-block;
+  max-width: 36ch;
+}
 
 .wfbr-faq { padding-bottom: 0.6rem; }
 .wfbr-faq__item { padding: 0.85rem 1rem 0; }
@@ -1677,6 +1751,7 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
 }
 
 .bt-name {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   font-weight: 900;
   letter-spacing: 0.12em;
