@@ -532,6 +532,11 @@ body[data-view] main > section {
   display: none;
 }
 
+/* Standalone pages (e.g., privacy.html): never hide their sections */
+body.page-privacy[data-view] main > section {
+  display: block !important;
+}
+
 /* Home shows hero + video + projects + contact */
 body[data-view="home"] #hero,
 body[data-view="home"] #brochure-info,
@@ -4269,6 +4274,13 @@ section {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Privacy pages: show content instantly (no scroll reveal). */
+body.page-privacy .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 /* English page (en/index.html) — Latin typography */

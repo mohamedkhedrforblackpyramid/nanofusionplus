@@ -130,6 +130,17 @@
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function (e) {
         const href = link.getAttribute("href") || "";
+        // Only intercept navigation when the target URL is the CURRENT page.
+        // Standalone pages (e.g., privacy.html) link back to index.html and must reload normally.
+        try {
+          const targetUrl = new URL(href, window.location.href);
+          const currentPath = window.location.pathname.replace(/\/+$/, "");
+          const targetPath = targetUrl.pathname.replace(/\/+$/, "");
+          if (targetPath && currentPath && targetPath !== currentPath) {
+            if (window.matchMedia("(max-width: 960px)").matches) closeNav();
+            return;
+          }
+        } catch (_e) {}
         // Smart router: support both hash links and ?view= links (no full reload)
         const hashOnly = href.match(/^#(.+)/);
         if (hashOnly && hashOnly[1]) {
@@ -194,6 +205,12 @@
   const year = document.getElementById("year");
 
   var revealEls = document.querySelectorAll(".reveal");
+  // Standalone pages (privacy) should show all content immediately.
+  if (body && body.classList && body.classList.contains("page-privacy")) {
+    revealEls.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  } else
   if (window.IntersectionObserver) {
     var observer = new IntersectionObserver(
       function (entries) {
