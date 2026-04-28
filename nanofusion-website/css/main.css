@@ -57,6 +57,14 @@ body {
   font-family: var(--nf-logo-serif) !important;
 }
 
+/* Ensure Latin product names render LTR inside RTL pages */
+html[dir="rtl"] .bt-name,
+html[dir="rtl"] #wf-brochure-title,
+html[dir="rtl"] .wf-brochure__tab {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 /* Auto-wrapped brand wordmarks (see main.js) */
 .nf-wordmark {
   font-family: var(--nf-logo-serif);
@@ -1252,7 +1260,14 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
 }
 
 .wfbr-hero__kicker { margin: 0; color: rgba(244,244,245,0.78); font-weight: 700; }
-.wfbr-hero__title { margin: 0; font-size: 2rem; font-weight: 950; letter-spacing: 0.08em; }
+.wfbr-hero__title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  font-family: var(--nf-logo-serif);
+  text-transform: uppercase;
+}
 .wfbr-hero__pro { color: #93c5fd; }
 .wfbr-hero__sub { margin: 0; color: rgba(244,244,245,0.75); font-weight: 700; }
 
