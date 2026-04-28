@@ -4059,9 +4059,13 @@ html[dir="rtl"] .buildings-kicker {
 .bld-kpi strong {
   display: block;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #fff;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 html[dir="rtl"] .bld-kpi strong {
