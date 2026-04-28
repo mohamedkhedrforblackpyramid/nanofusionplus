@@ -792,6 +792,14 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   letter-spacing: -0.02em;
 }
 
+/* Hero second line (tagline) — slightly smaller + more spacing from wordmark */
+.hero h1 > span:nth-child(2) {
+  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+  margin-top: 0.65rem;
+  color: rgba(244, 244, 245, 0.88);
+  line-height: 1.25;
+}
+
 .hero-lead {
   color: var(--muted);
   font-size: 1.125rem;
