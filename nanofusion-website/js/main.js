@@ -118,6 +118,102 @@
   // but we always want to land at the top of the view (not mid-page).
   const NEEDS_SCROLL = {};
 
+  // Brand wordmark: wrap any "Nano Fusion" mentions with logo font
+  (function applyNanoFusionWordmark() {
+    try {
+      // Apply across the whole document (header/nav/footer + main).
+      var root = document.body;
+      if (!root) return;
+
+      // Keep a non-global test regex to avoid lastIndex side effects.
+      var needles = [
+        // English: Nano Fusion / nano-fusion / nano‑fusion / nano fusion (any case)
+        { re: /\bnano[\s\-‑–—]*fusion\b/gi, test: /\bnano[\s\-‑–—]*fusion\b/i, dir: "ltr" },
+        // English: NanoFusion (no separator)
+        { re: /\bnanofusion\b/gi, test: /\bnanofusion\b/i, dir: "ltr" },
+        // Arabic: نانو فيوجن / نانو-فيوجن / نانو‑فيوجن
+        { re: /نانو[\s\-‑–—]*فيوجن/g, test: /نانو[\s\-‑–—]*فيوجن/, dir: "rtl" },
+        // Arabic: نانوفيوجن (no separator)
+        { re: /نانوفيوجن/g, test: /نانوفيوجن/, dir: "rtl" },
+      ];
+
+      function shouldSkip(el) {
+        if (!el || el.nodeType !== 1) return true;
+        var tag = (el.tagName || "").toLowerCase();
+        if (tag === "script" || tag === "style" || tag === "textarea" || tag === "input") return true;
+        // Don't touch code-like blocks (URLs, snippets).
+        if (tag === "code" || tag === "pre") return true;
+        if (el.closest && el.closest(".nf-wordmark")) return true;
+        return false;
+      }
+
+      var tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (node) {
+          if (!node || !node.nodeValue) return NodeFilter.FILTER_REJECT;
+          var p = node.parentElement;
+          if (!p || shouldSkip(p)) return NodeFilter.FILTER_REJECT;
+          var txt = node.nodeValue;
+          for (var i = 0; i < needles.length; i++) {
+            if (needles[i].test.test(txt)) {
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+          return NodeFilter.FILTER_REJECT;
+        },
+      });
+
+      var nodes = [];
+      while (tw.nextNode()) nodes.push(tw.currentNode);
+
+      nodes.forEach(function (textNode) {
+        var txt = textNode.nodeValue || "";
+        var container = document.createElement("span");
+        container.className = "nf-wordmark-wrap";
+
+        var parts = [txt];
+        needles.forEach(function (n) {
+          var next = [];
+          parts.forEach(function (seg) {
+            if (typeof seg !== "string") {
+              next.push(seg);
+              return;
+            }
+            var last = 0;
+            n.re.lastIndex = 0;
+            var m;
+            while ((m = n.re.exec(seg))) {
+              var start = m.index;
+              var end = start + m[0].length;
+              if (start > last) next.push(seg.slice(last, start));
+              var sp = document.createElement("span");
+              sp.className = "nf-wordmark";
+              sp.setAttribute("dir", n.dir);
+              sp.textContent = m[0];
+              next.push(sp);
+              last = end;
+            }
+            if (last < seg.length) next.push(seg.slice(last));
+          });
+          parts = next;
+        });
+
+        // Only replace if we actually created wordmark spans
+        var hasSpan = parts.some(function (p) {
+          return typeof p !== "string";
+        });
+        if (!hasSpan) return;
+
+        parts.forEach(function (p) {
+          if (typeof p === "string") container.appendChild(document.createTextNode(p));
+          else container.appendChild(p);
+        });
+
+        var parent = textNode.parentNode;
+        if (parent) parent.replaceChild(container, textNode);
+      });
+    } catch (_e) {}
+  })();
+
   function goToSection(id) {
     const mappedView = VIEW_BY_ID[id];
     const el = id ? document.getElementById(id) : null;

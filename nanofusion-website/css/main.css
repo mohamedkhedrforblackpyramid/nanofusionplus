@@ -57,6 +57,18 @@ body {
   font-family: var(--nf-logo-serif) !important;
 }
 
+/* Auto-wrapped brand wordmarks (see main.js) */
+.nf-wordmark {
+  font-family: var(--nf-logo-serif);
+}
+
+/* Latin wordmark polish */
+html[lang^="en"] .nf-wordmark,
+.nf-wordmark[dir="ltr"] {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 a {
   color: inherit;
   text-decoration: none;
