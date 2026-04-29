@@ -33,6 +33,18 @@
   box-sizing: border-box;
 }
 
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -800,6 +812,15 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   letter-spacing: -0.02em;
 }
 
+/* Hero wordmark (NANO FUSION) — keep it closer to logo scale */
+.hero h1 > span:first-child {
+  font-family: var(--nf-logo-serif);
+  font-size: clamp(1.65rem, 3.6vw, 2.55rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
 /* Hero second line (tagline) — slightly smaller + more spacing from wordmark */
 .hero h1 > span:nth-child(2) {
   font-size: clamp(1.05rem, 2.2vw, 1.55rem);
@@ -813,6 +834,84 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   font-size: 1.125rem;
   max-width: 34ch;
   margin: 0 0 1.75rem;
+}
+
+/* Keep the Arabic hero lead as a single line on wide screens */
+@media (min-width: 900px) {
+  .hero-lead--single {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+.hero-highlights {
+  margin: 1rem 0 1.5rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0.72), rgba(9, 9, 11, 0.50));
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(26, 86, 219, 0.18) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 52ch;
+}
+
+.hero-highlights__title {
+  font-weight: 800;
+  color: rgba(244, 244, 245, 0.92);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.hero-highlights__title span[dir="ltr"] {
+  unicode-bidi: isolate;
+}
+
+.hero-highlights__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.hero-highlights__list li {
+  position: relative;
+  padding-inline-start: 1.35rem;
+  color: rgba(244, 244, 245, 0.82);
+  line-height: 1.55;
+}
+
+.hero-highlights__list li::before {
+  content: "✓";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.05rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #dbe8ff;
+  background: linear-gradient(135deg, rgba(26, 86, 219, 0.55), rgba(77, 134, 245, 0.35));
+  box-shadow: 0 0 0 1px rgba(77, 134, 245, 0.22) inset, 0 10px 24px rgba(26, 86, 219, 0.18);
+}
+
+@media (max-width: 520px) {
+  .hero-highlights {
+    padding: 0.85rem 0.9rem;
+    border-radius: 14px;
+  }
+  .hero-highlights__title {
+    font-size: 0.98rem;
+  }
+  .hero-highlights__list li {
+    font-size: 0.98rem;
+  }
 }
 
 .hero-actions {
@@ -861,7 +960,7 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   position: relative;
   border-radius: 0;
   border: 0;
-  background: transparent;
+  background: #07070a;
   /* full viewport width (edge-to-edge) */
   width: 100vw;
   margin-inline: calc(50% - 50vw);
@@ -892,9 +991,23 @@ html[dir="ltr"] .hero-lead { max-width: 70ch; }
   will-change: opacity, transform;
 }
 
+/* Make the wall wordmark in the Mercedes slide more legible */
+.hero-slide[src*="hero-slides/slide-9.png"] {
+  filter: contrast(1.22) brightness(0.92) saturate(1.06);
+  /* Show the full car + wall logo (avoid cropping for this slide only) */
+  object-fit: contain;
+  object-position: center;
+  background: #07070a;
+}
+
 .hero-slide.is-active {
   opacity: 1;
   transform: scale(1.035);
+}
+
+/* Reduce zoom for the Mercedes slide so the top logo isn't clipped */
+.hero-slide.is-active[src*="hero-slides/slide-9.png"] {
+  transform: scale(1);
 }
 
 .hero-dots {
@@ -5791,6 +5904,248 @@ html[lang="en"] body {
   flex-shrink: 0;
 }
 
+/* ── Offers brochure (PDF pages) ───────────────────────────── */
+.brochure-offers {
+  margin-top: 2rem;
+}
+
+.brochure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.brochure-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background:
+    radial-gradient(900px 240px at 50% -20%, rgba(77, 134, 245, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(9, 9, 11, 0.88), rgba(9, 9, 11, 0.58));
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateZ(0);
+  cursor: zoom-in;
+  transition:
+    transform 0.22s var(--ease),
+    border-color 0.22s var(--ease),
+    box-shadow 0.22s var(--ease),
+    filter 0.22s var(--ease);
+  will-change: transform;
+}
+
+.brochure-card:focus-visible {
+  outline: 3px solid rgba(77, 134, 245, 0.65);
+  outline-offset: 3px;
+}
+
+.brochure-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 45%,
+    transparent 55%
+  );
+  transform: translateX(-35%) rotate(8deg);
+  opacity: 0;
+  transition: opacity 0.22s var(--ease), transform 0.65s var(--ease);
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+.brochure-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    conic-gradient(
+      from 210deg,
+      rgba(77, 134, 245, 0.00),
+      rgba(77, 134, 245, 0.85),
+      rgba(52, 211, 153, 0.72),
+      rgba(250, 204, 21, 0.62),
+      rgba(77, 134, 245, 0.85),
+      rgba(77, 134, 245, 0.00)
+    );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.52;
+  filter: blur(0.2px);
+  transition: opacity 0.22s var(--ease), filter 0.22s var(--ease);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.brochure-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(1.02) contrast(1.02);
+  transform: scale(1);
+  transition: transform 0.28s var(--ease), filter 0.28s var(--ease);
+}
+
+.brochure-card__meta {
+  position: absolute;
+  inset-inline-end: 0.65rem;
+  top: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  color: rgba(244, 244, 245, 0.9);
+  background:
+    linear-gradient(180deg, rgba(9, 9, 11, 0.62), rgba(9, 9, 11, 0.38));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+}
+
+.brochure-card__meta::before {
+  content: "★";
+  margin-inline-end: 0.35rem;
+  color: rgba(250, 204, 21, 0.95);
+  text-shadow: 0 10px 24px rgba(250, 204, 21, 0.18);
+}
+
+/* Smart CTA (localized) */
+html[lang="ar"] .brochure-card__meta::after { content: " • اضغط للتكبير"; }
+html[lang="en"] .brochure-card__meta::after { content: " • Click to zoom"; }
+
+.brochure-card__meta::after {
+  opacity: 0;
+  max-width: 0;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  transform: translateY(1px);
+  transition: opacity 0.22s var(--ease), max-width 0.32s var(--ease);
+}
+
+.brochure-card:hover .brochure-card__meta::after,
+.brochure-card:focus-visible .brochure-card__meta::after {
+  opacity: 0.95;
+  max-width: 14rem;
+}
+
+.brochure-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(77, 134, 245, 0.18) inset;
+  filter: drop-shadow(0 14px 28px rgba(77, 134, 245, 0.10));
+}
+
+.brochure-card:hover img {
+  transform: scale(1.03);
+  filter: saturate(1.07) contrast(1.05);
+}
+
+.brochure-card:hover::before {
+  opacity: 1;
+  transform: translateX(28%) rotate(8deg);
+}
+
+.brochure-card:hover::after {
+  opacity: 0.9;
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brochure-card,
+  .brochure-card img,
+  .brochure-card::before,
+  .brochure-card::after {
+    transition: none !important;
+  }
+  .brochure-card__meta::after { transition: none !important; }
+}
+
+/* Brochure lightbox */
+.brochure-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.brochure-lb__panel {
+  width: min(1040px, 96vw);
+  max-height: 88vh;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(9, 9, 11, 0.75);
+  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.65);
+  position: relative;
+}
+
+.brochure-lb__img {
+  width: 100%;
+  height: 88vh;
+  max-height: 88vh;
+  object-fit: contain;
+  background: #07070a;
+  display: block;
+}
+
+.brochure-lb__close {
+  position: absolute;
+  top: 0.65rem;
+  inset-inline-end: 0.65rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(9, 9, 11, 0.55);
+  color: rgba(244, 244, 245, 0.92);
+  font-size: 1.35rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.brochure-lb__close:hover {
+  background: rgba(9, 9, 11, 0.72);
+}
+
+.brochure-lb__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(9, 9, 11, 0.50);
+  color: rgba(244, 244, 245, 0.92);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.brochure-lb__nav:hover { background: rgba(9, 9, 11, 0.72); }
+.brochure-lb__nav--prev { inset-inline-start: 0.65rem; }
+.brochure-lb__nav--next { inset-inline-end: 0.65rem; }
+
 /* ── Responsive ─────────────────────────── */
 @media (max-width: 900px) {
   /* Table maintains fixed layout until 700px */
@@ -5847,4 +6202,5 @@ html[lang="en"] body {
 @media (max-width: 440px) {
   .pricing-offers-grid { grid-template-columns: 1fr; }
   .psvc__table-row { grid-template-columns: 1fr; }
+  .brochure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
 }

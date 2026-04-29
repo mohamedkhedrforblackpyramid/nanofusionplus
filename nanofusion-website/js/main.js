@@ -292,8 +292,19 @@
 
   // Force a clean "top of page" on full page navigations when there is no meaningful anchor.
   // Prevents partial scroll restoration that can happen between standalone pages.
+  var __userScrolled = false;
+  window.addEventListener(
+    "scroll",
+    function () {
+      __userScrolled = __userScrolled || window.scrollY > 6;
+    },
+    { passive: true }
+  );
   window.addEventListener("load", function () {
     try {
+      // If the user started scrolling before the page finished loading,
+      // do not yank them back to the top.
+      if (__userScrolled) return;
       const hash = (window.location.hash || "").replace(/^#/, "");
       if (hash) {
         // If the hash points to an element, keep default behavior.
@@ -734,6 +745,96 @@
 
       var initial = root.querySelector(".service-explorer__pick.is-active") || picks[0];
       activate(initial);
+    });
+  })();
+
+  // Offers brochure — open pages in a lightweight lightbox
+  (function initBrochureLightbox() {
+    var cards = document.querySelectorAll(".brochure-card[href]");
+    if (!cards || !cards.length) return;
+
+    var items = Array.prototype.slice.call(cards).map(function (a) {
+      return {
+        href: a.getAttribute("href") || "",
+        alt: (a.querySelector("img") && a.querySelector("img").getAttribute("alt")) || "Brochure page",
+      };
+    });
+
+    function openAt(idx) {
+      idx = Math.max(0, Math.min(items.length - 1, idx));
+      var it = items[idx];
+      if (!it || !it.href) return;
+
+      var lb = document.createElement("div");
+      lb.className = "brochure-lb";
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.setAttribute("aria-label", "Brochure viewer");
+
+      var panel = document.createElement("div");
+      panel.className = "brochure-lb__panel";
+
+      var img = document.createElement("img");
+      img.className = "brochure-lb__img";
+      img.src = it.href;
+      img.alt = it.alt || "";
+
+      var closeBtn = document.createElement("button");
+      closeBtn.className = "brochure-lb__close";
+      closeBtn.setAttribute("aria-label", "Close");
+      closeBtn.textContent = "×";
+
+      var prevBtn = document.createElement("button");
+      prevBtn.className = "brochure-lb__nav brochure-lb__nav--prev";
+      prevBtn.setAttribute("aria-label", "Previous");
+      prevBtn.textContent = "‹";
+
+      var nextBtn = document.createElement("button");
+      nextBtn.className = "brochure-lb__nav brochure-lb__nav--next";
+      nextBtn.setAttribute("aria-label", "Next");
+      nextBtn.textContent = "›";
+
+      function setIdx(nextIdx) {
+        idx = (nextIdx + items.length) % items.length;
+        var nextIt = items[idx];
+        img.src = nextIt.href;
+        img.alt = nextIt.alt || "";
+      }
+
+      function close() {
+        lb.remove();
+        document.removeEventListener("keydown", onKey);
+        document.body.style.overflow = "";
+      }
+
+      function onKey(e) {
+        if (e.key === "Escape") return close();
+        if (e.key === "ArrowLeft") return setIdx(idx - 1);
+        if (e.key === "ArrowRight") return setIdx(idx + 1);
+      }
+
+      prevBtn.addEventListener("click", function () { setIdx(idx - 1); });
+      nextBtn.addEventListener("click", function () { setIdx(idx + 1); });
+      closeBtn.addEventListener("click", close);
+      lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+
+      panel.appendChild(img);
+      panel.appendChild(closeBtn);
+      panel.appendChild(prevBtn);
+      panel.appendChild(nextBtn);
+      lb.appendChild(panel);
+
+      document.body.appendChild(lb);
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+      document.addEventListener("keydown", onKey);
+    }
+
+    cards.forEach(function (a, idx) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        openAt(idx);
+      });
     });
   })();
 })();
