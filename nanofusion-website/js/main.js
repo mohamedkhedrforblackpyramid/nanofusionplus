@@ -43,6 +43,14 @@
     if (!nav) return;
     // Mark the exact clicked view as active (even if content is nested under another section)
     const wanted = view || "home";
+    const currentFile = (function () {
+      try {
+        const p = (window.location.pathname || "").split("/").pop() || "";
+        return p.toLowerCase();
+      } catch (_e) {
+        return "";
+      }
+    })();
     nav.querySelectorAll("a").forEach(function (a) {
       /* Dropdown items all share the same ?view=cars — highlighting every row fights the root
          button state. Only top-level links use aria-current here; cars/buildings use the button. */
@@ -53,8 +61,19 @@
       const href = a.getAttribute("href") || "";
       const m = href.match(/[?&]view=([^&#]+)/);
       const v = m ? decodeURIComponent(m[1]) : "";
-      if (v && v === wanted) a.setAttribute("aria-current", "page");
-      else a.removeAttribute("aria-current");
+      if (v && v === wanted) {
+        a.setAttribute("aria-current", "page");
+        return;
+      }
+
+      // Standalone pages (e.g. offers.html/privacy.html) may not use ?view= links.
+      // If the href targets the same file name, keep it active.
+      const hrefFile = (href.split("#")[0] || "").split("?")[0].split("/").pop().toLowerCase();
+      if (hrefFile && currentFile && hrefFile === currentFile) {
+        a.setAttribute("aria-current", "page");
+      } else {
+        a.removeAttribute("aria-current");
+      }
     });
 
     // Highlight dropdown root buttons too (cars/buildings)
@@ -100,6 +119,11 @@
     if (v) return v;
     const hash = (window.location.hash || "").replace(/^#/, "");
     if (hash && VIEW_BY_ID[hash]) return VIEW_BY_ID[hash];
+    // Standalone pages can set their intended view via body[data-view]
+    try {
+      const dv = ((body && body.getAttribute("data-view")) || "").trim().toLowerCase();
+      if (dv) return dv;
+    } catch (_e) {}
     return "home";
   }
 
@@ -260,6 +284,19 @@
     }
     setView(initView, scrollTarget);
   })();
+
+  // Force a clean "top of page" on full page navigations when there is no meaningful anchor.
+  // Prevents partial scroll restoration that can happen between standalone pages.
+  window.addEventListener("load", function () {
+    try {
+      const hash = (window.location.hash || "").replace(/^#/, "");
+      if (hash) {
+        // If the hash points to an element, keep default behavior.
+        if (document.getElementById(hash)) return;
+      }
+      window.scrollTo(0, 0);
+    } catch (_e) {}
+  });
 
   function closeNav() {
     body.classList.remove("nav-open");
