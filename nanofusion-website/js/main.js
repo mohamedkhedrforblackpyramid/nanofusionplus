@@ -131,10 +131,9 @@
         { re: /\bnano[\s\-‑–—]*fusion\b/gi, test: /\bnano[\s\-‑–—]*fusion\b/i, dir: "ltr" },
         // English: NanoFusion (no separator)
         { re: /\bnanofusion\b/gi, test: /\bnanofusion\b/i, dir: "ltr" },
-        // Arabic: نانو فيوجن / نانو-فيوجن / نانو‑فيوجن
-        { re: /نانو[\s\-‑–—]*فيوجن/g, test: /نانو[\s\-‑–—]*فيوجن/, dir: "rtl" },
-        // Arabic: نانوفيوجن (no separator)
-        { re: /نانوفيوجن/g, test: /نانوفيوجن/, dir: "rtl" },
+        // Arabic brand spellings -> render as "NANO FUSION" in logo font
+        { re: /نانو[\s\-‑–—]*فيوجن/g, test: /نانو[\s\-‑–—]*فيوجن/, dir: "ltr", replace: "NANO FUSION" },
+        { re: /نانوفيوجن/g, test: /نانوفيوجن/, dir: "ltr", replace: "NANO FUSION" },
       ];
 
       function shouldSkip(el) {
@@ -188,7 +187,7 @@
               var sp = document.createElement("span");
               sp.className = "nf-wordmark";
               sp.setAttribute("dir", n.dir);
-              sp.textContent = m[0];
+              sp.textContent = n.replace || m[0];
               next.push(sp);
               last = end;
             }
