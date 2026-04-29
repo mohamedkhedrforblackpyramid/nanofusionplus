@@ -84,31 +84,35 @@
     });
   }
 
+  // Track "real" navigations so we don't hijack normal scrolling.
+  var __lastNavAt = 0;
+  function markNavigation() {
+    __lastNavAt = Date.now();
+  }
+
   function setView(view, scrollTargetId) {
     if (!view || view === "home") body.setAttribute("data-view", "home");
     else body.setAttribute("data-view", view);
     syncNavActive(view);
 
-    // Always reset scroll position when navigating via the top bar.
-    // Using "auto" avoids mid-scroll states and ensures the view starts at the top.
-    try {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-    } catch (_e0) {}
+    // Only reset scroll when this change came from an intentional navigation.
+    // Prevents "jump to top" during normal scrolling if setView is invoked indirectly.
+    var shouldResetScroll = Date.now() - __lastNavAt < 1200;
 
     // For nested sections (warranty/faq/tips), scroll to sub-element after paint
     if (scrollTargetId) {
       requestAnimationFrame(function () {
         var el = document.getElementById(scrollTargetId);
         if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
-        else window.scrollTo({ top: 0, behavior: "auto" });
+        else if (shouldResetScroll) window.scrollTo({ top: 0, behavior: "auto" });
       });
     } else {
-      try {
-        window.scrollTo({ top: 0, behavior: "auto" });
-      } catch (_e) {
-        window.scrollTo(0, 0);
+      if (shouldResetScroll) {
+        try {
+          window.scrollTo({ top: 0, behavior: "auto" });
+        } catch (_e) {
+          window.scrollTo(0, 0);
+        }
       }
     }
   }
@@ -272,6 +276,7 @@
 
   // Init view on load — handle nested scroll targets too
   (function () {
+    markNavigation();
     const initView = parseInitialView();
     const initHash = (window.location.hash || "").replace(/^#/, "");
     var scrollTarget = null;
@@ -328,6 +333,7 @@
         const hashOnly = href.match(/^#(.+)/);
         if (hashOnly && hashOnly[1]) {
           e.preventDefault();
+          markNavigation();
           goToSection(hashOnly[1]);
         } else if (href.indexOf("view=") !== -1) {
           const viewMatch = href.match(/[?&]view=([^&#]+)/);
@@ -342,6 +348,7 @@
             }
           }
           e.preventDefault();
+          markNavigation();
           setView(view, scrollTarget);
           updateUrlForView(view, hash || null);
         }
@@ -369,6 +376,7 @@
             if (carsHref) window.location.href = carsHref;
             return;
           }
+          markNavigation();
           goToSection("cars");
         } else if (go === "buildings") {
           e.preventDefault();
@@ -377,6 +385,7 @@
             if (bHref) window.location.href = bHref;
             return;
           }
+          markNavigation();
           goToSection("buildings");
         }
         if (window.matchMedia("(max-width: 960px)").matches) closeNav();
@@ -399,6 +408,7 @@
   );
 
   window.addEventListener("popstate", function () {
+    markNavigation();
     const psView = parseInitialView();
     const psHash = (window.location.hash || "").replace(/^#/, "");
     var psScroll = null;
