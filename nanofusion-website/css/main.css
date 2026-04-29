@@ -4002,6 +4002,31 @@ html[lang^="en"] .cars-hero__title {
   margin-bottom: 0;
 }
 
+.buildings-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-inline-start: 0.65rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(26, 86, 219, 0.10);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.buildings-jump:hover {
+  background: rgba(26, 86, 219, 0.16);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.buildings-jump:focus-visible {
+  outline: 2px solid rgba(26, 86, 219, 0.55);
+  outline-offset: 2px;
+}
+
 /* Buildings — premium add-on (keep existing data, add brochure-like layer) */
 .buildings-section .buildings-showcase {
   margin-top: clamp(1.75rem, 4vw, 2.75rem);
