@@ -725,6 +725,8 @@
         });
       });
 
+      if (!picks.length) return;
+
       picks.forEach(function (p) {
         p.addEventListener("click", function () {
           activate(p);

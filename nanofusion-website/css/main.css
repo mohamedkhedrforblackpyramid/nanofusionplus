@@ -3089,6 +3089,14 @@ section {
   --cars-h: 198;
 }
 
+#cars #paint-microfiber-hub {
+  --cars-h: 208;
+}
+
+#cars #glass-shatter-protection-hub {
+  --cars-h: 188;
+}
+
 #cars #ceramic-protection-hub {
   --cars-h: 232;
 }
@@ -3097,8 +3105,12 @@ section {
   --cars-h: 258;
 }
 
-#cars #repair-correction-hub {
-  --cars-h: 36;
+#cars #interior-nano-ceramic-hub {
+  --cars-h: 248;
+}
+
+#cars #wheel-rubber-paint-hub {
+  --cars-h: 268;
 }
 
 #cars #upholstery-services-hub {
@@ -3200,39 +3212,17 @@ html[lang^="en"] .cars-hero__title {
   font-size: clamp(0.92rem, 1.6vw, 1.02rem);
 }
 
-.cars-hero__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+.cars-hero__leads {
+  max-width: 62ch;
 }
 
-.cars-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.92rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(9, 9, 11, 0.42);
-  color: var(--cars-br-ink);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.84rem;
-  letter-spacing: 0.01em;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.38);
-  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+.cars-hero__leads .cars-hero__lead {
+  margin: 0 0 0.5rem;
+  max-width: none;
 }
 
-.cars-chip:hover {
-  transform: translateY(-1px);
-  border-color: rgba(77, 134, 245, 0.42);
-  background: rgba(26, 86, 219, 0.16);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
-}
-
-.cars-chip:focus-visible {
-  outline: 2px solid rgba(120, 190, 255, 0.95);
-  outline-offset: 3px;
+.cars-hero__leads .cars-hero__lead:last-child {
+  margin-bottom: 1rem;
 }
 
 .cars-hero__panel {
@@ -3338,7 +3328,6 @@ html[lang^="en"] .cars-hero__title {
 
 @media (prefers-reduced-motion: reduce) {
   .cars-hero__orbit { animation: none; }
-  .cars-chip:hover { transform: none; }
 }
 
 /* Wrapper that sits full-width in the grid, holds two hubs side by side */
@@ -3349,9 +3338,33 @@ html[lang^="en"] .cars-hero__title {
   gap: 1.25rem;
 }
 
+.hubs-row--single {
+  grid-template-columns: 1fr;
+}
+
+.hubs-row--single > .card--spotlight {
+  grid-column: 1 / -1;
+}
+
+/* One hub centered — same width as a single column in a two-hub row */
+.hubs-row--solo-centered {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.hubs-row--solo-centered > .card--spotlight {
+  grid-column: 1;
+  justify-self: center;
+  width: min(100%, calc((100% - 1.25rem) / 2));
+}
+
 @media (max-width: 860px) {
   .hubs-row {
     grid-template-columns: 1fr;
+  }
+
+  .hubs-row--solo-centered > .card--spotlight {
+    width: 100%;
   }
 }
 
@@ -3465,6 +3478,15 @@ html[lang^="en"] .cars-hero__title {
   padding: clamp(1rem, 2.3vw, 1.35rem) clamp(1.05rem, 2.5vw, 1.55rem) clamp(0.55rem, 1.3vw, 0.8rem);
   border-bottom: 1px solid var(--cars-br-chrome);
   background: radial-gradient(circle at 18% 0%, hsla(var(--cars-h), 70%, 52%, 0.2), transparent 58%);
+}
+
+#cars .cards-grid .card--spotlight .phub-header:not(:has(> .card-icon)) {
+  grid-template-columns: 1fr;
+}
+
+#cars .cards-grid .card--spotlight .phub-header:not(:has(> .card-icon)) h3,
+#cars .cards-grid .card--spotlight .phub-header:not(:has(> .card-icon)) .paint-hub__lead {
+  grid-column: 1;
 }
 
 #cars .cards-grid .card--spotlight .phub-header .card-icon {
@@ -3859,6 +3881,23 @@ html[lang^="en"] .cars-hero__title {
   .service-explorer__pick:hover { transform: none; }
 }
 
+/* Paint / glass hubs: tabs removed — keep rail band height for layout parity */
+#paint-protection-hub .service-explorer__rail--phantom,
+#glass-protection-hub .service-explorer__rail--phantom,
+#paint-microfiber-hub .service-explorer__rail--phantom,
+#glass-shatter-protection-hub .service-explorer__rail--phantom,
+#styling-services-hub .service-explorer__rail--phantom,
+#ceramic-protection-hub .service-explorer__rail--phantom,
+#interior-nano-ceramic-hub .service-explorer__rail--phantom,
+#wheel-rubber-paint-hub .service-explorer__rail--phantom,
+#upholstery-services-hub .service-explorer__rail--phantom {
+  pointer-events: none;
+  user-select: none;
+  flex-wrap: nowrap;
+  gap: 0;
+  min-height: 2.65rem;
+}
+
 .service-explorer__panel h4 {
   grid-column: 1 / -1;
   margin: 0 0 0.35rem;
@@ -3966,6 +4005,38 @@ html[lang^="en"] .cars-hero__title {
   letter-spacing: -0.025em;
   line-height: 1;
   text-shadow: 0 0 14px rgba(77, 134, 245, 0.9), 0 0 30px rgba(26, 86, 219, 0.5);
+}
+
+/* Long Latin label — keep inside the 80px ring */
+.se-spec--selfheal {
+  padding: 0 5px;
+}
+
+.se-spec--selfheal strong {
+  font-size: clamp(0.52rem, 1.45vw, 0.62rem);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.se-spec--selfheal .se-spec__sub {
+  display: block;
+  margin-top: 0.18rem;
+  font-size: clamp(0.48rem, 1.35vw, 0.56rem);
+  line-height: 1.12;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 100%;
+}
+
+#cars .cards-grid .card--spotlight .se-spec--selfheal strong {
+  font-size: clamp(0.5rem, 1.35vw, 0.58rem);
+  letter-spacing: -0.05em;
+}
+
+#cars .cards-grid .card--spotlight .se-spec--selfheal .se-spec__sub {
+  font-size: clamp(0.46rem, 1.25vw, 0.54rem);
 }
 
 /* thumbnail filmstrip */
@@ -5414,6 +5485,12 @@ body.page-privacy .reveal {
   transition: none !important;
 }
 
+/* Offers view: avoid "blank until scroll" on first paint. */
+body[data-view="offers"] .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 /* English page (en/index.html) — Latin typography */
 html[lang="en"] body {
   font-family: "DM Sans", system-ui, -apple-system, sans-serif;
@@ -6006,13 +6083,145 @@ html[lang="en"] body {
 
 /* ── Offers brochure (PDF pages) ───────────────────────────── */
 .brochure-offers {
-  margin-top: 2rem;
+  --bro-frame: rgba(255, 255, 255, 0.06);
+  --bro-frame-strong: rgba(255, 255, 255, 0.11);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  padding-block: clamp(2.25rem, 5vw, 3.75rem);
+  padding-inline: clamp(0.4rem, 1.8vw, 1rem);
+  position: relative;
+  border-radius: clamp(20px, 2.5vw, 28px);
+  isolation: isolate;
+  /* Same family as page + print mat — lets brochure whites read clean */
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 55%),
+    linear-gradient(180deg, var(--surface) 0%, var(--bg-deep) 55%, #1a1a1a 100%);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 60px rgba(0, 0, 0, 0.2),
+    0 40px 80px rgba(0, 0, 0, 0.38);
+}
+
+.brochure-offers::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+.brochure-offers::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 0, 0, 0.22), transparent 65%);
+  opacity: 1;
+}
+
+.brochure-offers > * {
+  position: relative;
+  z-index: 2;
 }
 
 .brochure-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.2rem;
+}
+
+/* Offers: full-width pages stacked — scroll the section in document order */
+.brochure-offers .brochure-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 2.85rem);
+}
+
+.brochure-offers .brochure-grid::before {
+  content: "";
+  display: block;
+  width: min(320px, 72%);
+  height: 1px;
+  margin: 0 auto 0.25rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--bro-frame),
+    var(--bro-frame-strong),
+    var(--bro-frame),
+    transparent
+  );
+}
+
+.brochure-offers .brochure-card {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  border-radius: clamp(20px, 2vw, 26px);
+  border-color: var(--border-strong);
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--bg-deep) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 32px 64px rgba(0, 0, 0, 0.45);
+}
+
+.brochure-offers .brochure-card::after {
+  background: conic-gradient(
+    from 210deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.07),
+    rgba(200, 200, 200, 0.1),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.22;
+}
+
+.brochure-offers .brochure-card img {
+  filter: none;
+}
+
+.brochure-offers .brochure-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 48px 90px rgba(0, 0, 0, 0.52);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+.brochure-offers .brochure-card:hover img {
+  transform: scale(1.008);
+  filter: none;
+}
+
+.brochure-offers .brochure-card:hover::after {
+  opacity: 0.34;
+  filter: blur(0);
+}
+
+.brochure-offers .brochure-card:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 4px;
 }
 
 .brochure-card {
@@ -6096,50 +6305,6 @@ html[lang="en"] body {
   transition: transform 0.28s var(--ease), filter 0.28s var(--ease);
 }
 
-.brochure-card__meta {
-  position: absolute;
-  inset-inline-end: 0.65rem;
-  top: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  font-size: 0.82rem;
-  color: rgba(244, 244, 245, 0.9);
-  background:
-    linear-gradient(180deg, rgba(9, 9, 11, 0.62), rgba(9, 9, 11, 0.38));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-}
-
-.brochure-card__meta::before {
-  content: "★";
-  margin-inline-end: 0.35rem;
-  color: rgba(250, 204, 21, 0.95);
-  text-shadow: 0 10px 24px rgba(250, 204, 21, 0.18);
-}
-
-/* Smart CTA (localized) */
-html[lang="ar"] .brochure-card__meta::after { content: " • اضغط للتكبير"; }
-html[lang="en"] .brochure-card__meta::after { content: " • Click to zoom"; }
-
-.brochure-card__meta::after {
-  opacity: 0;
-  max-width: 0;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: translateY(1px);
-  transition: opacity 0.22s var(--ease), max-width 0.32s var(--ease);
-}
-
-.brochure-card:hover .brochure-card__meta::after,
-.brochure-card:focus-visible .brochure-card__meta::after {
-  opacity: 0.95;
-  max-width: 14rem;
-}
-
 .brochure-card:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.14);
@@ -6171,7 +6336,10 @@ html[lang="en"] .brochure-card__meta::after { content: " • Click to zoom"; }
   .brochure-card::after {
     transition: none !important;
   }
-  .brochure-card__meta::after { transition: none !important; }
+  .brochure-offers .brochure-card:hover,
+  .brochure-offers .brochure-card:hover img {
+    transform: none !important;
+  }
 }
 
 /* Brochure lightbox */
