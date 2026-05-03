@@ -2881,6 +2881,163 @@ html[lang="en"] body {
   scroll-margin-top: 80px;
 }
 
+.pricing-payments {
+  background: linear-gradient(130deg, rgba(212,180,60,0.08) 0%, rgba(24,24,27,0.35) 100%);
+  border: 1px solid rgba(212,180,60,0.28);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.2rem, 2.2vw, 1.8rem);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.pricing-payments::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    rgba(212,180,60,0.02) 0px, rgba(212,180,60,0.02) 1px,
+    transparent 1px, transparent 14px
+  );
+  pointer-events: none;
+}
+
+/* ── Promo block ── */
+.pricing-payments__promo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  background: linear-gradient(120deg, rgba(212,180,60,0.13) 0%, rgba(212,180,60,0.04) 100%);
+  border: 1px solid rgba(212,180,60,0.35);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+.ppromo__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.ppromo__title {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.ppromo__line {
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.ppromo__line strong {
+  color: #e6c44a;
+  font-weight: 700;
+}
+.ppromo__tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4b43c, #c9a832);
+  color: #1a1400;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.ppromo__partners {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.97rem;
+  color: var(--muted);
+}
+.ppromo__partners strong {
+  color: var(--text);
+  font-weight: 700;
+}
+.ppromo__dot {
+  color: rgba(212,180,60,0.5);
+  font-weight: 700;
+}
+.ppromo__qitaf {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.ppromo__qitaf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255,209,102,0.12);
+  border: 1px solid rgba(255,209,102,0.35);
+  color: #ffd166;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .pricing-payments__promo { flex-direction: column; }
+}
+
+.pricing-payments__head h3 {
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--text);
+  font-weight: 700;
+}
+.pricing-payments__head p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.pricing-payments__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.payment-logo-card {
+  background: #ffffff;
+  border: 1px solid rgba(212,180,60,0.2);
+  border-radius: 14px;
+  min-height: 90px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.payment-logo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212,180,60,0.55);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+.payment-logo-card img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+}
+.payment-logo-card span {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
 /* ── Corporate / University discount banner ── */
 .corp-discount-banner {
   display: flex;
@@ -2956,6 +3113,7 @@ html[lang="en"] body {
   margin-top: 0.25rem;
 }
 @media (max-width: 600px) {
+  .pricing-payments__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .corp-discount-banner { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
   .corp-discount-pct { font-size: 2rem; }
 }
