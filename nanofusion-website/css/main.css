@@ -2255,6 +2255,25 @@ section {
   box-shadow: 0 0 8px rgba(26, 86, 219, 0.9);
 }
 
+/* Pricing label: match Offers label size */
+#pricing .section-head .section-label {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  text-align: center;
+  justify-content: center;
+  font-size: clamp(1.15rem, 2.1vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.55rem;
+  color: rgba(244, 244, 245, 0.92);
+}
+#pricing .section-head .section-label::before {
+  width: 28px;
+  height: 3px;
+  opacity: 0.95;
+}
+
 /* Window film (services inspired section) */
 .use-cases-grid {
   display: grid;
@@ -5569,6 +5588,25 @@ h2.footer-payments__title {
   color: var(--accent);
 }
 
+.footer-brand-copy {
+  position: relative;
+  margin-top: 1.4rem;
+  max-width: 38ch;
+  padding-top: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.85;
+  color: rgba(220, 232, 255, 0.88);
+  letter-spacing: 0.015em;
+  text-wrap: pretty;
+  border-top: 1px solid rgba(125, 211, 252, 0.15);
+}
+
+
+html[dir="rtl"] .footer-brand-copy {
+  text-align: right;
+}
+
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -5642,80 +5680,129 @@ html[lang="en"] body {
   scroll-margin-top: 80px;
   --pricing-num: #34d399;
 }
-
-.pricing-payments {
-  background: linear-gradient(130deg, rgba(26,86,219,0.12) 0%, rgba(24,24,27,0.35) 100%);
-  border: 1px solid rgba(26,86,219,0.28);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.2rem, 2.2vw, 1.8rem);
-  margin-bottom: 2rem;
-  overflow: hidden;
+.pricing-title-blue {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 800;
   position: relative;
+  letter-spacing: 0.03em;
+  background: linear-gradient(90deg, #4d86f5 0%, #7dd3fc 50%, #4d86f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+.pricing-title-blue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.45rem;
+  width: 65%;
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.95), transparent);
+}
+
+/* ══════════════════════════════════════════════
+   PRICING PAYMENTS BLOCK — Premium Redesign
+   ══════════════════════════════════════════════ */
+.pricing-payments {
+  position: relative;
+  background: linear-gradient(145deg, var(--surface), var(--bg-deep));
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.3);
+  padding: clamp(1.5rem, 3vw, 2.1rem) clamp(1.1rem, 2.4vw, 1.8rem);
+  margin: 3rem 0 2rem;
+  overflow: hidden;
 }
 .pricing-payments::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    -55deg,
-    rgba(26,86,219,0.02) 0px, rgba(26,86,219,0.02) 1px,
-    transparent 1px, transparent 14px
-  );
+  background:
+    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(26,86,219,0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(77,134,245,0.1), transparent 60%);
   pointer-events: none;
 }
+.pricing-payments::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%);
+}
 
-/* ── Promo block ── */
+/* ── Promo hero ── */
 .pricing-payments__promo {
   display: flex;
   align-items: flex-start;
-  gap: 1.1rem;
-  background: linear-gradient(120deg, rgba(26,86,219,0.15) 0%, rgba(26,86,219,0.05) 100%);
-  border: 1px solid rgba(26,86,219,0.35);
-  border-radius: 12px;
-  padding: 1.25rem 1.4rem;
-  margin-bottom: 1.4rem;
+  gap: 1rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.35rem;
   position: relative;
+  overflow: hidden;
+}
+.pricing-payments__promo::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #2563eb, #0ea5e9);
 }
 .ppromo__body {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.6rem;
 }
 .ppromo__title {
   margin: 0;
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text);
+  line-height: 1.25;
 }
 .ppromo__line {
   margin: 0;
-  font-size: 0.97rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 48ch;
 }
 .ppromo__line strong {
-  color: var(--pricing-num, #34d399);
+  color: #cfe0ff;
   font-weight: 700;
+  font-size: 1em;
 }
 .ppromo__tag {
   display: inline-block;
-  background: linear-gradient(135deg, #1a56db, #1545be);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 0.2rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 0.22rem 0.75rem;
   border-radius: 999px;
   margin-left: 0.4rem;
   vertical-align: middle;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.35);
 }
 .ppromo__partners {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
-  font-size: 0.97rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 .ppromo__partners strong {
@@ -5723,14 +5810,14 @@ html[lang="en"] body {
   font-weight: 700;
 }
 .ppromo__dot {
-  color: rgba(26,86,219,0.5);
+  color: var(--muted-2);
   font-weight: 700;
 }
 .ppromo__qitaf {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9rem;
+  gap: 0.55rem;
+  font-size: 0.84rem;
   color: var(--muted);
   flex-wrap: wrap;
 }
@@ -5738,66 +5825,85 @@ html[lang="en"] body {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  background: rgba(255,209,102,0.12);
-  border: 1px solid rgba(255,209,102,0.35);
-  color: #ffd166;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 0.2rem 0.65rem;
+  background: rgba(26,86,219,0.16);
+  border: 1px solid rgba(77,134,245,0.45);
+  color: #cfe0ff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
   border-radius: 999px;
   white-space: nowrap;
 }
 @media (max-width: 600px) {
-  .pricing-payments__promo { flex-direction: column; }
+  .pricing-payments__promo { flex-direction: column; padding: 0.95rem 1rem; }
 }
 
+/* ── Payments grid header ── */
+.pricing-payments__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.pricing-payments__head::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #2563eb, #0ea5e9);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
 .pricing-payments__head h3 {
   margin: 0;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  color: var(--text);
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cfe0ff;
 }
 .pricing-payments__head p {
   margin: 0.35rem 0 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 .pricing-payments__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 1rem;
+  gap: 1rem;
 }
 .payment-logo-card {
-  background: #ffffff;
-  border: 1px solid rgba(26,86,219,0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 14px;
-  min-height: 90px;
-  padding: 1rem 1.25rem;
+  min-height: 82px;
+  padding: 0.85rem 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.6rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(15,23,42,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .payment-logo-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(26,86,219,0.5);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  border-color: #93c5fd;
+  box-shadow: 0 10px 24px rgba(37,99,235,0.14);
 }
 .payment-logo-card img {
   display: block;
+  height: 30px;
   width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 40px;
+  max-width: 110px;
   object-fit: contain;
 }
 .payment-logo-card span {
-  font-size: 0.78rem;
-  color: #6b7280;
+  font-size: 0.74rem;
+  color: rgba(75,85,99,0.82);
   font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
 }
 
 /* ── Corporate / University discount banner ── */
@@ -5849,10 +5955,10 @@ html[lang="en"] body {
 .corp-discount-sub {
   margin: 0;
   font-size: 0.95rem;
-  color: #ffffff;
+  color: #86efac;
   line-height: 1.75;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
 }
 .corp-discount-range {
   display: flex;
@@ -5877,10 +5983,10 @@ html[lang="en"] body {
 .corp-discount-cta {
   margin: 0;
   font-size: 0.95rem;
-  color: #ffffff;
+  color: #86efac;
   line-height: 1.75;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
 }
 .corp-discount-btn {
   align-self: flex-start;
@@ -6247,6 +6353,21 @@ html[lang="en"] body {
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(26,86,219,0.25);
   text-align: center;
+}
+.pricing-offers-intro {
+  margin: -0.15rem auto 1.4rem;
+  max-width: 60ch;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e6efff;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.14), rgba(56, 189, 248, 0.08));
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.28);
+  text-shadow: 0 1px 10px rgba(14, 165, 233, 0.18);
 }
 .pricing-offers-header h3 {
   margin: 0;
