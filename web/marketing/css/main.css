@@ -2981,6 +2981,10 @@ h2.footer-payments__title {
   gap: 0.75rem;
 }
 
+.contact-social {
+  margin-top: 0.85rem;
+}
+
 .social a {
   width: 38px;
   height: 38px;
@@ -2997,6 +3001,50 @@ h2.footer-payments__title {
   background: var(--accent-soft);
   color: var(--text);
   border-color: var(--border-strong);
+}
+
+.social a svg {
+  display: block;
+}
+
+.social a.social-link--instagram {
+  color: #e4405f;
+}
+
+.social a.social-link--x {
+  color: #ffffff;
+}
+
+.social a.social-link--snapchat {
+  color: #fffc00;
+}
+
+.social a.social-link--tiktok {
+  color: #25f4ee;
+}
+
+.social a.social-link--instagram:hover {
+  color: #e4405f;
+  border-color: #e4405f;
+  background: rgba(228, 64, 95, 0.12);
+}
+
+.social a.social-link--x:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.social a.social-link--snapchat:hover {
+  color: #fffc00;
+  border-color: #fffc00;
+  background: rgba(255, 252, 0, 0.15);
+}
+
+.social a.social-link--tiktok:hover {
+  color: #25f4ee;
+  border-color: #25f4ee;
+  background: rgba(37, 244, 238, 0.14);
 }
 
 /* Subtle reveal */
