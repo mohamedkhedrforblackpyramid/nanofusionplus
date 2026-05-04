@@ -2074,16 +2074,49 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact-section">
       <div class="container">
-        <div class="contact-bar reveal">
-          <div>
-            <h2 style="margin:0 0 1rem;font-size:1.5rem;">Our branches</h2>
+        <header class="contact-shell__header reveal">
+          <p class="contact-shell__eyebrow">Get in touch</p>
+          <h2 class="contact-shell__title">Branches &amp; contact channels</h2>
+          <p class="contact-shell__lead">Choose the branch that works best for you, or reach us directly by phone or WhatsApp — we help with quotes, care advice, and follow-up after installation.</p>
+        </header>
+
+        <div class="contact-bar contact-bar--rich reveal">
+          <div class="contact-bar__main">
+            <h3 class="contact-bar__branches-title">Nano Fusion branches</h3>
+
+            <div class="contact-toolbar" aria-label="Main line and quick contact">
+              <div class="contact-toolbar__row">
+                <div class="contact-toolbar__lead">
+                  <span class="contact-toolbar__label">Main line</span>
+                  <span class="contact-toolbar__number" dir="ltr">0553332824</span>
+                </div>
+                <div class="contact-toolbar__actions">
+                  <a class="contact-toolbar__btn contact-toolbar__btn--primary" href="tel:+966553332824">
+                    <svg class="contact-toolbar__ico" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call
+                  </a>
+                  <a class="contact-toolbar__btn contact-toolbar__btn--wa" href="https://wa.me/966553332824" target="_blank" rel="noopener">
+                    <svg class="contact-toolbar__ico" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                  </a>
+                  <button type="button" class="contact-toolbar__btn contact-toolbar__btn--ghost contact-copy-btn" data-copy-phone="966553332824" aria-label="Copy main phone number">
+                    <span class="contact-copy-btn__idle">Copy number</span>
+                    <span class="contact-copy-btn__done" hidden>Copied</span>
+                  </button>
+                </div>
+              </div>
+              <p class="contact-toolbar__hint">Same number for inquiries and complaints — we reply as soon as we can.</p>
+            </div>
 
             <div class="branches" aria-label="Nano Fusion branches">
-              <section class="branch-card" aria-label="Al Khobar branch">
+              <section class="branch-card branch-card--open" aria-label="Al Khobar branch">
                 <div class="branch-card__head">
-                  <h3 class="branch-card__name">Al Khobar</h3>
+                  <div class="branch-card__title-row">
+                    <h3 class="branch-card__name">Al Khobar</h3>
+                    <span class="branch-card__badge branch-card__badge--open">Open</span>
+                  </div>
                   <p class="branch-card__addr">Al Khobar — King Fahd Road, next to Range Rover, Qurtubah District</p>
                 </div>
                 <ul class="contact-list" aria-label="Contact details — Al Khobar">
@@ -2097,9 +2130,12 @@
                 </ul>
               </section>
 
-              <section class="branch-card" aria-label="Dammam branch">
+              <section class="branch-card branch-card--soon" aria-label="Dammam branch">
                 <div class="branch-card__head">
-                  <h3 class="branch-card__name">Dammam</h3>
+                  <div class="branch-card__title-row">
+                    <h3 class="branch-card__name">Dammam</h3>
+                    <span class="branch-card__badge branch-card__badge--soon">Soon</span>
+                  </div>
                   <p class="branch-card__addr">Coming soon</p>
                 </div>
                 <ul class="contact-list" aria-label="Contact details — Dammam">
@@ -2113,9 +2149,12 @@
                 </ul>
               </section>
 
-              <section class="branch-card" aria-label="Riyadh branch">
+              <section class="branch-card branch-card--soon" aria-label="Riyadh branch">
                 <div class="branch-card__head">
-                  <h3 class="branch-card__name">Riyadh</h3>
+                  <div class="branch-card__title-row">
+                    <h3 class="branch-card__name">Riyadh</h3>
+                    <span class="branch-card__badge branch-card__badge--soon">Soon</span>
+                  </div>
                   <p class="branch-card__addr">Coming soon</p>
                 </div>
                 <ul class="contact-list" aria-label="Contact details — Riyadh">
@@ -2130,7 +2169,7 @@
               </section>
             </div>
 
-            <p class="contact-inquiries" style="margin:1.25rem 0 0;color:var(--muted);">Inquiries &amp; complaints: <a href="tel:+966553332824" dir="ltr">0553332824</a> · <a class="wa-link" href="https://wa.me/966553332824" target="_blank" rel="noopener" dir="ltr">WhatsApp</a></p>
+            <p class="contact-inquiries">Inquiries &amp; complaints: <a href="tel:+966553332824" dir="ltr">0553332824</a> · <a class="wa-link" href="https://wa.me/966553332824" target="_blank" rel="noopener" dir="ltr">WhatsApp</a></p>
             <a href="mailto:info@nanofusion-ksa.com" class="contact-email-chip" dir="ltr" aria-label="Email us">
               <span class="contact-email-chip__icon" aria-hidden="true">
                 <svg viewBox="0 0 20 20" fill="none" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
@@ -2146,9 +2185,6 @@
               <a class="social-link social-link--snapchat" href="https://snapchat.com/t/jx88XzgQ" target="_blank" rel="noopener noreferrer" aria-label="Snapchat"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.858-.28-2.894-.714-3.134-1.284-.03-.075-.045-.149-.045-.225-.015-.239.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.479-.105l-.031-.569c-.104-1.629-.225-3.655.304-4.848C7.862 1.07 11.219.793 12.206.793z"/></svg></a>
               <a class="social-link social-link--tiktok" href="https://www.tiktok.com/@nano.fusion8?_r=1&_t=ZS-963pin2OEo0" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.52a8.16 8.16 0 004.77 1.52V7.58a4.85 4.85 0 01-1-.89z"/></svg></a>
             </div>
-          </div>
-          <div>
-            <a class="btn btn-primary" href="tel:+966553332824">Call now</a>
           </div>
         </div>
       </div>

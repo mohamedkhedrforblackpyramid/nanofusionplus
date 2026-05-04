@@ -431,4 +431,48 @@
       startAuto();
     });
   })();
+
+  // ── Contact: copy main phone to clipboard ───────────────────────────────
+  (function () {
+    document.querySelectorAll(".contact-copy-btn[data-copy-phone]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var raw = btn.getAttribute("data-copy-phone") || "";
+        var text = String(raw).replace(/\D/g, "");
+        if (!text) return;
+
+        var idle = btn.querySelector(".contact-copy-btn__idle");
+        var done = btn.querySelector(".contact-copy-btn__done");
+
+        function showDone() {
+          if (idle) idle.hidden = true;
+          if (done) done.hidden = false;
+          setTimeout(function () {
+            if (idle) idle.hidden = false;
+            if (done) done.hidden = true;
+          }, 2000);
+        }
+
+        function runFallback() {
+          try {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            ta.setAttribute("readonly", "");
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            showDone();
+          } catch (_e) {}
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(showDone).catch(runFallback);
+        } else {
+          runFallback();
+        }
+      });
+    });
+  })();
 })();
