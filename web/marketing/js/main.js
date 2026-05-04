@@ -215,6 +215,10 @@
         }
       }
 
+      var tabbedFrame = root.querySelector("[data-tabbed-frame]");
+      var tabbedCarousel = tabbedFrame ? tabbedFrame.querySelector("[data-ppf-carousel]") : null;
+      var carouselForPanel = tabbedCarousel ? (tabbedCarousel.getAttribute("data-carousel-for") || "ppf") : null;
+
       function activate(btn) {
         if (!btn) return;
 
@@ -236,7 +240,25 @@
 
         var vs = btn.getAttribute("data-video-src");
         var poster = btn.getAttribute("data-poster-src") || "";
-        if (video && vSource && vs) {
+        var isCarouselTab = tabbedCarousel && id === carouselForPanel;
+
+        if (tabbedCarousel) {
+          if (isCarouselTab) {
+            tabbedCarousel.removeAttribute("hidden");
+            if (video) video.setAttribute("hidden", "");
+          } else {
+            tabbedCarousel.setAttribute("hidden", "");
+            if (video) video.removeAttribute("hidden");
+          }
+        }
+
+        if (!isCarouselTab && video && vSource && vs) {
+          vSource.setAttribute("src", vs);
+          video.setAttribute("poster", poster);
+          try {
+            video.load();
+          } catch (_e2) {}
+        } else if (!tabbedCarousel && video && vSource && vs) {
           video.removeAttribute("hidden");
           vSource.setAttribute("src", vs);
           video.setAttribute("poster", poster);
@@ -333,6 +355,80 @@
 
       var initial = root.querySelector(".service-explorer__pick.is-active") || picks[0];
       activate(initial);
+    });
+  })();
+
+  // ── PPF Image Carousel ──────────────────────────────────────────────────
+  (function () {
+    document.querySelectorAll("[data-ppf-carousel]").forEach(function (carousel) {
+      var imgs = Array.from(carousel.querySelectorAll(".ppf-carousel__img"));
+      var dots = Array.from(carousel.querySelectorAll(".ppf-carousel__dot"));
+      var prevBtn = carousel.querySelector(".ppf-carousel__btn--prev");
+      var nextBtn = carousel.querySelector(".ppf-carousel__btn--next");
+      var current = 0;
+      var timer;
+      var navToken = 0;
+
+      if (imgs.length <= 1) {
+        if (prevBtn) prevBtn.setAttribute("hidden", "");
+        if (nextBtn) nextBtn.setAttribute("hidden", "");
+        var dotsWrap = carousel.querySelector(".ppf-carousel__dots");
+        if (dotsWrap) dotsWrap.setAttribute("hidden", "");
+        return;
+      }
+
+      // Preload all carousel images to avoid black flash between transitions.
+      imgs.forEach(function (img) {
+        try { img.loading = "eager"; } catch (_e) {}
+        var src = img.currentSrc || img.getAttribute("src");
+        if (!src) return;
+        var pre = new Image();
+        pre.decoding = "async";
+        pre.src = src;
+      });
+
+      function goTo(idx) {
+        var prev = current;
+        var next = (idx + imgs.length) % imgs.length;
+        if (prev === next) return;
+
+        navToken += 1;
+        var token = navToken;
+        var nextImg = imgs[next];
+
+        function commit() {
+          if (token !== navToken) return;
+          current = next;
+          imgs[next].classList.add("is-active");
+          requestAnimationFrame(function () {
+            imgs[prev].classList.remove("is-active");
+          });
+          if (dots[prev]) dots[prev].classList.remove("is-active");
+          if (dots[next]) dots[next].classList.add("is-active");
+        }
+
+        if (nextImg.complete && nextImg.naturalWidth > 0) {
+          commit();
+          return;
+        }
+
+        function onReady() { commit(); }
+        nextImg.addEventListener("load", onReady, { once: true });
+        nextImg.addEventListener("error", onReady, { once: true });
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(function () { goTo(current + 1); }, 4500);
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); startAuto(); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); startAuto(); });
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function () { goTo(i); startAuto(); });
+      });
+
+      startAuto();
     });
   })();
 })();
