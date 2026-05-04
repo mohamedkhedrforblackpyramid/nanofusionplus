@@ -5500,6 +5500,44 @@ html[dir="rtl"] .bld-kpi strong {
   background: var(--accent-soft);
 }
 
+.contact-email-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0.45rem 1rem 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 152, 255, 0.28);
+  background: rgba(26, 86, 219, 0.07);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.22s var(--ease), border-color 0.22s var(--ease), color 0.22s var(--ease), box-shadow 0.22s var(--ease);
+}
+
+.contact-email-chip:hover {
+  background: rgba(26, 86, 219, 0.16);
+  border-color: rgba(99, 152, 255, 0.6);
+  color: var(--text);
+  box-shadow: 0 0 18px rgba(26, 86, 219, 0.18);
+  text-decoration: none;
+}
+
+.contact-email-chip__icon {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.contact-email-chip__label {
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
 .site-footer {
   border-top: 1px solid rgba(26, 86, 219, 0.25);
   padding: 3rem 0 2rem;

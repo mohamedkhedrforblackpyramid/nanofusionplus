@@ -171,6 +171,8 @@
         // Don't touch code-like blocks (URLs, snippets).
         if (tag === "code" || tag === "pre") return true;
         if (el.closest && el.closest(".nf-wordmark")) return true;
+        // Don't touch mailto/tel links (email addresses, phone numbers).
+        if (el.closest && el.closest('a[href^="mailto:"], a[href^="tel:"]')) return true;
         return false;
       }
 
