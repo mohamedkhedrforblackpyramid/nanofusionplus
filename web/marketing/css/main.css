@@ -3135,17 +3135,6 @@ section {
   background: var(--accent-soft);
 }
 
-.contact-inquiries {
-  margin: 1.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-
-.contact-inquiries a {
-  color: var(--text);
-}
-
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 2.5rem 0 2rem;

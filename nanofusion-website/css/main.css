@@ -5746,17 +5746,6 @@ html[dir="rtl"] .bld-kpi strong {
   background: var(--accent-soft);
 }
 
-.contact-inquiries {
-  margin: 1.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-
-.contact-inquiries a {
-  color: var(--text);
-}
-
 .contact-email-chip {
   display: inline-flex;
   align-items: center;
