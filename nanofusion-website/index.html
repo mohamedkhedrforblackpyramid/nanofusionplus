@@ -12,6 +12,14 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="alternate" hreflang="ar" href="index.html">
   <link rel="alternate" hreflang="en" href="en/index.html">
+  <script>
+    (function redirectDefaultToEnglish() {
+      var isRootIndex = /\/index\.html$/i.test(window.location.pathname || "") || /\/$/.test(window.location.pathname || "");
+      if (!isRootIndex) return;
+      var target = "en/index.html" + (window.location.search || "") + (window.location.hash || "");
+      window.location.replace(target);
+    })();
+  </script>
 </head>
 <body data-view="home">
   <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
