@@ -349,6 +349,16 @@
           const currentPath = window.location.pathname.replace(/\/+$/, "");
           const targetPath = targetUrl.pathname.replace(/\/+$/, "");
           if (targetPath && currentPath && targetPath !== currentPath) {
+            // Arabic standalone pages (privacy/offers) should stay Arabic
+            // when navigating back to root index views.
+            var docLang = ((document.documentElement && document.documentElement.getAttribute("lang")) || "").toLowerCase();
+            var goesToRootIndex = /\/index\.html$/i.test(targetPath);
+            if (docLang.indexOf("ar") === 0 && goesToRootIndex && !targetUrl.searchParams.get("lang")) {
+              targetUrl.searchParams.set("lang", "ar");
+              e.preventDefault();
+              window.location.href = targetUrl.toString();
+              return;
+            }
             if (window.matchMedia("(max-width: 960px)").matches) closeNav();
             return;
           }
