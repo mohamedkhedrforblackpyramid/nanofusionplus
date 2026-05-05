@@ -17,7 +17,8 @@
         return null;
       }
       if (/\/en\//.test(path)) {
-        return "../index.html?view=" + encodeURIComponent(view);
+        // Keep English pages inside /en/ (privacy/offers should not jump to Arabic root index).
+        return "index.html?view=" + encodeURIComponent(view);
       }
     } catch (_e) {}
     return "index.html?view=" + encodeURIComponent(view);
@@ -51,6 +52,7 @@
         return "";
       }
     })();
+    const isStandalonePage = !!(currentFile && currentFile !== "index.html");
     nav.querySelectorAll("a").forEach(function (a) {
       /* Dropdown items all share the same ?view=cars — highlighting every row fights the root
          button state. Only top-level links use aria-current here; cars/buildings use the button. */
@@ -59,6 +61,16 @@
         return;
       }
       const href = a.getAttribute("href") || "";
+      const hrefFile = (href.split("#")[0] || "").split("?")[0].split("/").pop().toLowerCase();
+
+      // On standalone pages (privacy/offers), prefer file-based matching only.
+      // This prevents activating Home (?view=home) together with the current standalone page.
+      if (isStandalonePage) {
+        if (hrefFile && hrefFile === currentFile) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+        return;
+      }
+
       const m = href.match(/[?&]view=([^&#]+)/);
       const v = m ? decodeURIComponent(m[1]) : "";
       if (v && v === wanted) {
@@ -68,7 +80,6 @@
 
       // Standalone pages (e.g. offers.html/privacy.html) may not use ?view= links.
       // If the href targets the same file name, keep it active.
-      const hrefFile = (href.split("#")[0] || "").split("?")[0].split("/").pop().toLowerCase();
       if (hrefFile && currentFile && hrefFile === currentFile) {
         a.setAttribute("aria-current", "page");
       } else {
