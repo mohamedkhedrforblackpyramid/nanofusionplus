@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50" role="img" aria-label="American Express">
+  <defs>
+    <linearGradient id="amex-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#007BC1"/>
+      <stop offset="100%" stop-color="#005FA3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card background -->
+  <rect width="80" height="50" rx="6" fill="url(#amex-bg)"/>
+
+  <!-- Centurion head silhouette (simplified) -->
+  <g fill="#ffffff" opacity="0.12" transform="translate(48,2) scale(0.9)">
+    <path d="M22,4 C18,4 13,7 11,12 C9,17 10,22 13,25 C11,26 9,28 8,31 L8,44 L36,44 L36,31 C35,28 33,26 31,25 C34,22 35,17 33,12 C31,7 26,4 22,4 Z M22,8 C25,8 28,10 29,14 C30,18 28,22 25,23 C24,23 23,24 22,24 C21,24 20,23 19,23 C16,22 14,18 15,14 C16,10 19,8 22,8 Z"/>
+  </g>
+
+  <!-- AMEX wordmark -->
+  <text x="40" y="25" text-anchor="middle"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="19" font-weight="900" fill="#ffffff"
+        letter-spacing="3">AMEX</text>
+
+  <!-- "american express" subtext -->
+  <text x="40" y="38" text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="6.5" font-weight="400" fill="#ffffff"
+        letter-spacing="1.5" opacity="0.85">american express</text>
+
+  <!-- Bottom decorative line -->
+  <rect x="8" y="44" width="64" height="1.5" rx="0.75" fill="#ffffff" opacity="0.25"/>
+</svg>
