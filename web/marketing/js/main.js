@@ -476,3 +476,39 @@
     });
   })();
 })();
+
+/* ── Pay ticker tooltip (portal – avoids overflow:hidden clipping) ── */
+(function () {
+  var tip = null;
+
+  function showTip(el) {
+    if (tip) tip.remove();
+    tip = document.createElement('div');
+    tip.className = 'pay-tip-portal';
+    tip.textContent = el.dataset.label;
+    document.body.appendChild(tip);
+    moveTip(el);
+    requestAnimationFrame(function () { tip && tip.classList.add('pay-tip-portal--visible'); });
+  }
+
+  function moveTip(el) {
+    if (!tip) return;
+    var r = el.getBoundingClientRect();
+    tip.style.left = (r.left + r.width / 2 + window.scrollX) + 'px';
+    tip.style.top  = (r.top  + window.scrollY - 10) + 'px';
+  }
+
+  function hideTip() {
+    if (tip) { tip.remove(); tip = null; }
+  }
+
+  document.addEventListener('mouseover', function (e) {
+    var el = e.target && e.target.closest && e.target.closest('.pay-ticker__slide[data-label]');
+    if (el) showTip(el);
+  }, true);
+
+  document.addEventListener('mouseout', function (e) {
+    var el = e.target && e.target.closest && e.target.closest('.pay-ticker__slide[data-label]');
+    if (el) hideTip();
+  }, true);
+})();

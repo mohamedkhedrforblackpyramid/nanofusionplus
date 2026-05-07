@@ -3738,6 +3738,31 @@ html[lang="en"] body {
   .pay-ticker__track { animation: none; }
 }
 
+/* ── Ticker slide tooltip (portal – rendered on body to escape overflow:hidden) ── */
+.pay-tip-portal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, calc(-100% - 8px));
+  white-space: nowrap;
+  background: rgba(15, 23, 42, 0.93);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.3em 0.7em;
+  border-radius: 7px;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  direction: rtl;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.pay-tip-portal--visible {
+  opacity: 1;
+}
+
 /* ── Corporate / University discount banner ── */
 .corp-discount-banner {
   display: flex;
