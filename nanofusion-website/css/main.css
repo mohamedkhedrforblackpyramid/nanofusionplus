@@ -6378,16 +6378,16 @@ html[lang="en"] body {
   padding: 0.25rem 0 0.5rem;
 }
 .footer-payments .pay-ticker__slide {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.11);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
   min-width: 80px;
   height: 54px;
 }
 .footer-payments .pay-ticker__slide:hover {
-  background: rgba(255, 255, 255, 0.13);
-  border-color: rgba(100, 160, 255, 0.35);
-  box-shadow: 0 6px 18px rgba(37,99,235,0.22);
+  border-color: #93c5fd;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14);
+  transform: translateY(-2px);
 }
 .footer-payments .pay-ticker__slide img {
   height: 26px;
