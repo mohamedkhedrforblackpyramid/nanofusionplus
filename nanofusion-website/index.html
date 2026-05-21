@@ -38,7 +38,18 @@
 
   <div class="top-bar">
     <div class="container inner">
-      <a href="tel:+966553332824">0553332824</a>
+      <a href="tel:+966553332824" class="top-bar__phone">0553332824</a>
+      <nav class="top-bar__booking" aria-label="حجز موعد">
+        <span class="top-bar__booking-label">حجز موعد</span>
+        <a href="?view=contact#booking" class="top-bar__book top-bar__book--service">
+          <svg class="top-bar__book-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+          حجز خدمة
+        </a>
+        <a href="?view=contact#booking-maintenance" class="top-bar__book top-bar__book--maint">
+          <svg class="top-bar__book-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          حجز صيانة
+        </a>
+      </nav>
       <a class="lang-switch" href="en/index.html" hreflang="en" lang="en">English · EN</a>
     </div>
   </div>
@@ -129,7 +140,7 @@
             </ul>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="?view=contact#contact">احجز موعداً</a>
+            <a class="btn btn-primary" href="?view=contact#booking">احجز موعداً</a>
             <a class="btn btn-ghost" href="?view=cars#cars">استكشف خدمات السيارات</a>
           </div>
         </div>
@@ -2124,6 +2135,159 @@
           <h2 class="contact-shell__title">فروعنا وقنوات التواصل</h2>
           <p class="contact-shell__lead">اختر الفرع الأنسب، أو تواصل مباشرة عبر الهاتف أو واتساب — نساعدك في الاستشارة، العروض، ومتابعة الخدمة بعد التركيب.</p>
         </header>
+
+        <div class="booking-block reveal" id="booking">
+          <div class="booking-block__head">
+            <h3 class="booking-block__title">حجز موعد</h3>
+            <p class="booking-block__lead">املأ النموذج المناسب وسنرسل طلبك إلى فريقنا عبر البريد — نتواصل معك لتأكيد الموعد.</p>
+          </div>
+
+          <div class="booking-tabs" role="tablist" aria-label="نوع الحجز">
+            <button type="button" class="booking-tabs__btn is-active" role="tab" id="booking-tab-service" aria-selected="true" aria-controls="booking-panel-service" data-booking-tab="service">حجز موعد لعمل خدمة</button>
+            <button type="button" class="booking-tabs__btn" role="tab" id="booking-tab-maintenance" aria-selected="false" aria-controls="booking-panel-maintenance" data-booking-tab="maintenance">حجز موعد صيانة</button>
+          </div>
+
+          <div class="booking-panels">
+            <form class="booking-form" id="booking-panel-service" role="tabpanel" aria-labelledby="booking-tab-service" data-booking-panel="service" data-booking-type="service" novalidate>
+              <input type="text" name="_honey" class="booking-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="booking-form__grid">
+                <label class="booking-field">
+                  <span class="booking-field__label">الاسم الكامل <span class="booking-field__req">*</span></span>
+                  <input type="text" name="name" required autocomplete="name" placeholder="مثال: محمد أحمد">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">رقم الجوال <span class="booking-field__req">*</span></span>
+                  <input type="tel" name="phone" required dir="ltr" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">البريد الإلكتروني</span>
+                  <input type="email" name="email" dir="ltr" autocomplete="email" placeholder="example@email.com">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">الفرع <span class="booking-field__req">*</span></span>
+                  <select name="branch" required>
+                    <option value="" disabled selected>اختر الفرع</option>
+                    <option value="الخبر">الخبر</option>
+                    <option value="الدمام">الدمام</option>
+                    <option value="الرياض">الرياض</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">نوع الخدمة <span class="booking-field__req">*</span></span>
+                  <select name="service_type" required>
+                    <option value="" disabled selected>اختر الخدمة</option>
+                    <option value="أفلام حماية الطلاء PPF">أفلام حماية الطلاء PPF</option>
+                    <option value="عزل حراري للزجاج">عزل حراري للزجاج</option>
+                    <option value="حماية الزجاج من الكسر">حماية الزجاج من الكسر</option>
+                    <option value="حماية طلاء نانو سيراميك">حماية طلاء نانو سيراميك</option>
+                    <option value="حماية مقاعد نانو سيراميك">حماية مقاعد نانو سيراميك</option>
+                    <option value="تغيير لون السيارة / كربون">تغيير لون السيارة / كربون</option>
+                    <option value="حماية الجنوط">حماية الجنوط</option>
+                    <option value="تغيير لون المقاعد والديكور">تغيير لون المقاعد والديكور</option>
+                    <option value="حماية شاشات داخلية PPF">حماية شاشات داخلية PPF</option>
+                    <option value="خدمات المباني والنوافذ">خدمات المباني والنوافذ</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">موديل السيارة</span>
+                  <input type="text" name="car_model" placeholder="مثال: Range Rover 2024">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">التاريخ المفضل <span class="booking-field__req">*</span></span>
+                  <input type="date" name="preferred_date" required>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">الوقت المفضل <span class="booking-field__req">*</span></span>
+                  <select name="preferred_time" required>
+                    <option value="" disabled selected>اختر الوقت</option>
+                    <option value="صباحاً (9–12)">صباحاً (9–12)</option>
+                    <option value="ظهراً (12–3)">ظهراً (12–3)</option>
+                    <option value="مساءً (3–6)">مساءً (3–6)</option>
+                    <option value="أي وقت مناسب">أي وقت مناسب</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">ملاحظات إضافية</span>
+                  <textarea name="notes" rows="3" placeholder="تفاصيل إضافية عن طلبك…"></textarea>
+                </label>
+              </div>
+              <div class="booking-form__actions">
+                <button type="submit" class="btn btn-primary booking-form__submit">إرسال طلب حجز الخدمة</button>
+                <p class="booking-form__status" role="status" aria-live="polite" hidden></p>
+              </div>
+            </form>
+
+            <form class="booking-form" id="booking-panel-maintenance" role="tabpanel" aria-labelledby="booking-tab-maintenance" data-booking-panel="maintenance" data-booking-type="maintenance" hidden novalidate>
+              <input type="text" name="_honey" class="booking-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="booking-form__grid">
+                <label class="booking-field">
+                  <span class="booking-field__label">الاسم الكامل <span class="booking-field__req">*</span></span>
+                  <input type="text" name="name" required autocomplete="name" placeholder="مثال: محمد أحمد">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">رقم الجوال <span class="booking-field__req">*</span></span>
+                  <input type="tel" name="phone" required dir="ltr" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">البريد الإلكتروني</span>
+                  <input type="email" name="email" dir="ltr" autocomplete="email" placeholder="example@email.com">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">الفرع <span class="booking-field__req">*</span></span>
+                  <select name="branch" required>
+                    <option value="" disabled selected>اختر الفرع</option>
+                    <option value="الخبر">الخبر</option>
+                    <option value="الدمام">الدمام</option>
+                    <option value="الرياض">الرياض</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">نوع الصيانة <span class="booking-field__req">*</span></span>
+                  <select name="maintenance_type" required>
+                    <option value="" disabled selected>اختر نوع الصيانة</option>
+                    <option value="متابعة ضمان / فحص دوري">متابعة ضمان / فحص دوري</option>
+                    <option value="معالجة خدوش او بوليش">معالجة خدوش او بوليش</option>
+                    <option value="تغيير فيلم">تغيير فيلم</option>
+                    <option value="حادث">حادث</option>
+                    <option value="تغيير لون">تغيير لون</option>
+                    <option value="غسيل">غسيل</option>
+                  </select>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">رقم كارت الضمان</span>
+                  <input type="text" name="warranty_card" dir="ltr" placeholder="إن وُجد">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">موديل السيارة <span class="booking-field__req">*</span></span>
+                  <input type="text" name="car_model" required placeholder="مثال: Lexus LC 500">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">التاريخ المفضل <span class="booking-field__req">*</span></span>
+                  <input type="date" name="preferred_date" required>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">الوقت المفضل <span class="booking-field__req">*</span></span>
+                  <select name="preferred_time" required>
+                    <option value="" disabled selected>اختر الوقت</option>
+                    <option value="صباحاً (9–12)">صباحاً (9–12)</option>
+                    <option value="ظهراً (12–3)">ظهراً (12–3)</option>
+                    <option value="مساءً (3–6)">مساءً (3–6)</option>
+                    <option value="أي وقت مناسب">أي وقت مناسب</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">وصف المشكلة أو الملاحظات</span>
+                  <textarea name="notes" rows="3" placeholder="صف ما تحتاج صيانته…"></textarea>
+                </label>
+              </div>
+              <div class="booking-form__actions">
+                <button type="submit" class="btn btn-primary booking-form__submit">إرسال طلب حجز الصيانة</button>
+                <p class="booking-form__status" role="status" aria-live="polite" hidden></p>
+              </div>
+            </form>
+          </div>
+        </div>
 
         <div class="contact-bar contact-bar--rich reveal">
           <div class="contact-bar__main">

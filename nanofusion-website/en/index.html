@@ -19,7 +19,18 @@
 
   <div class="top-bar">
     <div class="container inner">
-      <a href="tel:+966553332824">0553332824</a>
+      <a href="tel:+966553332824" class="top-bar__phone">0553332824</a>
+      <nav class="top-bar__booking" aria-label="Book appointment">
+        <span class="top-bar__booking-label">Book now</span>
+        <a href="?view=contact#booking" class="top-bar__book top-bar__book--service">
+          <svg class="top-bar__book-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+          Book service
+        </a>
+        <a href="?view=contact#booking-maintenance" class="top-bar__book top-bar__book--maint">
+          <svg class="top-bar__book-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Book maintenance
+        </a>
+      </nav>
       <a class="lang-switch" href="../index.html?lang=ar" hreflang="ar" lang="ar">Arabic · AR</a>
     </div>
   </div>
@@ -110,7 +121,7 @@
             </ul>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="?view=contact#contact">Book an appointment</a>
+            <a class="btn btn-primary" href="?view=contact#booking">Book an appointment</a>
             <a class="btn btn-ghost" href="?view=cars#cars">Explore car services</a>
           </div>
         </div>
@@ -2107,6 +2118,159 @@
           <h2 class="contact-shell__title">Branches &amp; contact channels</h2>
           <p class="contact-shell__lead">Choose the branch that works best for you, or reach us directly by phone or WhatsApp — we help with quotes, care advice, and follow-up after installation.</p>
         </header>
+
+        <div class="booking-block reveal" id="booking">
+          <div class="booking-block__head">
+            <h3 class="booking-block__title">Book an appointment</h3>
+            <p class="booking-block__lead">Fill in the form below and we’ll email your request to our team — we’ll contact you to confirm your slot.</p>
+          </div>
+
+          <div class="booking-tabs" role="tablist" aria-label="Booking type">
+            <button type="button" class="booking-tabs__btn is-active" role="tab" id="booking-tab-service" aria-selected="true" aria-controls="booking-panel-service" data-booking-tab="service">Service appointment</button>
+            <button type="button" class="booking-tabs__btn" role="tab" id="booking-tab-maintenance" aria-selected="false" aria-controls="booking-panel-maintenance" data-booking-tab="maintenance">Maintenance appointment</button>
+          </div>
+
+          <div class="booking-panels">
+            <form class="booking-form" id="booking-panel-service" role="tabpanel" aria-labelledby="booking-tab-service" data-booking-panel="service" data-booking-type="service" novalidate>
+              <input type="text" name="_honey" class="booking-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="booking-form__grid">
+                <label class="booking-field">
+                  <span class="booking-field__label">Full name <span class="booking-field__req">*</span></span>
+                  <input type="text" name="name" required autocomplete="name" placeholder="e.g. John Smith">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Mobile <span class="booking-field__req">*</span></span>
+                  <input type="tel" name="phone" required dir="ltr" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Email</span>
+                  <input type="email" name="email" dir="ltr" autocomplete="email" placeholder="example@email.com">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Branch <span class="booking-field__req">*</span></span>
+                  <select name="branch" required>
+                    <option value="" disabled selected>Select branch</option>
+                    <option value="Al Khobar">Al Khobar</option>
+                    <option value="Dammam">Dammam</option>
+                    <option value="Riyadh">Riyadh</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">Service <span class="booking-field__req">*</span></span>
+                  <select name="service_type" required>
+                    <option value="" disabled selected>Select service</option>
+                    <option value="PPF paint protection film">PPF paint protection film</option>
+                    <option value="Window heat insulation film">Window heat insulation film</option>
+                    <option value="Windshield shatter protection">Windshield shatter protection</option>
+                    <option value="Nano ceramic paint protection">Nano ceramic paint protection</option>
+                    <option value="Interior nano ceramic">Interior nano ceramic</option>
+                    <option value="Color change / carbon wrap">Color change / carbon wrap</option>
+                    <option value="Wheel protection">Wheel protection</option>
+                    <option value="Interior upholstery & trim">Interior upholstery & trim</option>
+                    <option value="Interior screen PPF">Interior screen PPF</option>
+                    <option value="Building & window films">Building & window films</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Vehicle model</span>
+                  <input type="text" name="car_model" placeholder="e.g. Range Rover 2024">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Preferred date <span class="booking-field__req">*</span></span>
+                  <input type="date" name="preferred_date" required>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Preferred time <span class="booking-field__req">*</span></span>
+                  <select name="preferred_time" required>
+                    <option value="" disabled selected>Select time</option>
+                    <option value="Morning (9–12)">Morning (9–12)</option>
+                    <option value="Midday (12–3)">Midday (12–3)</option>
+                    <option value="Afternoon (3–6)">Afternoon (3–6)</option>
+                    <option value="Any convenient time">Any convenient time</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">Additional notes</span>
+                  <textarea name="notes" rows="3" placeholder="Any extra details…"></textarea>
+                </label>
+              </div>
+              <div class="booking-form__actions">
+                <button type="submit" class="btn btn-primary booking-form__submit">Send service booking</button>
+                <p class="booking-form__status" role="status" aria-live="polite" hidden></p>
+              </div>
+            </form>
+
+            <form class="booking-form" id="booking-panel-maintenance" role="tabpanel" aria-labelledby="booking-tab-maintenance" data-booking-panel="maintenance" data-booking-type="maintenance" hidden novalidate>
+              <input type="text" name="_honey" class="booking-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="booking-form__grid">
+                <label class="booking-field">
+                  <span class="booking-field__label">Full name <span class="booking-field__req">*</span></span>
+                  <input type="text" name="name" required autocomplete="name" placeholder="e.g. John Smith">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Mobile <span class="booking-field__req">*</span></span>
+                  <input type="tel" name="phone" required dir="ltr" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Email</span>
+                  <input type="email" name="email" dir="ltr" autocomplete="email" placeholder="example@email.com">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Branch <span class="booking-field__req">*</span></span>
+                  <select name="branch" required>
+                    <option value="" disabled selected>Select branch</option>
+                    <option value="Al Khobar">Al Khobar</option>
+                    <option value="Dammam">Dammam</option>
+                    <option value="Riyadh">Riyadh</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">Maintenance type <span class="booking-field__req">*</span></span>
+                  <select name="maintenance_type" required>
+                    <option value="" disabled selected>Select type</option>
+                    <option value="Warranty follow-up / periodic inspection">Warranty follow-up / periodic inspection</option>
+                    <option value="Scratch repair or polish">Scratch repair or polish</option>
+                    <option value="Film change">Film change</option>
+                    <option value="Accident">Accident</option>
+                    <option value="Color change">Color change</option>
+                    <option value="Car wash">Car wash</option>
+                  </select>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Warranty card number</span>
+                  <input type="text" name="warranty_card" dir="ltr" placeholder="If available">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Vehicle model <span class="booking-field__req">*</span></span>
+                  <input type="text" name="car_model" required placeholder="e.g. Lexus LC 500">
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Preferred date <span class="booking-field__req">*</span></span>
+                  <input type="date" name="preferred_date" required>
+                </label>
+                <label class="booking-field">
+                  <span class="booking-field__label">Preferred time <span class="booking-field__req">*</span></span>
+                  <select name="preferred_time" required>
+                    <option value="" disabled selected>Select time</option>
+                    <option value="Morning (9–12)">Morning (9–12)</option>
+                    <option value="Midday (12–3)">Midday (12–3)</option>
+                    <option value="Afternoon (3–6)">Afternoon (3–6)</option>
+                    <option value="Any convenient time">Any convenient time</option>
+                  </select>
+                </label>
+                <label class="booking-field booking-field--wide">
+                  <span class="booking-field__label">Issue description / notes</span>
+                  <textarea name="notes" rows="3" placeholder="Describe what needs maintenance…"></textarea>
+                </label>
+              </div>
+              <div class="booking-form__actions">
+                <button type="submit" class="btn btn-primary booking-form__submit">Send maintenance booking</button>
+                <p class="booking-form__status" role="status" aria-live="polite" hidden></p>
+              </div>
+            </form>
+          </div>
+        </div>
 
         <div class="contact-bar contact-bar--rich reveal">
           <div class="contact-bar__main">

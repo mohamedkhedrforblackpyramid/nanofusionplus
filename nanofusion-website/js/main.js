@@ -157,6 +157,15 @@
   // but we always want to land at the top of the view (not mid-page).
   const NEEDS_SCROLL = {};
 
+  function contactScrollTarget(view, hash) {
+    if (view !== "contact" || !hash) return null;
+    var scrollId = hash;
+    if (scrollId === "booking-maintenance" || scrollId === "booking-service") {
+      scrollId = "booking";
+    }
+    return document.getElementById(scrollId) ? scrollId : null;
+  }
+
   // Brand wordmark: wrap any "Nano Fusion" mentions with logo font
   (function applyNanoFusionWordmark() {
     try {
@@ -298,6 +307,8 @@
       var carsRoot = document.getElementById("cars");
       if (initView === "cars" && hEl && carsRoot && hEl !== carsRoot && carsRoot.contains(hEl)) {
         scrollTarget = initHash;
+      } else {
+        scrollTarget = contactScrollTarget(initView, initHash) || scrollTarget;
       }
     }
     setView(initView, scrollTarget);
@@ -381,6 +392,7 @@
               scrollTarget = hash;
             }
           }
+          if (!scrollTarget) scrollTarget = contactScrollTarget(view, hash);
           e.preventDefault();
           markNavigation();
           setView(view, scrollTarget);
@@ -451,6 +463,8 @@
       var psCars = document.getElementById("cars");
       if (psView === "cars" && psEl && psCars && psEl !== psCars && psCars.contains(psEl)) {
         psScroll = psHash;
+      } else {
+        psScroll = contactScrollTarget(psView, psHash) || psScroll;
       }
     }
     setView(psView, psScroll);
@@ -934,6 +948,155 @@
       });
 
       startAuto();
+    });
+  })();
+
+  // ── Booking forms: tabs + email via FormSubmit ─────────────────────────
+  (function () {
+    var BOOKING_EMAIL = "info@nanofusion-ksa.com";
+    var FORM_ENDPOINT = "https://formsubmit.co/ajax/" + encodeURIComponent(BOOKING_EMAIL);
+    var isEn = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+
+    var tabs = document.querySelectorAll(".booking-tabs__btn[data-booking-tab]");
+    var panels = document.querySelectorAll(".booking-form[data-booking-panel]");
+    if (!tabs.length || !panels.length) return;
+
+    function showPanel(name) {
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute("data-booking-tab") === name;
+        tab.classList.toggle("is-active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach(function (panel) {
+        var on = panel.getAttribute("data-booking-panel") === name;
+        panel.hidden = !on;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        showPanel(tab.getAttribute("data-booking-tab") || "service");
+      });
+    });
+
+    function syncBookingFromHash() {
+      try {
+        var hash = (window.location.hash || "").replace(/^#/, "");
+        if (hash === "booking-maintenance") showPanel("maintenance");
+        else if (hash === "booking" || hash === "booking-service") showPanel("service");
+      } catch (_hash) {}
+    }
+
+    syncBookingFromHash();
+    window.addEventListener("hashchange", syncBookingFromHash);
+
+    function setStatus(form, kind, message) {
+      var el = form.querySelector(".booking-form__status");
+      if (!el) return;
+      el.hidden = false;
+      el.textContent = message;
+      el.classList.remove("is-success", "is-error");
+      if (kind) el.classList.add(kind === "ok" ? "is-success" : "is-error");
+    }
+
+    function clearStatus(form) {
+      var el = form.querySelector(".booking-form__status");
+      if (!el) return;
+      el.hidden = true;
+      el.textContent = "";
+      el.classList.remove("is-success", "is-error");
+    }
+
+    function formPayload(form) {
+      var data = {};
+      var fd = new FormData(form);
+      fd.forEach(function (value, key) {
+        if (key === "_honey") return;
+        var v = String(value || "").trim();
+        if (v) data[key] = v;
+      });
+      return data;
+    }
+
+    panels.forEach(function (form) {
+      var type = form.getAttribute("data-booking-type") || "service";
+      var today = new Date().toISOString().slice(0, 10);
+      var dateInput = form.querySelector('input[name="preferred_date"]');
+      if (dateInput) dateInput.setAttribute("min", today);
+
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        clearStatus(form);
+
+        var honey = form.querySelector('input[name="_honey"]');
+        if (honey && String(honey.value || "").trim()) return;
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var payload = formPayload(form);
+        var subject =
+          type === "maintenance"
+            ? isEn
+              ? "Nano Fusion — Maintenance booking"
+              : "نانو فيوجن — حجز موعد صيانة"
+            : isEn
+              ? "Nano Fusion — Service booking"
+              : "نانو فيوجن — حجز موعد خدمة";
+
+        payload._subject = subject;
+        payload._template = "table";
+        payload.booking_type = type;
+        payload._replyto = payload.email || payload.phone || BOOKING_EMAIL;
+
+        var btn = form.querySelector(".booking-form__submit");
+        if (btn) btn.disabled = true;
+        setStatus(
+          form,
+          null,
+          isEn ? "Sending…" : "جاري الإرسال…"
+        );
+
+        fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error("submit failed");
+            return res.json().catch(function () {
+              return {};
+            });
+          })
+          .then(function () {
+            form.reset();
+            if (dateInput) dateInput.setAttribute("min", today);
+            setStatus(
+              form,
+              "ok",
+              isEn
+                ? "Your request was sent. We will contact you soon to confirm your appointment."
+                : "تم إرسال طلبك بنجاح. سنتواصل معك قريباً لتأكيد الموعد."
+            );
+          })
+          .catch(function () {
+            setStatus(
+              form,
+              "err",
+              isEn
+                ? "Could not send. Please try again or contact us by phone/WhatsApp."
+                : "تعذّر الإرسال. حاول مرة أخرى أو تواصل معنا عبر الهاتف أو واتساب."
+            );
+          })
+          .finally(function () {
+            if (btn) btn.disabled = false;
+          });
+      });
     });
   })();
 
