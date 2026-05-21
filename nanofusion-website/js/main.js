@@ -1007,85 +1007,6 @@
       el.classList.remove("is-success", "is-error");
     }
 
-    var MAX_PHOTO_BYTES = 5 * 1024 * 1024;
-
-    function clearFilePreview(form) {
-      var wrap = form.querySelector(".booking-file-preview");
-      var img = form.querySelector(".booking-file-preview__img");
-      var input = form.querySelector('input[name="attachment"]');
-      if (img && img.dataset.objectUrl) {
-        URL.revokeObjectURL(img.dataset.objectUrl);
-        delete img.dataset.objectUrl;
-      }
-      if (img) {
-        img.removeAttribute("src");
-        img.alt = "";
-      }
-      if (wrap) wrap.hidden = true;
-      if (input) input.value = "";
-    }
-
-    function setupFilePreview(form) {
-      var input = form.querySelector('input[name="attachment"]');
-      if (!input) return;
-      var wrap = form.querySelector(".booking-file-preview");
-      var img = form.querySelector(".booking-file-preview__img");
-      var clearBtn = form.querySelector(".booking-file-preview__clear");
-
-      input.addEventListener("change", function () {
-        var file = input.files && input.files[0];
-        if (!file) {
-          clearFilePreview(form);
-          return;
-        }
-
-        if (img && img.dataset.objectUrl) {
-          URL.revokeObjectURL(img.dataset.objectUrl);
-          delete img.dataset.objectUrl;
-        }
-
-        if (!file.type || file.type.indexOf("image/") !== 0) {
-          input.value = "";
-          setStatus(
-            form,
-            "err",
-            isEn
-              ? "Please choose an image file (JPG, PNG, WEBP)."
-              : "يرجى اختيار ملف صورة (JPG, PNG, WEBP)."
-          );
-          return;
-        }
-
-        if (file.size > MAX_PHOTO_BYTES) {
-          input.value = "";
-          setStatus(
-            form,
-            "err",
-            isEn
-              ? "Image is too large. Maximum size is 5 MB."
-              : "حجم الصورة كبير جداً. الحد الأقصى 5 ميجابايت."
-          );
-          return;
-        }
-
-        clearStatus(form);
-        if (img && wrap) {
-          var url = URL.createObjectURL(file);
-          img.dataset.objectUrl = url;
-          img.src = url;
-          img.alt = file.name;
-          wrap.hidden = false;
-        }
-      });
-
-      if (clearBtn) {
-        clearBtn.addEventListener("click", function () {
-          clearFilePreview(form);
-          clearStatus(form);
-        });
-      }
-    }
-
     function bookingSubject(type) {
       return type === "maintenance"
         ? isEn
@@ -1096,69 +1017,13 @@
           : "نانو فيوجن — حجز موعد خدمة";
     }
 
-    /** Convert any image to JPEG so email clients (Zoho, etc.) can open the attachment. */
-    function normalizePhotoFile(file) {
-      return new Promise(function (resolve, reject) {
-        var url = URL.createObjectURL(file);
-        var img = new Image();
-        img.onload = function () {
-          URL.revokeObjectURL(url);
-          var maxSide = 1600;
-          var w = img.naturalWidth || img.width;
-          var h = img.naturalHeight || img.height;
-          if (!w || !h) {
-            reject(new Error("invalid image"));
-            return;
-          }
-          if (w > maxSide || h > maxSide) {
-            if (w >= h) {
-              h = Math.round((h * maxSide) / w);
-              w = maxSide;
-            } else {
-              w = Math.round((w * maxSide) / h);
-              h = maxSide;
-            }
-          }
-          var canvas = document.createElement("canvas");
-          canvas.width = w;
-          canvas.height = h;
-          var ctx = canvas.getContext("2d");
-          if (!ctx) {
-            reject(new Error("no canvas"));
-            return;
-          }
-          ctx.drawImage(img, 0, 0, w, h);
-          canvas.toBlob(
-            function (blob) {
-              if (!blob) {
-                reject(new Error("encode failed"));
-                return;
-              }
-              var safeName =
-                "nanofusion-booking-" +
-                new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-") +
-                ".jpg";
-              resolve(new File([blob], safeName, { type: "image/jpeg" }));
-            },
-            "image/jpeg",
-            0.88
-          );
-        };
-        img.onerror = function () {
-          URL.revokeObjectURL(url);
-          reject(new Error("load failed"));
-        };
-        img.src = url;
-      });
-    }
-
-    function buildFormData(form, type, photoFile) {
+    function buildFormData(form, type) {
       var out = new FormData();
       var raw = new FormData(form);
       var replyTo = "";
 
       raw.forEach(function (value, key) {
-        if (key === "_honey" || key === "attachment") return;
+        if (key === "_honey") return;
         var v = String(value || "").trim();
         if (!v) return;
         out.append(key, v);
@@ -1166,15 +1031,10 @@
         if (key === "phone" && !replyTo) replyTo = v;
       });
 
-      if (photoFile && photoFile.size > 0) {
-        out.append("attachment", photoFile, photoFile.name);
-      }
-
       out.append("_subject", bookingSubject(type));
       out.append("_template", "table");
       out.append("booking_type", type);
       out.append("_replyto", replyTo || BOOKING_EMAIL);
-      out.append("_cc", "mohamed.khedr0001@gmail.com");
       return out;
     }
 
@@ -1217,7 +1077,6 @@
 
     function afterBookingSuccess(form, dateInput, today) {
       form.reset();
-      clearFilePreview(form);
       if (dateInput) dateInput.setAttribute("min", today);
       setStatus(
         form,
@@ -1243,7 +1102,6 @@
       var today = new Date().toISOString().slice(0, 10);
       var dateInput = form.querySelector('input[name="preferred_date"]');
       if (dateInput) dateInput.setAttribute("min", today);
-      setupFilePreview(form);
 
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
@@ -1257,71 +1115,24 @@
           return;
         }
 
-        var fileInput = form.querySelector('input[name="attachment"]');
-        var file = fileInput && fileInput.files && fileInput.files[0];
-        if (file) {
-          if (!file.type || file.type.indexOf("image/") !== 0) {
-            setStatus(
-              form,
-              "err",
-              isEn
-                ? "Please choose an image file (JPG, PNG, WEBP)."
-                : "يرجى اختيار ملف صورة (JPG, PNG, WEBP)."
-            );
-            return;
-          }
-          if (file.size > MAX_PHOTO_BYTES) {
-            setStatus(
-              form,
-              "err",
-              isEn
-                ? "Image is too large. Maximum size is 5 MB."
-                : "حجم الصورة كبير جداً. الحد الأقصى 5 ميجابايت."
-            );
-            return;
-          }
-        }
-
         var btn = form.querySelector(".booking-form__submit");
         if (btn) btn.disabled = true;
         setStatus(form, null, isEn ? "Sending…" : "جاري الإرسال…");
 
-        function sendPayload(photoFile) {
-          var payload = buildFormData(form, type, photoFile);
-
-          postBookingForm(payload)
-            .then(function () {
-              afterBookingSuccess(form, dateInput, today);
-            })
-            .catch(function (err) {
-              if (err && err.formSubmitData) {
-                setStatus(form, "err", formSubmitErrorMessage(err.formSubmitData));
-              } else {
-                afterBookingError(form);
-              }
-            })
-            .finally(function () {
-              if (btn) btn.disabled = false;
-            });
-        }
-
-        if (file) {
-          normalizePhotoFile(file)
-            .then(sendPayload)
-            .catch(function () {
-              setStatus(
-                form,
-                "err",
-                isEn
-                  ? "Could not process the image. Try JPG or PNG, or send without a photo."
-                  : "تعذّر معالجة الصورة. جرّب JPG أو PNG، أو أرسل بدون صورة."
-              );
-              if (btn) btn.disabled = false;
-            });
-          return;
-        }
-
-        sendPayload(null);
+        postBookingForm(buildFormData(form, type))
+          .then(function () {
+            afterBookingSuccess(form, dateInput, today);
+          })
+          .catch(function (err) {
+            if (err && err.formSubmitData) {
+              setStatus(form, "err", formSubmitErrorMessage(err.formSubmitData));
+            } else {
+              afterBookingError(form);
+            }
+          })
+          .finally(function () {
+            if (btn) btn.disabled = false;
+          });
       });
     });
   })();
