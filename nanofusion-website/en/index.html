@@ -2122,7 +2122,7 @@
         <div class="booking-block reveal" id="booking">
           <div class="booking-block__head">
             <h3 class="booking-block__title">Book an appointment</h3>
-            <p class="booking-block__lead">Fill in the form below and we’ll email your request to our team — we’ll contact you to confirm your slot.</p>
+            <p class="booking-block__lead">Fill in the form below and we’ll email your request to <strong dir="ltr">info@nanofusion-ksa.com</strong> — we’ll contact you to confirm your slot. On first use, check Spam for a FormSubmit activation email.</p>
           </div>
 
           <div class="booking-tabs" role="tablist" aria-label="Booking type">
@@ -2189,6 +2189,15 @@
                     <option value="Afternoon (3–6)">Afternoon (3–6)</option>
                     <option value="Any convenient time">Any convenient time</option>
                   </select>
+                </label>
+                <label class="booking-field booking-field--wide booking-field--file">
+                  <span class="booking-field__label">Attach a photo (optional)</span>
+                  <input type="file" name="attachment" class="booking-field__file" accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif,.heic,.heif" aria-describedby="booking-file-hint-service">
+                  <span class="booking-field__file-hint" id="booking-file-hint-service">Car or area photo — up to 5 MB (JPG or PNG recommended)</span>
+                  <div class="booking-file-preview" hidden>
+                    <img class="booking-file-preview__img" alt="" width="120" height="90">
+                    <button type="button" class="booking-file-preview__clear">Remove photo</button>
+                  </div>
                 </label>
                 <label class="booking-field booking-field--wide">
                   <span class="booking-field__label">Additional notes</span>
@@ -2258,6 +2267,15 @@
                     <option value="Afternoon (3–6)">Afternoon (3–6)</option>
                     <option value="Any convenient time">Any convenient time</option>
                   </select>
+                </label>
+                <label class="booking-field booking-field--wide booking-field--file">
+                  <span class="booking-field__label">Attach a photo (optional)</span>
+                  <input type="file" name="attachment" class="booking-field__file" accept="image/jpeg,image/png,image/webp,image/gif,image/heic,image/heif,.heic,.heif" aria-describedby="booking-file-hint-maint">
+                  <span class="booking-field__file-hint" id="booking-file-hint-maint">Damage or vehicle photo — up to 5 MB (JPG or PNG recommended)</span>
+                  <div class="booking-file-preview" hidden>
+                    <img class="booking-file-preview__img" alt="" width="120" height="90">
+                    <button type="button" class="booking-file-preview__clear">Remove photo</button>
+                  </div>
                 </label>
                 <label class="booking-field booking-field--wide">
                   <span class="booking-field__label">Issue description / notes</span>

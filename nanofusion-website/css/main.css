@@ -7941,6 +7941,75 @@ html[lang="en"] body {
   min-height: 5rem;
 }
 
+.booking-field__file {
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+}
+
+.booking-field__file::file-selector-button {
+  margin-inline-end: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(107, 164, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(26, 86, 219, 0.2);
+  color: #d4e4ff;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.booking-field__file::file-selector-button:hover {
+  background: rgba(26, 86, 219, 0.32);
+  border-color: rgba(107, 164, 255, 0.5);
+}
+
+.booking-field__file-hint {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.booking-file-preview {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.85rem;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.booking-file-preview__img {
+  display: block;
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-file-preview__clear {
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.booking-file-preview__clear:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
 .booking-form__actions {
   margin-top: 1.1rem;
   display: flex;
